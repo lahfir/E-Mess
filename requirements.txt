@@ -1,0 +1,7 @@
+flask
+flask_session
+pymongo
+dnspython
+python-dotenv
+gunicorn
+Jinja2
