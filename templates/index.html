@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
+    <!-- <link
       rel="stylesheet"
       href="{{ url_for('static',filename='../static/Assets/css/index-styles.css') }}"
     />
-    <script src="{{ url_for('static',filename='../static/Assets/JS/index.js')}}"></script>
-    <!-- <script src="../static/Assets/JS/index.js"></script>
-    <link rel="stylesheet" href="../static/Assets/css/index-styles.css" /> -->
+    <script src="{{ url_for('static',filename='../static/Assets/JS/index.js')}}"></script> -->
+    <script src="../static/Assets/JS/index.js"></script>
+    <link rel="stylesheet" href="../static/Assets/css/index-styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link
       rel="stylesheet"
@@ -60,7 +60,9 @@
         <div id="modal-gallery" class="modal-gallery">
           <img
             src="../static/Assets/Images/Tiffin Images/Idly.jpg"
-            alt="Idly"
+            alt="Main Dish"
+            id="modal-image"
+            lazyload="true"
           />
         </div>
         <div class="modal-main-content">
@@ -74,11 +76,6 @@
             />
           </div>
           <div class="menu-items-container">
-            <p id="modal-menu-item">Idly</p>
-            <p id="modal-menu-item">Idly</p>
-            <p id="modal-menu-item">Idly</p>
-            <p id="modal-menu-item">Puli Kuzhambu</p>
-            <p id="modal-menu-item">Noodles</p>
           </div>
         </div>
       </div>
@@ -99,7 +96,7 @@
             />
           </svg>
           <ul class="navbar-full-link">
-            <a>
+            <a href="index.html">
               <li>Home</li>
             </a>
             <a>
@@ -158,7 +155,7 @@
               </a>
             </div>
             <ul class="navbar-mobile-link">
-              <a
+              <a href="index.html"
                 ><svg
                   width="30"
                   height="30"
@@ -406,7 +403,7 @@
                   <div class="card-content">
                     <img src="/static/Assets/Icons/Breakfast.png" alt="" />
                     <h1 class="breakfast main-dish" id="breakfast-main-dish">
-                      Noodles
+                      {{main[0]}}
                     </h1>
                   </div>
                   <p>Click to see more</p>
@@ -418,7 +415,7 @@
                   <div class="card-content">
                     <img src="/static/Assets/Icons/Lunch.png" alt="" />
                     <h1 class="breakfast main-dish" id="breakfast-main-dish">
-                      Rice & Sundal Kozhambu
+                      {{main[1]}}
                     </h1>
                   </div>
                   <p>Click to see more</p>
@@ -430,7 +427,7 @@
                   <div class="card-content">
                     <img src="/static/Assets/Icons/Snack.png" alt="" />
                     <h1 class="breakfast main-dish" id="breakfast-main-dish">
-                      Tea & Coffee
+                      {{main[2]}}
                     </h1>
                   </div>
                   <p>Click to see more</p>
@@ -442,7 +439,7 @@
                   <div class="card-content">
                     <img src="/static/Assets/Icons/Dinner.png" alt="" />
                     <h1 class="breakfast main-dish" id="breakfast-main-dish">
-                      Chappathi
+                      {{main[3]}}
                     </h1>
                   </div>
                   <p>Click to see more</p>
