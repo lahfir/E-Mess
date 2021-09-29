@@ -56,9 +56,11 @@
     <div id="main-modal" class="modal main">
       <!-- Modal content -->
       <div class="modal-content">
+      <div id="lds-spinner" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         <span class="close"><div>&times;</div></span>
         <div id="modal-gallery" class="modal-gallery">
           <img
+            loading="lazy"
             src="../static/Assets/Images/Tiffin Images/Idly.jpg"
             alt="Main Dish"
             id="modal-image"
@@ -77,6 +79,32 @@
           </div>
           <div class="menu-items-container">
           </div>
+        </div>
+      </div>
+    </div>
+    <div id="third-container-modal" class="modal third-container">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close"><div>&times;</div></span>
+        <div class="modal-container">
+          <h1>Morning</h1>
+          <h2>From: <span id="m-from-timing"></span> </h2>
+          <h2>To: <span id="m-to-timing"></span> </h2>
+        </div>
+        <div class="modal-container">
+          <h1>Afternoon</h1>
+          <h2>From: <span id="a-from-timing"></span> </h2>
+          <h2>To: <span id="a-to-timing"></span> </h2>
+        </div>
+        <div class="modal-container">
+          <h1>Evening</h1>
+          <h2>From: <span id="e-from-timing"></span> </h2>
+          <h2>To: <span id="e-to-timing"></span> </h2>
+        </div>
+        <div class="modal-container">
+          <h1>Night</h1>
+          <h2>From: <span id="n-from-timing"></span> </h2>
+          <h2>To: <span id="n-to-timing"></span> </h2>
         </div>
       </div>
     </div>
@@ -486,7 +514,7 @@
           <div class="container3">
             <h3 class="container-title">Portal Options</h3>
             <div class="container-cards">
-              <a onclick="card(this)" data-id="Mess Schedule">
+              <a onclick="thirdcontainer(this)" data-id="ms">
                 <div class="card">
                   <h2 class="card-title">Mess Schedule</h2>
                   <div class="card-content">
@@ -495,7 +523,7 @@
                   <p>Click to see more</p>
                 </div>
               </a>
-              <a onclick="card(this)" data-id="Mess Timings">
+              <a onclick="thirdcontainer(this)" data-id="mt">
                 <div class="card">
                   <h2 class="card-title">Mess Timings</h2>
                   <div class="card-content">
@@ -504,7 +532,7 @@
                   <p>Click to see more</p>
                 </div>
               </a>
-              <a onclick="card(this)" data-id="Your Profile">
+              <a data-id="yp">
                 <div class="card">
                   <h2 class="card-title">Your Profile</h2>
                   <div class="card-content">

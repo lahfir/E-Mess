@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='../static/Assets/css/index-styles.css') }}"
+    />
+    <script src="{{ url_for('static',filename='../static/Assets/JS/index.js')}}"></script> -->
+    <script src="../static/Assets/JS/index.js"></script>
+    <link rel="stylesheet" href="../static/Assets/css/login-styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>PSGCT E-MESS • HOME</title>
+  </head>
+  <body>
+    <div class="login-main">
+      <img
+        src="../static/Assets/Images/Login-Left.jpg"
+        class="image-container"
+        alt=""
+      />
+      <div class="right-container">
+        <div class="container">
+          <img
+            class="ll-black"
+            src="../static/Assets/Images/Login-Logo.png"
+            alt=""
+          />
+          <img
+            class="ll-white"
+            src="../static/Assets/Images/Login-Logo-white.png"
+            alt=""
+          />
+          <div class="switch">
+            <div class="switcher"></div>
+            <button id="login-btn">Login</button>
+            <button id="register-btn">Register</button>
+          </div>
+          <div class="inner-container">
+            <form id="login-form" action="">
+              <div class="rollno-container">
+                <label for="rollno-input">Roll Number</label>
+                <input id="rollno-input" type="text" placeholder="" />
+              </div>
+              <div class="password-container">
+                <label for="password-input">Password</label>
+                <input id="password-input" type="password" placeholder="" />
+              </div>
+              <button type="submit" id="login-submit-btn">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

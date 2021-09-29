@@ -17,13 +17,13 @@ if cluster:
     print("Connected")
 
 db = cluster["mess_db"]
-collection = db["mess_schedule"]
 
 breakfast, lunch, snack, dinner = [], [], [], []
 
 
 @app.route("/")
 def index():
+    collection = db["mess_schedule"]
     global breakfast, lunch, snack, dinner
     for i in collection.find({"_id": today}):
         breakfast = [j.title() for j in i["breakfast"]]
@@ -42,6 +42,29 @@ def getMenu():
     try:
         return jsonify(
             {"breakfast": breakfast, "lunch": lunch, "snack": snack, "dinner": dinner}
+        )
+    except Exception as e:
+        return jsonify({"error": "Something Unexpected Happened"})
+
+
+@app.route("/timings", methods=["GET"])
+def getTimings():
+    morning, afternoon, evening, night = [], [], [], []
+    try:
+        collection = db["mess_timings"]
+        for i in collection.find({"_id": "timings"}):
+            morning = i["morning"]
+            afternoon = i["afternoon"]
+            evening = i["evening"]
+            night = i["night"]
+
+        return jsonify(
+            {
+                "morning": morning,
+                "afternoon": afternoon,
+                "evening": evening,
+                "night": night,
+            }
         )
     except Exception as e:
         return jsonify({"error": "Something Unexpected Happened"})
