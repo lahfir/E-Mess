@@ -24,8 +24,6 @@ function card(e) {
 
   var _id = e.getAttribute("data-id");
   $("#lds-spinner").css("display", "inline-block");
-  $("#modal-title").text(_id);
-
   $("#modal-gallery").css("display", "none");
   $(".modal-main-content").css("display", "none");
   $(".menu-items-container").css("display", "none");
@@ -34,9 +32,7 @@ function card(e) {
   switch (_id) {
     case "breakfast":
       $("#modal-image").attr("src", "../static/Assets/Images/Breakfast.jpg");
-
-      $("#lds-spinner").css("display", "none");
-
+      $("#modal-title").text(_id);
       modal_main.innerHTML = "";
       for (var i = 0; i < breakfast.length; i++) {
         var menu_item = document.createElement("P");
@@ -44,15 +40,14 @@ function card(e) {
         menu_item.appendChild(document.createTextNode(breakfast[i]));
         modal_main.appendChild(menu_item);
       }
-
+      $("#lds-spinner").css("display", "none");
       $("#modal-gallery").css("display", "block");
       $(".modal-main-content").css("display", "block");
       $(".menu-items-container").css("display", "flex");
       break;
     case "lunch":
       $("#modal-image").attr("src", "../static/Assets/Images/Lunch.jpg");
-      $("#lds-spinner").css("display", "none");
-
+      $("#modal-title").text(_id);
       modal_main.innerHTML = "";
       for (var i = 0; i < lunch.length; i++) {
         var menu_item = document.createElement("P");
@@ -61,14 +56,14 @@ function card(e) {
         modal_main.appendChild(menu_item);
       }
 
+      $("#lds-spinner").css("display", "none");
       $("#modal-gallery").css("display", "block");
       $(".modal-main-content").css("display", "block");
       $(".menu-items-container").css("display", "flex");
       break;
     case "snack":
       $("#modal-image").attr("src", "../static/Assets/Images/Snack.jpg");
-      $("#lds-spinner").css("display", "none");
-
+      $("#modal-title").text(_id);
       modal_main.innerHTML = "";
       for (var i = 0; i < snack.length; i++) {
         var menu_item = document.createElement("P");
@@ -76,6 +71,7 @@ function card(e) {
         menu_item.appendChild(document.createTextNode(snack[i]));
         modal_main.appendChild(menu_item);
       }
+      $("#lds-spinner").css("display", "none");
 
       $("#modal-gallery").css("display", "block");
       $(".modal-main-content").css("display", "block");
@@ -83,7 +79,7 @@ function card(e) {
       break;
     case "dinner":
       $("#modal-image").attr("src", "../static/Assets/Images/Dinner.jpg");
-      $("#lds-spinner").css("display", "none");
+      $("#modal-title").text(_id);
 
       modal_main.innerHTML = "";
       for (var i = 0; i < dinner.length; i++) {
@@ -93,6 +89,7 @@ function card(e) {
         modal_main.appendChild(menu_item);
       }
 
+      $("#lds-spinner").css("display", "none");
       $("#modal-gallery").css("display", "block");
       $(".modal-main-content").css("display", "block");
       $(".menu-items-container").css("display", "flex");
@@ -103,6 +100,7 @@ function card(e) {
   var span = document.getElementsByClassName("close")[2];
 
   modal.style.display = "flex";
+
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
     modal.style.display = "none";
