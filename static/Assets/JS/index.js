@@ -1,4 +1,22 @@
 var _id = 0;
+var breakfast, lunch, snack, dinner;
+
+$(document).ready(function () {
+  $.ajax({
+    data: _id,
+    type: "GET",
+    url: "/menu",
+  }).done(function (data) {
+    if (data.error) {
+      alert(data.error);
+    } else {
+      breakfast = data["breakfast"];
+      lunch = data["lunch"];
+      snack = data["snack"];
+      dinner = data["dinner"];
+    }
+  });
+});
 
 function card(e) {
   // Get the modal
@@ -11,19 +29,73 @@ function card(e) {
   $("#modal-gallery").css("display", "none");
   $(".modal-main-content").css("display", "none");
   $(".menu-items-container").css("display", "none");
+  var modal_main = document.querySelector(".menu-items-container");
 
   switch (_id) {
     case "breakfast":
       $("#modal-image").attr("src", "../static/Assets/Images/Breakfast.jpg");
+
+      $("#lds-spinner").css("display", "none");
+
+      modal_main.innerHTML = "";
+      for (var i = 0; i < breakfast.length; i++) {
+        var menu_item = document.createElement("P");
+        menu_item.id = "modal-menu-item";
+        menu_item.appendChild(document.createTextNode(breakfast[i]));
+        modal_main.appendChild(menu_item);
+      }
+
+      $("#modal-gallery").css("display", "block");
+      $(".modal-main-content").css("display", "block");
+      $(".menu-items-container").css("display", "flex");
       break;
     case "lunch":
       $("#modal-image").attr("src", "../static/Assets/Images/Lunch.jpg");
+      $("#lds-spinner").css("display", "none");
+
+      modal_main.innerHTML = "";
+      for (var i = 0; i < lunch.length; i++) {
+        var menu_item = document.createElement("P");
+        menu_item.id = "modal-menu-item";
+        menu_item.appendChild(document.createTextNode(lunch[i]));
+        modal_main.appendChild(menu_item);
+      }
+
+      $("#modal-gallery").css("display", "block");
+      $(".modal-main-content").css("display", "block");
+      $(".menu-items-container").css("display", "flex");
       break;
     case "snack":
       $("#modal-image").attr("src", "../static/Assets/Images/Snack.jpg");
+      $("#lds-spinner").css("display", "none");
+
+      modal_main.innerHTML = "";
+      for (var i = 0; i < snack.length; i++) {
+        var menu_item = document.createElement("P");
+        menu_item.id = "modal-menu-item";
+        menu_item.appendChild(document.createTextNode(snack[i]));
+        modal_main.appendChild(menu_item);
+      }
+
+      $("#modal-gallery").css("display", "block");
+      $(".modal-main-content").css("display", "block");
+      $(".menu-items-container").css("display", "flex");
       break;
     case "dinner":
       $("#modal-image").attr("src", "../static/Assets/Images/Dinner.jpg");
+      $("#lds-spinner").css("display", "none");
+
+      modal_main.innerHTML = "";
+      for (var i = 0; i < dinner.length; i++) {
+        var menu_item = document.createElement("P");
+        menu_item.id = "modal-menu-item";
+        menu_item.appendChild(document.createTextNode(dinner[i]));
+        modal_main.appendChild(menu_item);
+      }
+
+      $("#modal-gallery").css("display", "block");
+      $(".modal-main-content").css("display", "block");
+      $(".menu-items-container").css("display", "flex");
       break;
   }
 
@@ -31,31 +103,6 @@ function card(e) {
   var span = document.getElementsByClassName("close")[2];
 
   modal.style.display = "flex";
-
-  $.ajax({
-    data: _id,
-    type: "GET",
-    url: "/menu",
-  }).done(function (data) {
-    if (data.error) {
-      alert(data.error);
-    } else {
-      $("#lds-spinner").css("display", "none");
-
-      var modal_main = document.querySelector(".menu-items-container");
-      modal_main.innerHTML = "";
-      for (var i = 0; i < data[_id].length; i++) {
-        var menu_item = document.createElement("P");
-        menu_item.id = "modal-menu-item";
-        menu_item.appendChild(document.createTextNode(data[_id][i]));
-        modal_main.appendChild(menu_item);
-      }
-
-      $("#modal-gallery").css("display", "block");
-      $(".modal-main-content").css("display", "block");
-      $(".menu-items-container").css("display", "flex");
-    }
-  });
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
     modal.style.display = "none";
