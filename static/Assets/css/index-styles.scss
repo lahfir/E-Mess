@@ -80,73 +80,111 @@ body {
             align-items: center;
             position: relative;
             // background-color: $container-bg;
-            padding: 8px;
             cursor: pointer;
             // border: 2px solid white;
-            border-radius: 5px;
-            transition: all 0.3s ease;
 
-            &:hover {
-                // border: 2px solid $primary-color;
-                background-color: rgb(240, 240, 240);
-            }
-
-            .profile-image {
-                margin-right: 5px;
-                width: 50px;
-                height: 50px;
-                border-radius: 4px;
-                // background-image: url("https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5babb7f1a7ea4342a948b79a%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D748%26cropX2%3D3075%26cropY1%3D1753%26cropY2%3D4082");
-                // background-repeat: no-repeat;
-                // background-position: center center;
-                // background-size: cover;
-            }
-
-            #username {
-                margin: 0 8px;
-            }
-
-            svg {
-                transition: all 0.3s ease;
-            }
-
-            .profile-drop-down {
-                position: absolute;
-                background: white;
-                right: 0;
+            .logged-in-profile-container {
+                padding: 8px;
                 display: none;
-                width: 100%;
-                text-align: center;
-                top: 80px;
-                padding: 10px;
-                animation: slideInDown 0.3s;
+                // display: flex;
+                transition: all 0.3s ease;
                 border-radius: 5px;
-                box-shadow: 0px 4px 58px 11px rgba(0, 0, 0, 0.1);
+                align-items: center;
 
-                p {
-                    padding-bottom: 5px;
-                    margin-bottom: 7px;
-                    border-bottom: 1px solid $container-bg;
+                &:hover {
+                    // border: 2px solid $primary-color;
+                    background-color: rgb(240, 240, 240);
                 }
 
-                button {
-                    width: 100%;
-                    border: 2px solid $primary-color;
-                    padding: 5px 0;
-                    cursor: pointer;
-                    border-radius: 5px;
-                    background: none;
-                    transition: all 0.3s ease;
-
-                    &:hover {
-                        background: #ffad4259;
-                    }
+                .profile-image {
+                    margin-right: 5px;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 4px;
+                    // background-image: url("https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5babb7f1a7ea4342a948b79a%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D748%26cropX2%3D3075%26cropY1%3D1753%26cropY2%3D4082");
+                    // background-repeat: no-repeat;
+                    // background-position: center center;
+                    // background-size: cover;
                 }
 
                 #username {
-                    color: $black;
-                    font-weight: 600;
+                    margin: 0 8px;
                 }
+
+                svg {
+                    transition: all 0.3s ease;
+                }
+
+                .profile-drop-down {
+                    position: absolute;
+                    background: white;
+                    right: 0;
+                    display: none;
+                    width: 100%;
+                    text-align: center;
+                    top: 80px;
+                    padding: 10px;
+                    animation: slideInDown 0.3s;
+                    border-radius: 5px;
+                    box-shadow: 0px 4px 58px 11px rgba(0, 0, 0, 0.1);
+
+                    p {
+                        padding-bottom: 5px;
+                        margin-bottom: 7px;
+                        border-bottom: 1px solid $container-bg;
+                    }
+
+                    button {
+                        width: 100%;
+                        border: 2px solid $primary-color;
+                        padding: 5px 0;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        background: none;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            background: #ffad4259;
+                        }
+                    }
+
+                    #username {
+                        color: $black;
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            .logged-out-logging {
+                padding: 8px;
+                display: flex;
+                transition: all 0.3s ease;
+                border-radius: 5px;
+                align-items: center;
+
+                .log-in-container {
+                    margin-right: 10px;
+
+                    a {
+                        padding: 10px;
+                        color: white;
+                        background: $primary-color;
+                        border-radius: 5px;
+                        font-weight: 600;
+
+                        &:hover {
+                            background-color: #fdba63;
+                        }
+                    }
+                }
+
+                .register-container {
+                    a {
+                        padding: 10px;
+                        font-weight: 600;
+                    }
+                }
+
             }
         }
 
@@ -215,7 +253,9 @@ body {
                 border-radius: 5px;
                 box-shadow: 0px 4px 58px 11px rgba(0, 0, 0, 0.1);
 
-                .sidebar-profile {
+                .sidebar-profile-logged-in {
+                    display: none;
+
                     a {
                         svg {
                             width: 30px;
@@ -233,6 +273,21 @@ body {
 
                         border-bottom: 1px solid rgb(231, 231, 231);
                     }
+                }
+
+                .sidebar-profile-logged-out {
+                    display: flex;
+                    flex-direction: column;
+
+                    a {
+                        font-weight: 600;
+                        font-size: 16px;
+                        align-items: center;
+                        padding-bottom: 8px;
+                    }
+
+                    border-bottom: 1px solid rgb(231, 231, 231);
+
                 }
 
                 .navbar-mobile-link {
@@ -810,7 +865,7 @@ body {
             }
         }
 
-        width: 80%;
+        width: 50%;
         height: fit-content;
 
         form {
@@ -871,6 +926,7 @@ body {
             margin: 8px;
             flex-direction: column;
             border-radius: 5px;
+            animation: slideInDown 0.3s;
 
             h1 {
                 text-transform: capitalize;
@@ -957,6 +1013,16 @@ body {
 
     #navbar .inner-navbar .profile-container {
         p:nth-child(2) {
+            display: none;
+        }
+    }
+
+    #navbar .inner-navbar .profile-container .logged-out-logging {
+        .log-in-container {
+            margin-right: unset;
+        }
+
+        .register-container {
             display: none;
         }
     }

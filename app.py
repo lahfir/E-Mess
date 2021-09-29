@@ -36,6 +36,16 @@ def index():
     )
 
 
+@app.route("/register")
+def login():
+    return render_template("login.html")
+
+
+@app.route("/login")
+def register():
+    return render_template("login.html")
+
+
 @app.route("/menu", methods=["GET"])
 def getMenu():
     menu = str(request.get_data().lower())

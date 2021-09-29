@@ -42,10 +42,6 @@ function card(e) {
     } else {
       $("#lds-spinner").css("display", "none");
 
-      $("#modal-gallery").css("display", "block");
-      $(".modal-main-content").css("display", "block");
-      $(".menu-items-container").css("display", "flex");
-
       var modal_main = document.querySelector(".menu-items-container");
       modal_main.innerHTML = "";
       for (var i = 0; i < data[_id].length; i++) {
@@ -54,6 +50,10 @@ function card(e) {
         menu_item.appendChild(document.createTextNode(data[_id][i]));
         modal_main.appendChild(menu_item);
       }
+
+      $("#modal-gallery").css("display", "block");
+      $(".modal-main-content").css("display", "block");
+      $(".menu-items-container").css("display", "flex");
     }
   });
   // When the user clicks on <span> (x), close the modal

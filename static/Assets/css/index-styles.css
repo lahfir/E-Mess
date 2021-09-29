@@ -89,34 +89,41 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  padding: 8px;
   cursor: pointer;
-  border-radius: 5px;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
 }
 
-#navbar .inner-navbar .profile-container:hover {
+#navbar .inner-navbar .profile-container .logged-in-profile-container {
+  padding: 8px;
+  display: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#navbar .inner-navbar .profile-container .logged-in-profile-container:hover {
   background-color: #f0f0f0;
 }
 
-#navbar .inner-navbar .profile-container .profile-image {
+#navbar .inner-navbar .profile-container .logged-in-profile-container .profile-image {
   margin-right: 5px;
   width: 50px;
   height: 50px;
   border-radius: 4px;
 }
 
-#navbar .inner-navbar .profile-container #username {
+#navbar .inner-navbar .profile-container .logged-in-profile-container #username {
   margin: 0 8px;
 }
 
-#navbar .inner-navbar .profile-container svg {
+#navbar .inner-navbar .profile-container .logged-in-profile-container svg {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
-#navbar .inner-navbar .profile-container .profile-drop-down {
+#navbar .inner-navbar .profile-container .logged-in-profile-container .profile-drop-down {
   position: absolute;
   background: white;
   right: 0;
@@ -132,13 +139,13 @@ body {
           box-shadow: 0px 4px 58px 11px rgba(0, 0, 0, 0.1);
 }
 
-#navbar .inner-navbar .profile-container .profile-drop-down p {
+#navbar .inner-navbar .profile-container .logged-in-profile-container .profile-drop-down p {
   padding-bottom: 5px;
   margin-bottom: 7px;
   border-bottom: 1px solid #F5F5F5;
 }
 
-#navbar .inner-navbar .profile-container .profile-drop-down button {
+#navbar .inner-navbar .profile-container .logged-in-profile-container .profile-drop-down button {
   width: 100%;
   border: 2px solid #FFAE42;
   padding: 5px 0;
@@ -149,12 +156,46 @@ body {
   transition: all 0.3s ease;
 }
 
-#navbar .inner-navbar .profile-container .profile-drop-down button:hover {
+#navbar .inner-navbar .profile-container .logged-in-profile-container .profile-drop-down button:hover {
   background: #ffad4259;
 }
 
-#navbar .inner-navbar .profile-container .profile-drop-down #username {
+#navbar .inner-navbar .profile-container .logged-in-profile-container .profile-drop-down #username {
   color: #0E0E10;
+  font-weight: 600;
+}
+
+#navbar .inner-navbar .profile-container .logged-out-logging {
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#navbar .inner-navbar .profile-container .logged-out-logging .log-in-container {
+  margin-right: 10px;
+}
+
+#navbar .inner-navbar .profile-container .logged-out-logging .log-in-container a {
+  padding: 10px;
+  color: white;
+  background: #FFAE42;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+#navbar .inner-navbar .profile-container .logged-out-logging .log-in-container a:hover {
+  background-color: #fdba63;
+}
+
+#navbar .inner-navbar .profile-container .logged-out-logging .register-container a {
+  padding: 10px;
   font-weight: 600;
 }
 
@@ -238,7 +279,11 @@ body {
           box-shadow: 0px 4px 58px 11px rgba(0, 0, 0, 0.1);
 }
 
-#navbar .inner-navbar .nav-links .sidebar-menu .sidebar-profile a {
+#navbar .inner-navbar .nav-links .sidebar-menu .sidebar-profile-logged-in {
+  display: none;
+}
+
+#navbar .inner-navbar .nav-links .sidebar-menu .sidebar-profile-logged-in a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -249,13 +294,33 @@ body {
   border-bottom: 1px solid #e7e7e7;
 }
 
-#navbar .inner-navbar .nav-links .sidebar-menu .sidebar-profile a svg {
+#navbar .inner-navbar .nav-links .sidebar-menu .sidebar-profile-logged-in a svg {
   width: 30px;
 }
 
-#navbar .inner-navbar .nav-links .sidebar-menu .sidebar-profile a .username {
+#navbar .inner-navbar .nav-links .sidebar-menu .sidebar-profile-logged-in a .username {
   font-weight: 600;
   font-size: 16px;
+}
+
+#navbar .inner-navbar .nav-links .sidebar-menu .sidebar-profile-logged-out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+#navbar .inner-navbar .nav-links .sidebar-menu .sidebar-profile-logged-out a {
+  font-weight: 600;
+  font-size: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 8px;
 }
 
 #navbar .inner-navbar .nav-links .sidebar-menu .navbar-mobile-link a {
@@ -1074,7 +1139,7 @@ body {
 .contact .modal-content {
   border-radius: 10px;
   padding: 15px;
-  width: 80%;
+  width: 50%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -1182,6 +1247,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 5px;
+  -webkit-animation: slideInDown 0.3s;
+          animation: slideInDown 0.3s;
 }
 
 .third-container .modal-content .modal-container h1 {
@@ -1259,6 +1326,12 @@ body {
     display: block;
   }
   #navbar .inner-navbar .profile-container p:nth-child(2) {
+    display: none;
+  }
+  #navbar .inner-navbar .profile-container .logged-out-logging .log-in-container {
+    margin-right: unset;
+  }
+  #navbar .inner-navbar .profile-container .logged-out-logging .register-container {
     display: none;
   }
 }
