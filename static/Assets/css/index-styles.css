@@ -1252,14 +1252,13 @@ body {
 
 .schedule .modal-content .schedule-container {
   margin-bottom: 35px;
-  /* cell number */
 }
 
 .schedule .modal-content .schedule-container h1 {
   font-family: "Metrophobic", sans-serif;
   font-size: 20px;
   text-align: center;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 .schedule .modal-content .schedule-container .gallery {
@@ -1272,14 +1271,6 @@ body {
   height: 200px;
   border-radius: 10px;
   margin-right: 10px;
-}
-
-.schedule .modal-content .schedule-container .gallery-cell:before {
-  display: block;
-  text-align: center;
-  line-height: 200px;
-  font-size: 80px;
-  color: white;
 }
 
 .third-container .modal-content {
@@ -1378,7 +1369,8 @@ body {
 @media (max-width: 750px) {
   .contact .modal-content,
   .main .modal-content,
-  .third-container .modal-content {
+  .third-container .modal-content,
+  .schedule .modal-content {
     min-width: unset;
     height: 60%;
     width: 80%;

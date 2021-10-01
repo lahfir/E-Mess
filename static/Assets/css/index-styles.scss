@@ -918,7 +918,7 @@ body {
                 font-family: $main-font;
                 font-size: 20px;
                 text-align: center;
-                margin: 10px 0;
+                margin: 15px 0;
             }
 
             .gallery {
@@ -931,15 +931,6 @@ body {
                 height: 200px;
                 border-radius: 10px;
                 margin-right: 10px;
-            }
-
-            /* cell number */
-            .gallery-cell:before {
-                display: block;
-                text-align: center;
-                line-height: 200px;
-                font-size: 80px;
-                color: white;
             }
         }
     }
@@ -1034,7 +1025,8 @@ body {
 
     .contact,
     .main,
-    .third-container {
+    .third-container,
+    .schedule {
         .modal-content {
             min-width: unset;
             height: 60%;
