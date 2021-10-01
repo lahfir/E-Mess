@@ -98,7 +98,7 @@ body {
                 padding: 12px 15px;
                 background: #EAEAEA;
                 border-radius: 5px;
-                width: 150px;
+                width: 190px;
                 height: 34px;
                 display: flex;
                 align-items: center;
@@ -109,11 +109,12 @@ body {
                 .switcher {
                     position: absolute;
                     left: 6px;
-                    width: 75px;
-                    height: 5px;
+                    width: 90px;
+                    height: 50px;
                     border-radius: 5px;
-                    top: 80%;
+                    top: 50%;
                     transform: translate(0, -50%);
+                    transition: all 0.3s ease;
                     background: $primary-color;
                 }
 
@@ -124,10 +125,11 @@ body {
                     font-size: 18px;
                     z-index: 10;
                     cursor: pointer;
-                    margin: 0 6px;
+                    margin: 0 10px;
                 }
 
                 #login-btn {
+                    color: white;
                     font-weight: 600;
                 }
             }

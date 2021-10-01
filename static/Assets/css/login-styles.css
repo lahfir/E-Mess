@@ -117,7 +117,7 @@ body {
   padding: 12px 15px;
   background: #EAEAEA;
   border-radius: 5px;
-  width: 150px;
+  width: 190px;
   height: 34px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -135,12 +135,14 @@ body {
 .login-main .right-container .container .switch .switcher {
   position: absolute;
   left: 6px;
-  width: 75px;
-  height: 5px;
+  width: 90px;
+  height: 50px;
   border-radius: 5px;
-  top: 80%;
+  top: 50%;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   background: #FFAE42;
 }
 
@@ -151,10 +153,11 @@ body {
   font-size: 18px;
   z-index: 10;
   cursor: pointer;
-  margin: 0 6px;
+  margin: 0 10px;
 }
 
 .login-main .right-container .container .switch #login-btn {
+  color: white;
   font-weight: 600;
 }
 
@@ -218,7 +221,9 @@ body {
     color: white;
   }
   .login-main .right-container .container .ll-white {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .login-main .right-container .container .ll-black {
     display: none;
