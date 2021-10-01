@@ -46,6 +46,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow-y: hidden;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   -webkit-box-align: center;
@@ -106,8 +107,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: auto;
-  max-height: 85vh;
+  min-height: auto;
+  max-height: 80vh;
+  transition: all 0.3s ease;
   background: #FFFFFF;
   -webkit-box-shadow: 0px 12px 44px 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 12px 44px 5px rgba(0, 0, 0, 0.1);
@@ -295,6 +297,32 @@ body {
 .login-main .right-container .container .inner-container #register-form div input[type="password"]::-webkit-scrollbar-thumb:hover,
 .login-main .right-container .container .inner-container #register-form div select::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.login-main .right-container .container .inner-container #register-form .hostel-category-radio-container {
+  /* appearance for checked radiobutton */
+}
+
+.login-main .right-container .container .inner-container #register-form .hostel-category-radio-container input[type="radio"] {
+  /* remove standard background appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid #bbbbbb;
+  background-color: #e7e6e7;
+  border-radius: 50%;
+  outline: unset;
+}
+
+.login-main .right-container .container .inner-container #register-form .hostel-category-radio-container input[type="radio"]:checked {
+  background-color: #FFAE42;
 }
 
 .login-main .right-container .container .inner-container #register-form .hostel-category-radio-container div {

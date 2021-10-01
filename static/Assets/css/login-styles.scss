@@ -55,6 +55,7 @@ body {
     background: $background-color;
     height: 100vh;
     display: flex;
+    overflow-y: hidden;
     transition: all 0.3s ease;
     align-items: center;
     justify-content: center;
@@ -89,8 +90,9 @@ body {
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            height: auto;
-            max-height: 85vh;
+            min-height: auto;
+            max-height: 80vh;
+            transition: all 0.3s ease;
             background: #FFFFFF;
             box-shadow: 0px 12px 44px 5px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
@@ -208,6 +210,7 @@ body {
                     width: 100%;
                     display: none;
                     height: 100%;
+
                     // left: 0;
                     // top: 0;
 
@@ -260,6 +263,29 @@ body {
                     }
 
                     .hostel-category-radio-container {
+                        input[type="radio"] {
+                            /* remove standard background appearance */
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+                            appearance: none;
+                            /* create custom radiobutton appearance */
+                            display: inline-block;
+                            width: 16px;
+                            height: 16px;
+                            padding: 2px;
+                            /* background-color only for content */
+                            background-clip: content-box;
+                            border: 2px solid #bbbbbb;
+                            background-color: #e7e6e7;
+                            border-radius: 50%;
+                            outline: unset;
+                        }
+
+                        /* appearance for checked radiobutton */
+                        input[type="radio"]:checked {
+                            background-color: $primary-color;
+                        }
+
                         div {
                             margin: 0 0;
                             flex-direction: row;
