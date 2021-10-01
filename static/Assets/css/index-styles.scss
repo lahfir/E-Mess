@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Metrophobic&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 $main-font:'Metrophobic',
 sans-serif;
 
-$primary-font:'Open Sans',
+$primary-font:'Nunito',
 sans-serif;
 
 $primary-color:#FFAE42;
@@ -44,6 +44,15 @@ a {
     color: $black;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    color: $black;
+
 }
 
 body {
@@ -562,7 +571,7 @@ body {
                     position: absolute;
                     border: 1px solid #EAEAEA;
                     content: "";
-                    animation: locked 2s ease infinite;
+                    // animation: locked 2s ease infinite;
                     background-color: rgba(206, 206, 206, 0.678);
                 }
             }
@@ -716,7 +725,8 @@ body {
         width: 500px;
         transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
         box-shadow: 0px 6px 66px -11px #00000080;
-        height: 50%;
+        height: auto;
+        max-height: 80vh;
 
         /* width */
         &::-webkit-scrollbar {
@@ -871,7 +881,7 @@ body {
         height: fit-content;
 
         form {
-            margin-top: 50px;
+            margin: 50px 0;
 
             input[type=text],
             select,
@@ -904,6 +914,32 @@ body {
                 border-radius: 5px;
                 background-color: #f2f2f2;
                 padding: 20px;
+            }
+        }
+
+        .gmail-container,
+        .phone-container {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            background: $container-bg;
+            padding: 10px 15px;
+            border-radius: 15px;
+
+            svg {
+                width: 24px;
+                margin-right: 5px;
+            }
+
+            a {
+                margin-left: 10px;
+                padding: 5px;
+                font-weight: 600;
+            }
+
+            div {
+                display: flex;
+                align-items: center;
             }
         }
     }
@@ -1043,6 +1079,57 @@ body {
     overflow: hidden;
 }
 
+.more-info {
+    .modal-content {
+        height: auto;
+
+        .more-info-heading {
+            font-family: $main-font;
+            font-size: 27px;
+            margin-top: 15px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .info-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            img {
+                width: 70px;
+            }
+
+            div {
+                margin: 0 6px;
+                padding: 5px;
+
+                h1 {
+                    font-family: $main-font;
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    font-size: 16px;
+
+                    span {
+                        font-family: $main-font;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            border:2px solid rgb(223, 223, 223);
+            padding: 10px;
+            background-color: $container-bg;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
 @media (max-width: 1240px) {
     .body-container .containers-section .containers {
         justify-content: center;
@@ -1092,6 +1179,16 @@ body {
         .modal-content {
             min-width: unset;
             height: 60%;
+            width: 80%;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .more-info {
+        .modal-content {
+            min-width: unset;
+            max-height: 80vh;
             width: 80%;
             align-items: center;
             justify-content: center;

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -24,7 +25,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 a {
@@ -33,6 +34,14 @@ a {
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  color: #0E0E10;
 }
 
 body {
@@ -694,8 +703,6 @@ body {
   position: absolute;
   border: 1px solid #EAEAEA;
   content: "";
-  -webkit-animation: locked 2s ease infinite;
-          animation: locked 2s ease infinite;
   background-color: rgba(206, 206, 206, 0.678);
 }
 
@@ -766,7 +773,8 @@ body {
   transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-box-shadow: 0px 6px 66px -11px #00000080;
           box-shadow: 0px 6px 66px -11px #00000080;
-  height: 50%;
+  height: auto;
+  max-height: 80vh;
   /* width */
   /* Track */
   /* Handle */
@@ -1213,7 +1221,7 @@ body {
 }
 
 .contact .modal-content form {
-  margin-top: 50px;
+  margin: 50px 0;
 }
 
 .contact .modal-content form input[type=text],
@@ -1248,6 +1256,43 @@ body {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+}
+
+.contact .modal-content .gmail-container,
+.contact .modal-content .phone-container {
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #F5F5F5;
+  padding: 10px 15px;
+  border-radius: 15px;
+}
+
+.contact .modal-content .gmail-container svg,
+.contact .modal-content .phone-container svg {
+  width: 24px;
+  margin-right: 5px;
+}
+
+.contact .modal-content .gmail-container a,
+.contact .modal-content .phone-container a {
+  margin-left: 10px;
+  padding: 5px;
+  font-weight: 600;
+}
+
+.contact .modal-content .gmail-container div,
+.contact .modal-content .phone-container div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .schedule .modal-content .schedule-container {
@@ -1397,6 +1442,60 @@ body {
   overflow: hidden;
 }
 
+.more-info .modal-content {
+  height: auto;
+}
+
+.more-info .modal-content .more-info-heading {
+  font-family: "Metrophobic", sans-serif;
+  font-size: 27px;
+  margin-top: 15px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.more-info .modal-content .info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 2px solid #dfdfdf;
+  padding: 10px;
+  background-color: #F5F5F5;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.more-info .modal-content .info-container img {
+  width: 70px;
+}
+
+.more-info .modal-content .info-container div {
+  margin: 0 6px;
+  padding: 5px;
+}
+
+.more-info .modal-content .info-container div h1 {
+  font-family: "Metrophobic", sans-serif;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.more-info .modal-content .info-container div p {
+  font-size: 16px;
+}
+
+.more-info .modal-content .info-container div p span {
+  font-family: "Metrophobic", sans-serif;
+  text-transform: uppercase;
+}
+
 @media (max-width: 1240px) {
   .body-container .containers-section .containers {
     -webkit-box-pack: center;
@@ -1442,6 +1541,17 @@ body {
   .schedule .modal-content {
     min-width: unset;
     height: 60%;
+    width: 80%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .more-info .modal-content {
+    min-width: unset;
+    max-height: 80vh;
     width: 80%;
     -webkit-box-align: center;
         -ms-flex-align: center;
