@@ -1090,6 +1090,7 @@ body {
   -webkit-animation: slideInDown 0.3s;
           animation: slideInDown 0.3s;
   border-radius: 10px;
+  text-align: center;
   background: #F0F0F0;
 }
 

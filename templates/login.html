@@ -15,7 +15,7 @@
     />
     <script src="{{ url_for('static',filename='../static/Assets/JS/auth-handler.js') }}"></script> -->
     <link rel="stylesheet" href="../static/Assets/css/login-styles.css" />
-    <title>PSGCT E-MESS • HOME</title>
+    <title>PSGCT E-MESS • LOGIN</title>
   </head>
   <body>
     <div class="login-main">
@@ -52,6 +52,93 @@
                 <input id="password-input" type="password" placeholder="" />
               </div>
               <button type="submit" id="login-submit-btn">Login</button>
+            </form>
+            <form id="register-form" action="">
+              <h4 class="sr">STUDENT REGISTER</h4>
+              <div class="hostel-category-radio-container">
+                <label>Hostel</label>
+                <div>
+                  <div class="hostel-mens-container">
+                    <input
+                      id="hostel-category-mens-radio"
+                      name="hostel-category"
+                      type="radio"
+                      value="Men's"
+                    />
+                    <label for="hostel-category-mens-radio">Men's</label>
+                  </div>
+                  <div class="hostel-womens-container">
+                    <input
+                      id="hostel-category-womens-radio"
+                      name="hostel-category"
+                      type="radio"
+                      value="Women's"
+                    />
+                    <label for="hostel-category-womens-radio">Women's</label>
+                  </div>
+                </div>
+              </div>
+              <div class="rollno-container">
+                <label for="rollno-input">Roll Number</label>
+                <input id="rollno-input" type="text" placeholder="" />
+              </div>
+              <div class="name-container">
+                <label for="name-input">Name</label>
+                <input id="name-input" type="text" placeholder="" />
+              </div>
+              <div class="department-container">
+                <label for="department-input">Department</label>
+                <select name="Departments" id="department-input">
+                  <option value="0">Apparel & Fashion Design</option>
+                  <option value="1">
+                    Applied Mathematics & Computational Sciences
+                  </option>
+                  <option value="2">Applied Science</option>
+                  <option value="3">Automobile Engineering</option>
+                  <option value="4">Bio-technology</option>
+                  <option value="5">Biomedical Engineering</option>
+                  <option value="6">Civil Engineering</option>
+                  <option value="7">Computer Science & Engineering</option>
+                  <option value="8">
+                    Electronics & Communication Engineering
+                  </option>
+                  <option value="9">
+                    Electrical & Electronics Engineering
+                  </option>
+                  <option value="10">Fashion Technology</option>
+                  <option value="11">
+                    Instrumentation & Control Systems Engineering
+                  </option>
+                  <option value="12">Information Technology</option>
+                  <option value="13">Computer Applications</option>
+                  <option value="14">Mechanical Engineering</option>
+                  <option value="15">Metallurgical Engineering</option>
+                  <option value="16">Production Engineering</option>
+                  <option value="17">Robotics & Automation Engineering</option>
+                  <option value="18">Textile Technology</option>
+                  <option value="19">Management Sciences</option>
+                  <option value="20">Production Engineering (SW)</option>
+                  <option value="21">EEE (SW)</option>
+                  <option value="22">Mechanical Engineering (SW)</option>
+                </select>
+              </div>
+              <div class="room-no-container">
+                <label for="room-no-input">Room No</label>
+                <input id="room-no-input" type="text" placeholder="" />
+              </div>
+              <div class="password-container">
+                <label for="password-input">Password</label>
+                <input id="password-input" type="password" placeholder="" />
+              </div>
+              <div class="confirm-password-container">
+                <label for="confirm-password-input">Confirm Password</label>
+                <input
+                  id="confirm-password-input"
+                  type="password"
+                  placeholder=""
+                />
+              </div>
+              <button type="submit" id="register-submit-btn">Register</button>
             </form>
           </div>
         </div>

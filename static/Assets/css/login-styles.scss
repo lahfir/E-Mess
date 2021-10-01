@@ -90,6 +90,7 @@ body {
             justify-content: center;
             flex-direction: column;
             height: auto;
+            max-height: 85vh;
             background: #FFFFFF;
             box-shadow: 0px 12px 44px 5px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
@@ -99,7 +100,8 @@ body {
                 background: #EAEAEA;
                 border-radius: 5px;
                 width: 190px;
-                height: 34px;
+                min-height: 50px;
+                max-height: 70px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -138,9 +140,39 @@ body {
                 margin-top: 20px;
                 padding-top: 20px;
                 border-top: 1px solid rgb(187, 187, 187);
+                overflow-y: scroll;
                 width: 85%;
+                position: relative;
 
-                form {
+                /* width */
+                &::-webkit-scrollbar {
+                    width: 5px;
+                }
+
+                /* Track */
+                &::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                }
+
+                /* Handle */
+                &::-webkit-scrollbar-thumb {
+                    background: #888;
+                    border-radius: 20px;
+                }
+
+                /* Handle on hover */
+                &::-webkit-scrollbar-thumb:hover {
+                    background: #555;
+                }
+
+                #login-form {
+                    // position: absolute;
+                    // width: 100%;
+                    // left: 0;
+                    // top: 0;
+                    // display: none;
+                    width: 100%;
+
                     div {
                         display: flex;
                         flex-direction: column;
@@ -152,6 +184,95 @@ body {
                             border: 1.5px solid #828282;
                             border-radius: 5px;
                             font-size: 18px;
+                        }
+                    }
+
+                    button {
+                        background: #FFAE42;
+                        border-radius: 5px;
+                        outline: unset;
+                        border: unset;
+                        width: 100%;
+                        padding: 10px;
+                        font-size: 18px;
+                        color: white;
+                        font-weight: 600;
+                        cursor: pointer;
+                        margin-top: 22px;
+                    }
+                }
+
+                #register-form {
+                    // position: absolute;
+                    // width: 100%;
+                    width: 100%;
+                    display: none;
+                    height: 100%;
+                    // left: 0;
+                    // top: 0;
+
+                    .sr {
+                        width: 100%;
+                        font-family: $main-font;
+                        font-weight: normal;
+                        font-size: 20px;
+                        margin-bottom: 14px;
+                        text-align: center;
+                    }
+
+                    transform: translateX(0px);
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        margin: 10px 0;
+
+                        input[type="text"],
+                        input[type="password"],
+                        select {
+                            margin-top: 3px;
+                            padding: 10px 5px;
+                            border: 1.5px solid #828282;
+                            border-radius: 5px;
+                            font-size: 18px;
+
+                            /* width */
+                            &::-webkit-scrollbar {
+                                width: 5px;
+                            }
+
+                            /* Track */
+                            &::-webkit-scrollbar-track {
+                                background: #f1f1f1;
+                            }
+
+                            /* Handle */
+                            &::-webkit-scrollbar-thumb {
+                                background: #888;
+                                border-radius: 20px;
+                            }
+
+                            /* Handle on hover */
+                            &::-webkit-scrollbar-thumb:hover {
+                                background: #555;
+                            }
+                        }
+                    }
+
+                    .hostel-category-radio-container {
+                        div {
+                            margin: 0 0;
+                            flex-direction: row;
+                            align-items: center;
+
+                            label {
+                                margin-left: 4px;
+                                font-size: 16px;
+                            }
+
+                            .hostel-womens-container {
+                                margin-left: 12px;
+                            }
                         }
                     }
 

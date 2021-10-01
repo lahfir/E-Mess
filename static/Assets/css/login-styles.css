@@ -107,6 +107,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   height: auto;
+  max-height: 85vh;
   background: #FFFFFF;
   -webkit-box-shadow: 0px 12px 44px 5px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 12px 44px 5px rgba(0, 0, 0, 0.1);
@@ -118,7 +119,8 @@ body {
   background: #EAEAEA;
   border-radius: 5px;
   width: 190px;
-  height: 34px;
+  min-height: 50px;
+  max-height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -165,10 +167,37 @@ body {
   margin-top: 20px;
   padding-top: 20px;
   border-top: 1px solid #bbbbbb;
+  overflow-y: scroll;
   width: 85%;
+  position: relative;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
 }
 
-.login-main .right-container .container .inner-container form div {
+.login-main .right-container .container .inner-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.login-main .right-container .container .inner-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.login-main .right-container .container .inner-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+.login-main .right-container .container .inner-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.login-main .right-container .container .inner-container #login-form {
+  width: 100%;
+}
+
+.login-main .right-container .container .inner-container #login-form div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -179,7 +208,7 @@ body {
   margin: 10px 0;
 }
 
-.login-main .right-container .container .inner-container form div input {
+.login-main .right-container .container .inner-container #login-form div input {
   margin-top: 3px;
   padding: 10px 5px;
   border: 1.5px solid #828282;
@@ -187,7 +216,108 @@ body {
   font-size: 18px;
 }
 
-.login-main .right-container .container .inner-container form button {
+.login-main .right-container .container .inner-container #login-form button {
+  background: #FFAE42;
+  border-radius: 5px;
+  outline: unset;
+  border: unset;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 22px;
+}
+
+.login-main .right-container .container .inner-container #register-form {
+  width: 100%;
+  display: none;
+  height: 100%;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.login-main .right-container .container .inner-container #register-form .sr {
+  width: 100%;
+  font-family: "Metrophobic", sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.login-main .right-container .container .inner-container #register-form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px 0;
+}
+
+.login-main .right-container .container .inner-container #register-form div input[type="text"],
+.login-main .right-container .container .inner-container #register-form div input[type="password"],
+.login-main .right-container .container .inner-container #register-form div select {
+  margin-top: 3px;
+  padding: 10px 5px;
+  border: 1.5px solid #828282;
+  border-radius: 5px;
+  font-size: 18px;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.login-main .right-container .container .inner-container #register-form div input[type="text"]::-webkit-scrollbar,
+.login-main .right-container .container .inner-container #register-form div input[type="password"]::-webkit-scrollbar,
+.login-main .right-container .container .inner-container #register-form div select::-webkit-scrollbar {
+  width: 5px;
+}
+
+.login-main .right-container .container .inner-container #register-form div input[type="text"]::-webkit-scrollbar-track,
+.login-main .right-container .container .inner-container #register-form div input[type="password"]::-webkit-scrollbar-track,
+.login-main .right-container .container .inner-container #register-form div select::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.login-main .right-container .container .inner-container #register-form div input[type="text"]::-webkit-scrollbar-thumb,
+.login-main .right-container .container .inner-container #register-form div input[type="password"]::-webkit-scrollbar-thumb,
+.login-main .right-container .container .inner-container #register-form div select::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+.login-main .right-container .container .inner-container #register-form div input[type="text"]::-webkit-scrollbar-thumb:hover,
+.login-main .right-container .container .inner-container #register-form div input[type="password"]::-webkit-scrollbar-thumb:hover,
+.login-main .right-container .container .inner-container #register-form div select::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.login-main .right-container .container .inner-container #register-form .hostel-category-radio-container div {
+  margin: 0 0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-main .right-container .container .inner-container #register-form .hostel-category-radio-container div label {
+  margin-left: 4px;
+  font-size: 16px;
+}
+
+.login-main .right-container .container .inner-container #register-form .hostel-category-radio-container div .hostel-womens-container {
+  margin-left: 12px;
+}
+
+.login-main .right-container .container .inner-container #register-form button {
   background: #FFAE42;
   border-radius: 5px;
   outline: unset;
