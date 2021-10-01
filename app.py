@@ -57,6 +57,24 @@ def getMenu():
         return jsonify({"error": "Something Unexpected Happened"})
 
 
+@app.route("/schedule", methods=["GET"])
+def getSchedule():
+    try:
+        collection = db["mess_schedule"]
+        schedule = {}
+        for j in ["monday", "tuesday", "wednesday", "thursday", "saturday", "sunday"]:
+            for i in collection.find({"_id": j}):
+                schedule[j] = {
+                    "breakfast": i.get("breakfast"),
+                    "lunch": i.get("lunch"),
+                    "snack": i.get("snack"),
+                    "dinner": i.get("dinner"),
+                }
+        return jsonify({"schedule": schedule})
+    except Exception as e:
+        return jsonify({"error": "Something Unexpected Happened"})
+
+
 @app.route("/timings", methods=["GET"])
 def getTimings():
     morning, afternoon, evening, night = [], [], [], []

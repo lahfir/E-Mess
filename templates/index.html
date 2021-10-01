@@ -1,531 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/Assets/css/index-styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='../static/Assets/css/index-styles.css') }}"
+    />
+    <script src="{{ url_for('static',filename='../static/Assets/JS/index.js')}}"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='../static/Assets/Icons/Lunch.png') }}"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>PSGCT E-MESS • HOME</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../static/Assets/css/index-styles.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="{{ url_for('static',filename='../static/Assets/css/flickity.css') }}" />
-  <link rel="stylesheet" href="{{ url_for('static',filename='../static/Assets/css/index-styles.css') }}" />
-  <script src="{{ url_for('static',filename='../static/Assets/JS/index.js')}}"></script>
-  <script src="{{ url_for('static',filename='../static/Assets/JS/flickity.pkgd.js')}}"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='../static/Assets/Icons/Lunch.png') }}"> -->
-  <title>PSGCT E-MESS • HOME</title>
-</head>
-
-<body>
-  <div id="contact-modal" class="modal contact">
-    <div class="modal-content">
-      <h1>Contact</h1>
-      <span class="close">
-        <div>&times;</div>
-      </span>
-      <form action="mailto:contact@yourdomain.com" method=”POST” enctype=”multipart/form-data” name=”EmailForm”>
+  <body>
+    <div id="contact-modal" class="modal contact">
+      <div class="modal-content">
+        <h1>Contact</h1>
+        <span class="close">
+          <div>&times;</div>
+        </span>
+        <form action="mailto:contact@yourdomain.com" method=”POST”
+        enctype=”multipart/form-data”>
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Your name.." />
 
         <label for="rollno">Roll No</label>
-        <input type="text" id="rollno" name="rollno" placeholder="Your Roll Number.." />
+        <input
+          type="text"
+          id="rollno"
+          name="rollno"
+          placeholder="Your Roll Number.."
+        />
 
         <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height: 200px"></textarea>
+        <textarea
+          id="subject"
+          name="subject"
+          placeholder="Write something.."
+          style="height: 200px"
+        ></textarea>
 
         <input type="submit" value="Submit" />
-      </form>
-    </div>
-  </div>
-  <div id="more-info-modal" class="modal more-info">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">
-        <div>&times;</div>
-      </span>
-    </div>
-  </div>
-  <div id="main-modal" class="modal main">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div id="lds-spinner" class="lds-spinner">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <span class="close">
-        <div>&times;</div>
-      </span>
-      <div id="modal-gallery" class="modal-gallery">
-        <img src="../static/Assets/Images/Tiffin Images/Idly.jpg" alt="Main Dish" id="modal-image" lazyload="true" />
-      </div>
-      <div class="modal-main-content">
-        <div class="modal-title-section">
-          <h1 id="modal-title" class="modal-title">Breakfast</h1>
-          <img class="veg-icon" src="../static/Assets/Icons/veg.png" alt="" />
-          <img class="non-veg-icon" src="../static/Assets/Icons/non-veg.png" alt="" />
-        </div>
-        <div class="menu-items-container">
-        </div>
       </div>
     </div>
-  </div>
-  <div id="third-container-modal" class="modal third-container">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">
-        <div>&times;</div>
-      </span>
-      <div class="modal-container">
-        <h1>Morning</h1>
-        <h2>From: <span id="m-from-timing"></span> </h2>
-        <h2>To: <span id="m-to-timing"></span> </h2>
-      </div>
-      <div class="modal-container">
-        <h1>Afternoon</h1>
-        <h2>From: <span id="a-from-timing"></span> </h2>
-        <h2>To: <span id="a-to-timing"></span> </h2>
-      </div>
-      <div class="modal-container">
-        <h1>Evening</h1>
-        <h2>From: <span id="e-from-timing"></span> </h2>
-        <h2>To: <span id="e-to-timing"></span> </h2>
-      </div>
-      <div class="modal-container">
-        <h1>Night</h1>
-        <h2>From: <span id="n-from-timing"></span> </h2>
-        <h2>To: <span id="n-to-timing"></span> </h2>
+    <div id="more-info-modal" class="modal more-info">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">
+          <div>&times;</div>
+        </span>
       </div>
     </div>
-  </div>
-  <div id="schedule-modal" class="modal schedule">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">
-        <div>&times;</div>
-      </span>
-      <div class="monday schedule-container">
-        <h1>Monday</h1>
-        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
+    <div id="main-modal" class="modal main">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div id="lds-spinner" class="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-      </div>
-      <div class="tuesday schedule-container">
-        <h1>Monday</h1>
-        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
+        <span class="close">
+          <div>&times;</div>
+        </span>
+        <div id="modal-gallery" class="modal-gallery">
+          <img
+            src="../static/Assets/Images/Tiffin Images/Idly.jpg"
+            alt="Main Dish"
+            id="modal-image"
+            lazyload="true"
+          />
         </div>
-      </div>
-      <div class="wednesday schedule-container">
-        <h1>Monday</h1>
-        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-        </div>
-      </div>
-      <div class="thursday schedule-container">
-        <h1>Monday</h1>
-        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-        </div>
-      </div>
-      <div class="friday schedule-container">
-        <h1>Monday</h1>
-        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-        </div>
-      </div>
-      <div class="saturday schedule-container">
-        <h1>Monday</h1>
-        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-        </div>
-      </div>
-      <div class="sunday schedule-container">
-        <h1>Monday</h1>
-        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-          <div class="gallery-cell"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <nav id="navbar">
-    <div class="inner-navbar">
-      <div class="nav-links">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24" width="24px" height="24px"
-          id="menu-icon">
-          <path
-            d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z" />
-        </svg>
-        <ul class="navbar-full-link">
-          <a href="/">
-            <li>Home</li>
-          </a>
-          <a>
-            <li>About</li>
-          </a>
-          <a onclick="contact()">
-            <li>Contact</li>
-          </a>
-        </ul>
-        <div class="sidebar-menu">
-          <div class="sidebar-profile-logged-out">
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+        <div class="modal-main-content">
+          <div class="modal-title-section">
+            <h1 id="modal-title" class="modal-title">Breakfast</h1>
+            <img class="veg-icon" src="../static/Assets/Icons/veg.png" alt="" />
+            <img
+              class="non-veg-icon"
+              src="../static/Assets/Icons/non-veg.png"
+              alt=""
+            />
           </div>
-          <div class="sidebar-profile-logged-in">
-            <a>
-              <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 64 64" viewBox="0 0 64 64">
-                <path fill="#2b2e63"
-                  d="M32,0C14.4,0,0,14.4,0,32c0,17.6,14.4,32,32,32c17.7,0,32-14.4,32-32C64,14.4,49.7,0,32,0z M32,62.1   C15.4,62.1,1.9,48.6,1.9,32C1.9,15.4,15.4,1.9,32,1.9c16.6,0,30.1,13.5,30.1,30.1C62.1,48.6,48.6,62.1,32,62.1z" />
-                <path fill="#ededed"
-                  d="M32,1.9C15.4,1.9,1.9,15.4,1.9,32c0,16.6,13.5,30.1,30.1,30.1c16.6,0,30.1-13.5,30.1-30.1   C62.1,15.4,48.6,1.9,32,1.9z M32,12.7c4.8,0,8.8,3.9,8.8,8.8c0,4.8-3.9,8.8-8.8,8.8c-4.8,0-8.8-3.9-8.8-8.8   C23.3,16.7,27.2,12.7,32,12.7z M47.9,50.4H16.1c-0.5,0-1-0.4-1-1c0-9.3,7.6-16.9,16.9-16.9c9.3,0,16.9,7.6,16.9,16.9   C48.9,50,48.5,50.4,47.9,50.4z" />
-                <path fill="#d6d6d6"
-                  d="M32,1.9C15.4,1.9,1.9,15.4,1.9,32c0,16.6,13.5,30.1,30.1,30.1c16.6,0,30.1-13.5,30.1-30.1   C62.1,15.4,48.6,1.9,32,1.9z M32,60.1C16.5,60.1,3.9,47.5,3.9,32S16.5,3.9,32,3.9S60.1,16.5,60.1,32S47.5,60.1,32,60.1z" />
-                <path fill="#2b2e63"
-                  d="M32,32.5c-9.3,0-16.9,7.6-16.9,16.9c0,0.5,0.4,1,1,1h31.9c0.5,0,1-0.4,1-1C48.9,40.1,41.3,32.5,32,32.5z    M17.1,48.5c0.5-7.8,7-14,14.9-14c7.9,0,14.4,6.2,14.9,14H17.1z" />
-                <path fill="#f26e61" d="M46.9,48.5H17.1c0.5-7.8,7-14,14.9-14C39.9,34.5,46.4,40.7,46.9,48.5z" />
-                <path fill="#2b2e63"
-                  d="M32,12.7c-4.8,0-8.8,3.9-8.8,8.8c0,4.8,3.9,8.8,8.8,8.8c4.8,0,8.8-3.9,8.8-8.8C40.8,16.7,36.8,12.7,32,12.7z    M32,28.3c-3.8,0-6.8-3-6.8-6.8s3.1-6.8,6.8-6.8c3.8,0,6.8,3.1,6.8,6.8S35.8,28.3,32,28.3z" />
-                <path fill="#ffe5ab"
-                  d="M38.8,21.5c0,3.8-3.1,6.8-6.8,6.8c-3.8,0-6.8-3-6.8-6.8s3.1-6.8,6.8-6.8C35.8,14.7,38.8,17.7,38.8,21.5z" />
-                <path fill="#e15e5a"
-                  d="M32,34.5c-7.9,0-14.4,6.2-14.9,14h29.9C46.4,40.7,39.9,34.5,32,34.5z M32,36c6.5,0,12.1,4.7,13.2,11H18.8   C19.9,40.7,25.5,36,32,36z" />
-                <path fill="#f0d39a"
-                  d="M32,14.7c-3.8,0-6.8,3.1-6.8,6.8s3.1,6.8,6.8,6.8c3.8,0,6.8-3,6.8-6.8S35.8,14.7,32,14.7z M32,26.8   c-2.9,0-5.3-2.4-5.3-5.3s2.4-5.3,5.3-5.3s5.3,2.4,5.3,5.3S34.9,26.8,32,26.8z" />
-              </svg>
-              <h3 class="username"></h3>
-            </a>
+          <div class="menu-items-container"></div>
+        </div>
+      </div>
+    </div>
+    <div id="third-container-modal" class="modal third-container">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">
+          <div>&times;</div>
+        </span>
+        <div class="modal-container">
+          <h1>Morning</h1>
+          <h2>From: <span id="m-from-timing"></span></h2>
+          <h2>To: <span id="m-to-timing"></span></h2>
+        </div>
+        <div class="modal-container">
+          <h1>Afternoon</h1>
+          <h2>From: <span id="a-from-timing"></span></h2>
+          <h2>To: <span id="a-to-timing"></span></h2>
+        </div>
+        <div class="modal-container">
+          <h1>Evening</h1>
+          <h2>From: <span id="e-from-timing"></span></h2>
+          <h2>To: <span id="e-to-timing"></span></h2>
+        </div>
+        <div class="modal-container">
+          <h1>Night</h1>
+          <h2>From: <span id="n-from-timing"></span></h2>
+          <h2>To: <span id="n-to-timing"></span></h2>
+        </div>
+      </div>
+    </div>
+    <div id="schedule-modal" class="modal schedule">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">
+          <div>&times;</div>
+        </span>
+        <div class="monday schedule-container">
+          <h1>Monday</h1>
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <h4>BREAKFAST</h4>
+              <div class="monday-breakfast schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>LUNCH</h4>
+              <div class="monday-lunch schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>SNACK</h4>
+              <div class="monday-snack schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>DINNER</h4>
+              <div class="monday-dinner schedule-menu-items-container"></div>
+            </div>
           </div>
-          <ul class="navbar-mobile-link">
-            <a href="/"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <mask id="mask0" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="2" y="1" width="27" height="28">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 1.25024H28.1247V28.1315H2.5V1.25024Z"
-                    fill="white" />
-                </mask>
-                <g mask="url(#mask0)">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M17.146 19.1142C18.651 19.1142 19.876 20.3304 19.876 21.8254V25.6704C19.876 25.9917 20.1335 26.2492 20.4635 26.2567H22.846C24.7235 26.2567 26.2498 24.7492 26.2498 22.8967V11.9917C26.241 11.3542 25.9373 10.7542 25.416 10.3554L17.1748 3.78293C16.0685 2.90668 14.521 2.90668 13.411 3.78543L5.22601 10.3529C4.68476 10.7642 4.38101 11.3642 4.37476 12.0129V22.8967C4.37476 24.7492 5.90101 26.2567 7.77851 26.2567H10.1835C10.5223 26.2567 10.7973 25.9879 10.7973 25.6579C10.7973 25.5854 10.806 25.5129 10.821 25.4442V21.8254C10.821 20.3392 12.0385 19.1242 13.5323 19.1142H17.146ZM22.846 28.1317H20.441C19.0635 28.0992 18.001 27.0179 18.001 25.6704V21.8254C18.001 21.3642 17.6173 20.9892 17.146 20.9892H13.5385C13.0773 20.9917 12.696 21.3679 12.696 21.8254V25.6579C12.696 25.7517 12.6835 25.8417 12.6573 25.9267C12.5223 27.1642 11.4648 28.1317 10.1835 28.1317H7.77851C4.86726 28.1317 2.49976 25.7829 2.49976 22.8967V12.0042C2.51226 10.7617 3.08476 9.62418 4.07351 8.87543L12.2423 2.31918C14.041 0.894185 16.5473 0.894185 18.3423 2.31668L26.5698 8.87918C27.536 9.61543 28.1085 10.7504 28.1248 11.9779V22.8967C28.1248 25.7829 25.7573 28.1317 22.846 28.1317V28.1317Z"
-                    fill="#130F26" />
-                </g>
-              </svg>
-
+        </div>
+        <div class="tuesday schedule-container">
+          <h1>Tuesday</h1>
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <h4>BREAKFAST</h4>
+              <div
+                class="tuesday-breakfast schedule-menu-items-container"
+              ></div>
+            </div>
+            <div class="item">
+              <h4>LUNCH</h4>
+              <div class="tuesday-lunch schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>SNACK</h4>
+              <div class="tuesday-snack schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>DINNER</h4>
+              <div class="tuesday-dinner schedule-menu-items-container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="wednesday schedule-container">
+          <h1>Wednesday</h1>
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <h4>BREAKFAST</h4>
+              <div
+                class="wednesday-breakfast schedule-menu-items-container"
+              ></div>
+            </div>
+            <div class="item">
+              <h4>LUNCH</h4>
+              <div class="wednesday-lunch schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>SNACK</h4>
+              <div class="wednesday-snack schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>DINNER</h4>
+              <div class="wednesday-dinner schedule-menu-items-container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="thursday schedule-container">
+          <h1>Thursday</h1>
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <h4>BREAKFAST</h4>
+              <div
+                class="thursday-breakfast schedule-menu-items-container"
+              ></div>
+            </div>
+            <div class="item">
+              <h4>LUNCH</h4>
+              <div class="thursday-lunch schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>SNACK</h4>
+              <div class="thursday-snack schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>DINNER</h4>
+              <div class="thursday-dinner schedule-menu-items-container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="friday schedule-container">
+          <h1>Friday</h1>
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <h4>BREAKFAST</h4>
+              <div class="friday-breakfast schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>LUNCH</h4>
+              <div class="friday-lunch schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>SNACK</h4>
+              <div class="friday-snack schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>DINNER</h4>
+              <div class="friday-dinner schedule-menu-items-container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="saturday schedule-container">
+          <h1>Saturday</h1>
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <h4>BREAKFAST</h4>
+              <div
+                class="saturday-breakfast schedule-menu-items-container"
+              ></div>
+            </div>
+            <div class="item">
+              <h4>LUNCH</h4>
+              <div class="saturday-lunch schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>SNACK</h4>
+              <div class="saturday-snack schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>DINNER</h4>
+              <div class="saturday-dinner schedule-menu-items-container"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sunday schedule-container">
+          <h1>Sunday</h1>
+          <div class="owl-carousel owl-theme">
+            <div class="item">
+              <h4>BREAKFAST</h4>
+              <div class="sunday-breakfast schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>LUNCH</h4>
+              <div class="sunday-lunch schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>SNACK</h4>
+              <div class="sunday-snack schedule-menu-items-container"></div>
+            </div>
+            <div class="item">
+              <h4>DINNER</h4>
+              <div class="sunday-dinner schedule-menu-items-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav id="navbar">
+      <div class="inner-navbar">
+        <div class="nav-links">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#000000"
+            viewBox="0 0 24 24"
+            width="24px"
+            height="24px"
+            id="menu-icon"
+          >
+            <path
+              d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z"
+            />
+          </svg>
+          <ul class="navbar-full-link">
+            <a href="/">
               <li>Home</li>
             </a>
             <a>
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <mask id="mask0" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="26" height="26">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 2.5H27.4999V27.5H2.5V2.5Z" fill="white" />
-                </mask>
-                <g mask="url(#mask0)">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M9.58 4.375C6.41875 4.375 4.375 6.54125 4.375 9.895V20.105C4.375 23.4587 6.41875 25.625 9.58 25.625H20.415C23.58 25.625 25.625 23.4587 25.625 20.105V9.895C25.625 6.54125 23.58 4.375 20.4175 4.375H9.58ZM20.415 27.5H9.58C5.345 27.5 2.5 24.5275 2.5 20.105V9.895C2.5 5.4725 5.345 2.5 9.58 2.5H20.4175C24.6537 2.5 27.5 5.4725 27.5 9.895V20.105C27.5 24.5275 24.6537 27.5 20.415 27.5V27.5Z"
-                    fill="#130F26" />
-                </g>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M14.9924 20.9375C14.4749 20.9375 14.0549 20.5175 14.0549 20V15C14.0549 14.4825 14.4749 14.0625 14.9924 14.0625C15.5099 14.0625 15.9299 14.4825 15.9299 15V20C15.9299 20.5175 15.5099 20.9375 14.9924 20.9375"
-                  fill="#130F26" />
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M14.9987 11.5051C14.3074 11.5051 13.7424 10.9464 13.7424 10.2551C13.7424 9.56388 14.2962 9.00513 14.9862 9.00513H14.9987C15.6899 9.00513 16.2487 9.56388 16.2487 10.2551C16.2487 10.9464 15.6899 11.5051 14.9987 11.5051"
-                  fill="#130F26" />
-              </svg>
               <li>About</li>
             </a>
             <a onclick="contact()">
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <mask id="mask0" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="28" height="28">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M1.25 1.25037H28.1163V28.1176H1.25V1.25037Z"
-                    fill="white" />
-                </mask>
-                <g mask="url(#mask0)">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M7.63553 24.5941C8.36053 24.5941 9.04428 24.8691 9.76803 25.1604C14.2018 27.2104 19.4455 26.2779 22.8618 22.8629C27.3693 18.3529 27.3693 11.0166 22.8618 6.50912C20.6793 4.32662 17.7768 3.12537 14.6868 3.12537C11.5955 3.12537 8.69178 4.32787 6.51053 6.51037C3.09303 9.92537 2.16303 15.1691 4.19428 19.5604C4.48678 20.2841 4.76928 20.9891 4.76928 21.7216C4.76928 22.4529 4.51803 23.1891 4.29678 23.8391C4.11428 24.3741 3.83803 25.1816 4.01553 25.3591C4.18928 25.5391 5.00178 25.2554 5.53803 25.0716C6.18178 24.8516 6.91178 24.5991 7.63553 24.5941V24.5941ZM14.6555 28.1179C12.7455 28.1179 10.823 27.7141 9.0243 26.8816C8.4943 26.6691 7.99805 26.4691 7.6418 26.4691C7.2318 26.4716 6.68055 26.6616 6.14805 26.8454C5.05555 27.2204 3.69555 27.6879 2.6893 26.6854C1.6868 25.6816 2.1493 24.3254 2.5218 23.2341C2.70555 22.6966 2.8943 22.1416 2.8943 21.7216C2.8943 21.3766 2.72805 20.9366 2.47305 20.3029C0.131796 15.2466 1.2143 9.15287 5.18555 5.18412C7.72055 2.64787 11.0943 1.25037 14.6855 1.25037C18.2768 1.25037 21.6518 2.64662 24.1868 5.18287C29.4268 10.4229 29.4268 18.9479 24.1868 24.1879C21.618 26.7579 18.1593 28.1179 14.6555 28.1179V28.1179Z"
-                    fill="#130F26" />
-                </g>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M19.6205 16.4537C18.9305 16.4537 18.3655 15.895 18.3655 15.2037C18.3655 14.5125 18.9192 13.9537 19.6092 13.9537H19.6205C20.3105 13.9537 20.8705 14.5125 20.8705 15.2037C20.8705 15.895 20.3105 16.4537 19.6205 16.4537"
-                  fill="#130F26" />
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M14.6095 16.4537C13.9195 16.4537 13.3545 15.895 13.3545 15.2037C13.3545 14.5125 13.907 13.9537 14.5982 13.9537H14.6095C15.2995 13.9537 15.8595 14.5125 15.8595 15.2037C15.8595 15.895 15.2995 16.4537 14.6095 16.4537"
-                  fill="#130F26" />
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M9.59777 16.4537C8.90777 16.4537 8.34277 15.895 8.34277 15.2037C8.34277 14.5125 8.89652 13.9537 9.58652 13.9537H9.59777C10.2878 13.9537 10.8478 14.5125 10.8478 15.2037C10.8478 15.895 10.2878 16.4537 9.59777 16.4537"
-                  fill="#130F26" />
-              </svg>
               <li>Contact</li>
             </a>
           </ul>
-        </div>
-      </div>
-      <div class="title">
-        <p>PSG TECH E-MESS PORTAL</p>
-      </div>
-      <div class="profile-container">
-        <div id="logged-in-profile-container" class="logged-in-profile-container">
-          <div class="profile-image">
-            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 64 64" viewBox="0 0 64 64">
-              <path fill="#2b2e63"
-                d="M32,0C14.4,0,0,14.4,0,32c0,17.6,14.4,32,32,32c17.7,0,32-14.4,32-32C64,14.4,49.7,0,32,0z M32,62.1   C15.4,62.1,1.9,48.6,1.9,32C1.9,15.4,15.4,1.9,32,1.9c16.6,0,30.1,13.5,30.1,30.1C62.1,48.6,48.6,62.1,32,62.1z" />
-              <path fill="#ededed"
-                d="M32,1.9C15.4,1.9,1.9,15.4,1.9,32c0,16.6,13.5,30.1,30.1,30.1c16.6,0,30.1-13.5,30.1-30.1   C62.1,15.4,48.6,1.9,32,1.9z M32,12.7c4.8,0,8.8,3.9,8.8,8.8c0,4.8-3.9,8.8-8.8,8.8c-4.8,0-8.8-3.9-8.8-8.8   C23.3,16.7,27.2,12.7,32,12.7z M47.9,50.4H16.1c-0.5,0-1-0.4-1-1c0-9.3,7.6-16.9,16.9-16.9c9.3,0,16.9,7.6,16.9,16.9   C48.9,50,48.5,50.4,47.9,50.4z" />
-              <path fill="#d6d6d6"
-                d="M32,1.9C15.4,1.9,1.9,15.4,1.9,32c0,16.6,13.5,30.1,30.1,30.1c16.6,0,30.1-13.5,30.1-30.1   C62.1,15.4,48.6,1.9,32,1.9z M32,60.1C16.5,60.1,3.9,47.5,3.9,32S16.5,3.9,32,3.9S60.1,16.5,60.1,32S47.5,60.1,32,60.1z" />
-              <path fill="#2b2e63"
-                d="M32,32.5c-9.3,0-16.9,7.6-16.9,16.9c0,0.5,0.4,1,1,1h31.9c0.5,0,1-0.4,1-1C48.9,40.1,41.3,32.5,32,32.5z    M17.1,48.5c0.5-7.8,7-14,14.9-14c7.9,0,14.4,6.2,14.9,14H17.1z" />
-              <path fill="#f26e61" d="M46.9,48.5H17.1c0.5-7.8,7-14,14.9-14C39.9,34.5,46.4,40.7,46.9,48.5z" />
-              <path fill="#2b2e63"
-                d="M32,12.7c-4.8,0-8.8,3.9-8.8,8.8c0,4.8,3.9,8.8,8.8,8.8c4.8,0,8.8-3.9,8.8-8.8C40.8,16.7,36.8,12.7,32,12.7z    M32,28.3c-3.8,0-6.8-3-6.8-6.8s3.1-6.8,6.8-6.8c3.8,0,6.8,3.1,6.8,6.8S35.8,28.3,32,28.3z" />
-              <path fill="#ffe5ab"
-                d="M38.8,21.5c0,3.8-3.1,6.8-6.8,6.8c-3.8,0-6.8-3-6.8-6.8s3.1-6.8,6.8-6.8C35.8,14.7,38.8,17.7,38.8,21.5z" />
-              <path fill="#e15e5a"
-                d="M32,34.5c-7.9,0-14.4,6.2-14.9,14h29.9C46.4,40.7,39.9,34.5,32,34.5z M32,36c6.5,0,12.1,4.7,13.2,11H18.8   C19.9,40.7,25.5,36,32,36z" />
-              <path fill="#f0d39a"
-                d="M32,14.7c-3.8,0-6.8,3.1-6.8,6.8s3.1,6.8,6.8,6.8c3.8,0,6.8-3,6.8-6.8S35.8,14.7,32,14.7z M32,26.8   c-2.9,0-5.3-2.4-5.3-5.3s2.4-5.3,5.3-5.3s5.3,2.4,5.3,5.3S34.9,26.8,32,26.8z" />
-            </svg>
-          </div>
-          <p id="username"></p>
-          <svg width="24" height="24" class="arrow-down" viewBox="0 0 24 24" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 8.5L12 15.5L5 8.5" stroke="#130F26" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-          <div class="profile-drop-down">
-            <p id="username">Adithya G</p>
-            <button>View Profile</button>
-          </div>
-        </div>
-        <div class="logged-out-logging">
-          <div class="log-in-container">
-            <a href="/login">Login</a>
-          </div>
-          <div class="register-container">
-            <a href="/register">Register</a>
-          </div>
-        </div>
-        <!-- <a  id="username">Adithya G</a> -->
-      </div>
-    </div>
-  </nav>
-  <div class="body-container">
-    <div class="page-title-section">
-      <h1>STUDENT E-MESS PORTAL</h1>
-    </div>
-    <div class="top-status-bar">
-      <div class="left-status">
-        <div class="ct-container">
-          <div class="ct-info">
-            <img src="../static/Assets/Icons/Token.png" alt="" />
-            <p>Chicken<br />Tokens</p>
-          </div>
-          <h2 id="user-ct-active">30</h2>
-        </div>
-        <div class="et-container">
-          <div class="et-info">
-            <img src="../static/Assets/Icons/Token.png" alt="" />
-            <p>Egg<br />Tokens</p>
-          </div>
-          <h2 id="user-ct-active">30</h2>
-        </div>
-      </div>
-      <div class="right-status">
-        <h3>Mess:</h3>
-        <p id="mess-status">Open</p>
-      </div>
-    </div>
-    <div class="containers-section">
-      <div class="containers">
-        <div class="container1">
-          <h3 class="container-title">Today's Menu</h3>
-          <div class="container-cards">
-            <a onclick="card(this)" data-id="breakfast">
-              <div class="card">
-                <h2 class="card-title">Breakfast</h2>
-                <div class="card-content">
-                  <img src="/static/Assets/Icons/Breakfast.png" alt="" />
-                  <h1 class="breakfast main-dish" id="breakfast-main-dish">
-                    {{main[0]}}
-                  </h1>
-                </div>
-                <p>Click to see more</p>
-              </div>
-            </a>
-            <a onclick="card(this)" data-id="lunch">
-              <div class="card">
-                <h2 class="card-title">Lunch</h2>
-                <div class="card-content">
-                  <img src="/static/Assets/Icons/Lunch.png" alt="" />
-                  <h1 class="breakfast main-dish" id="breakfast-main-dish">
-                    {{main[1]}}
-                  </h1>
-                </div>
-                <p>Click to see more</p>
-              </div>
-            </a>
-            <a onclick="card(this)" data-id="snack">
-              <div class="card">
-                <h2 class="card-title">Snacks</h2>
-                <div class="card-content">
-                  <img src="/static/Assets/Icons/Snack.png" alt="" />
-                  <h1 class="breakfast main-dish" id="breakfast-main-dish">
-                    {{main[2]}}
-                  </h1>
-                </div>
-                <p>Click to see more</p>
-              </div>
-            </a>
-            <a onclick="card(this)" data-id="dinner">
-              <div class="card">
-                <h2 class="card-title">Dinner</h2>
-                <div class="card-content">
-                  <img src="/static/Assets/Icons/Dinner.png" alt="" />
-                  <h1 class="breakfast main-dish" id="breakfast-main-dish">
-                    {{main[3]}}
-                  </h1>
-                </div>
-                <p>Click to see more</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="container2">
-          <div class="container-cs">
-            <h1>Coming Soon</h1>
-            <button onclick="moreinfo()">More Info</button>
-          </div>
-          <h3 class="container-title">Token Options</h3>
-          <div class="container-cards">
-            <a>
-              <div class="card">
-                <h2 class="card-title">Token Reservation</h2>
-                <div class="card-content">
-                  <img src="/static/Assets/Icons/Reserve.png" alt="" />
-                </div>
-                <p>Click to see more</p>
-              </div>
-            </a>
-            <a>
-              <div class="card">
-                <h2 class="card-title">Token History</h2>
-                <div class="card-content">
-                  <img src="/static/Assets/Icons/Token_History.png" alt="" />
-                </div>
-                <p>Click to see more</p>
-              </div>
-            </a>
-            <a>
-              <div class="card">
-                <h2 class="card-title">Active Tokens</h2>
-                <div class="card-content">
-                  <img src="/static/Assets/Icons/Token_Outline.png" alt="" />
-                </div>
-                <p>Click to see more</p>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="container3">
-          <h3 class="container-title">Portal Options</h3>
-          <div class="container-cards">
-            <a onclick="scheduleModal(this)" data-id="ms">
-              <div class="card">
-                <h2 class="card-title">Mess Schedule</h2>
-                <div class="card-content">
-                  <img src="/static/Assets/Icons/Schedule.png" alt="" />
-                </div>
-                <p>Click to see more</p>
-              </div>
-            </a>
-            <a onclick="thirdcontainer(this)" data-id="mt">
-              <div class="card">
-                <h2 class="card-title">Mess Timings</h2>
-                <div class="card-content">
-                  <img src="/static/Assets/Icons/Timing.png" alt="" />
-                </div>
-                <p>Click to see more</p>
-              </div>
-            </a>
-            <a data-id="yp">
-              <div class="card">
-                <h2 class="card-title">Your Profile</h2>
-                <div class="card-content">
-                  <img src="/static/Assets/Icons/Profile.png" alt="" />
-                </div>
-                <p>Click to see more</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script type="text/javascript">
-    var rotated = 0;
-    $(".profile-container").click(function () {
-      if (rotated == 0) {
-        $(".profile-drop-down").fadeIn(200);
-        $(".arrow-down").css("transform", "rotate(-180deg)");
-        rotated = 1;
-      } else {
-        $(".profile-drop-down").fadeOut(200).css("display", "none");
-        $(".arrow-down").css("transform", "rotate(360deg)");
-        rotated = 0;
-      }
-    });
-    var dropped = 0;
-    $("#menu-icon").click(function () {
-      $("#menu-icon").css("transform", "scale(1.1)");
-      if (dropped == 0) {
-        $(".sidebar-menu").fadeIn(200);
-        dropped = 1;
-      } else {
-        $("#menu-icon").css("transform", "scale(1)");
-        $(".sidebar-menu").fadeOut(200).delay(5).css("display", "none");
-        dropped = 0;
-      }
-    });
-    $(".body-container").click(function () {
-      if (rotated == 1) {
-        $(".profile-drop-down").fadeOut(200).css("display", "none");
-        $(".arrow-down").css("transform", "rotate(360deg)");
-        rotated = 0;
-      }
-      if (dropped == 1) {
-        $("#menu-icon").css("transform", "scale(1)");
-        $(".sidebar-menu").fadeOut(200).delay(5).css("display", "none");
-        dropped = 0;
-      }
-    });
-  </script>
-  <script type="text/javascript" src="../static/Assets/JS/index.js"></script>
-</body>
+          <div class="sidebar-menu">
+            <div class="sidebar-profile-logged-out">
+              <a href="/login">Login</a>
+              <a href="/register">Register</a>
+            </div>
+            <div class="sidebar-profile-logged-in">
+              <a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  enable-background="new 0 0 64 64"
+                  viewBox="0 0 64 64"
+                >
+                  <path
+                    fill="#2b2e63"
+                    d="M32,0C14.4,0,0,14.4,0,32c0,17.6,14.4,32,32,32c17.7,0,32-14.4,32-32C64,14.4,49.7,0,32,0z M32,62.1   C15.4,62.1,1.9,48.6,1.9,32C1.9,15.4,15.4,1.9,32,1.9c16.6,0,30.1,13.5,30.1,30.1C62.1,48.6,48.6,62.1,32,62.1z"
+                  />
+                  <path
+                    fill="#ededed"
+                    d="M32,1.9C15.4,1.9,1.9,15.4,1.9,32c0,16.6,13.5,30.1,30.1,30.1c16.6,0,30.1-13.5,30.1-30.1   C62.1,15.4,48.6,1.9,32,1.9z M32,12.7c4.8,0,8.8,3.9,8.8,8.8c0,4.8-3.9,8.8-8.8,8.8c-4.8,0-8.8-3.9-8.8-8.8   C23.3,16.7,27.2,12.7,32,12.7z M47.9,50.4H16.1c-0.5,0-1-0.4-1-1c0-9.3,7.6-16.9,16.9-16.9c9.3,0,16.9,7.6,16.9,16.9   C48.9,50,48.5,50.4,47.9,50.4z"
+                  />
+                  <path
+                    fill="#d6d6d6"
+                    d="M32,1.9C15.4,1.9,1.9,15.4,1.9,32c0,16.6,13.5,30.1,30.1,30.1c16.6,0,30.1-13.5,30.1-30.1   C62.1,15.4,48.6,1.9,32,1.9z M32,60.1C16.5,60.1,3.9,47.5,3.9,32S16.5,3.9,32,3.9S60.1,16.5,60.1,32S47.5,60.1,32,60.1z"
+                  />
+                  <path
+                    fill="#2b2e63"
+                    d="M32,32.5c-9.3,0-16.9,7.6-16.9,16.9c0,0.5,0.4,1,1,1h31.9c0.5,0,1-0.4,1-1C48.9,40.1,41.3,32.5,32,32.5z    M17.1,48.5c0.5-7.8,7-14,14.9-14c7.9,0,14.4,6.2,14.9,14H17.1z"
+                  />
+                  <path
+                    fill="#f26e61"
+                    d="M46.9,48.5H17.1c0.5-7.8,7-14,14.9-14C39.9,34.5,46.4,40.7,46.9,48.5z"
+                  />
+                  <path
+                    fill="#2b2e63"
+                    d="M32,12.7c-4.8,0-8.8,3.9-8.8,8.8c0,4.8,3.9,8.8,8.8,8.8c4.8,0,8.8-3.9,8.8-8.8C40.8,16.7,36.8,12.7,32,12.7z    M32,28.3c-3.8,0-6.8-3-6.8-6.8s3.1-6.8,6.8-6.8c3.8,0,6.8,3.1,6.8,6.8S35.8,28.3,32,28.3z"
+                  />
+                  <path
+                    fill="#ffe5ab"
+                    d="M38.8,21.5c0,3.8-3.1,6.8-6.8,6.8c-3.8,0-6.8-3-6.8-6.8s3.1-6.8,6.8-6.8C35.8,14.7,38.8,17.7,38.8,21.5z"
+                  />
+                  <path
+                    fill="#e15e5a"
+                    d="M32,34.5c-7.9,0-14.4,6.2-14.9,14h29.9C46.4,40.7,39.9,34.5,32,34.5z M32,36c6.5,0,12.1,4.7,13.2,11H18.8   C19.9,40.7,25.5,36,32,36z"
+                  />
+                  <path
+                    fill="#f0d39a"
+                    d="M32,14.7c-3.8,0-6.8,3.1-6.8,6.8s3.1,6.8,6.8,6.8c3.8,0,6.8-3,6.8-6.8S35.8,14.7,32,14.7z M32,26.8   c-2.9,0-5.3-2.4-5.3-5.3s2.4-5.3,5.3-5.3s5.3,2.4,5.3,5.3S34.9,26.8,32,26.8z"
+                  />
+                </svg>
+                <h3 class="username"></h3>
+              </a>
+            </div>
+            <ul class="navbar-mobile-link">
+              <a href="/"
+                ><svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <mask
+                    id="mask0"
+                    style="mask-type: alpha"
+                    maskUnits="userSpaceOnUse"
+                    x="2"
+                    y="1"
+                    width="27"
+                    height="28"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M2.5 1.25024H28.1247V28.1315H2.5V1.25024Z"
+                      fill="white"
+                    />
+                  </mask>
+                  <g mask="url(#mask0)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M17.146 19.1142C18.651 19.1142 19.876 20.3304 19.876 21.8254V25.6704C19.876 25.9917 20.1335 26.2492 20.4635 26.2567H22.846C24.7235 26.2567 26.2498 24.7492 26.2498 22.8967V11.9917C26.241 11.3542 25.9373 10.7542 25.416 10.3554L17.1748 3.78293C16.0685 2.90668 14.521 2.90668 13.411 3.78543L5.22601 10.3529C4.68476 10.7642 4.38101 11.3642 4.37476 12.0129V22.8967C4.37476 24.7492 5.90101 26.2567 7.77851 26.2567H10.1835C10.5223 26.2567 10.7973 25.9879 10.7973 25.6579C10.7973 25.5854 10.806 25.5129 10.821 25.4442V21.8254C10.821 20.3392 12.0385 19.1242 13.5323 19.1142H17.146ZM22.846 28.1317H20.441C19.0635 28.0992 18.001 27.0179 18.001 25.6704V21.8254C18.001 21.3642 17.6173 20.9892 17.146 20.9892H13.5385C13.0773 20.9917 12.696 21.3679 12.696 21.8254V25.6579C12.696 25.7517 12.6835 25.8417 12.6573 25.9267C12.5223 27.1642 11.4648 28.1317 10.1835 28.1317H7.77851C4.86726 28.1317 2.49976 25.7829 2.49976 22.8967V12.0042C2.51226 10.7617 3.08476 9.62418 4.07351 8.87543L12.2423 2.31918C14.041 0.894185 16.5473 0.894185 18.3423 2.31668L26.5698 8.87918C27.536 9.61543 28.1085 10.7504 28.1248 11.9779V22.8967C28.1248 25.7829 25.7573 28.1317 22.846 28.1317V28.1317Z"
+                      fill="#130F26"
+                    />
+                  </g>
+                </svg>
 
+                <li>Home</li>
+              </a>
+              <a>
+                <svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <mask
+                    id="mask0"
+                    style="mask-type: alpha"
+                    maskUnits="userSpaceOnUse"
+                    x="2"
+                    y="2"
+                    width="26"
+                    height="26"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M2.5 2.5H27.4999V27.5H2.5V2.5Z"
+                      fill="white"
+                    />
+                  </mask>
+                  <g mask="url(#mask0)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M9.58 4.375C6.41875 4.375 4.375 6.54125 4.375 9.895V20.105C4.375 23.4587 6.41875 25.625 9.58 25.625H20.415C23.58 25.625 25.625 23.4587 25.625 20.105V9.895C25.625 6.54125 23.58 4.375 20.4175 4.375H9.58ZM20.415 27.5H9.58C5.345 27.5 2.5 24.5275 2.5 20.105V9.895C2.5 5.4725 5.345 2.5 9.58 2.5H20.4175C24.6537 2.5 27.5 5.4725 27.5 9.895V20.105C27.5 24.5275 24.6537 27.5 20.415 27.5V27.5Z"
+                      fill="#130F26"
+                    />
+                  </g>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M14.9924 20.9375C14.4749 20.9375 14.0549 20.5175 14.0549 20V15C14.0549 14.4825 14.4749 14.0625 14.9924 14.0625C15.5099 14.0625 15.9299 14.4825 15.9299 15V20C15.9299 20.5175 15.5099 20.9375 14.9924 20.9375"
+                    fill="#130F26"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M14.9987 11.5051C14.3074 11.5051 13.7424 10.9464 13.7424 10.2551C13.7424 9.56388 14.2962 9.00513 14.9862 9.00513H14.9987C15.6899 9.00513 16.2487 9.56388 16.2487 10.2551C16.2487 10.9464 15.6899 11.5051 14.9987 11.5051"
+                    fill="#130F26"
+                  />
+                </svg>
+                <li>About</li>
+              </a>
+              <a onclick="contact()">
+                <svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <mask
+                    id="mask0"
+                    style="mask-type: alpha"
+                    maskUnits="userSpaceOnUse"
+                    x="1"
+                    y="1"
+                    width="28"
+                    height="28"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1.25 1.25037H28.1163V28.1176H1.25V1.25037Z"
+                      fill="white"
+                    />
+                  </mask>
+                  <g mask="url(#mask0)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.63553 24.5941C8.36053 24.5941 9.04428 24.8691 9.76803 25.1604C14.2018 27.2104 19.4455 26.2779 22.8618 22.8629C27.3693 18.3529 27.3693 11.0166 22.8618 6.50912C20.6793 4.32662 17.7768 3.12537 14.6868 3.12537C11.5955 3.12537 8.69178 4.32787 6.51053 6.51037C3.09303 9.92537 2.16303 15.1691 4.19428 19.5604C4.48678 20.2841 4.76928 20.9891 4.76928 21.7216C4.76928 22.4529 4.51803 23.1891 4.29678 23.8391C4.11428 24.3741 3.83803 25.1816 4.01553 25.3591C4.18928 25.5391 5.00178 25.2554 5.53803 25.0716C6.18178 24.8516 6.91178 24.5991 7.63553 24.5941V24.5941ZM14.6555 28.1179C12.7455 28.1179 10.823 27.7141 9.0243 26.8816C8.4943 26.6691 7.99805 26.4691 7.6418 26.4691C7.2318 26.4716 6.68055 26.6616 6.14805 26.8454C5.05555 27.2204 3.69555 27.6879 2.6893 26.6854C1.6868 25.6816 2.1493 24.3254 2.5218 23.2341C2.70555 22.6966 2.8943 22.1416 2.8943 21.7216C2.8943 21.3766 2.72805 20.9366 2.47305 20.3029C0.131796 15.2466 1.2143 9.15287 5.18555 5.18412C7.72055 2.64787 11.0943 1.25037 14.6855 1.25037C18.2768 1.25037 21.6518 2.64662 24.1868 5.18287C29.4268 10.4229 29.4268 18.9479 24.1868 24.1879C21.618 26.7579 18.1593 28.1179 14.6555 28.1179V28.1179Z"
+                      fill="#130F26"
+                    />
+                  </g>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M19.6205 16.4537C18.9305 16.4537 18.3655 15.895 18.3655 15.2037C18.3655 14.5125 18.9192 13.9537 19.6092 13.9537H19.6205C20.3105 13.9537 20.8705 14.5125 20.8705 15.2037C20.8705 15.895 20.3105 16.4537 19.6205 16.4537"
+                    fill="#130F26"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M14.6095 16.4537C13.9195 16.4537 13.3545 15.895 13.3545 15.2037C13.3545 14.5125 13.907 13.9537 14.5982 13.9537H14.6095C15.2995 13.9537 15.8595 14.5125 15.8595 15.2037C15.8595 15.895 15.2995 16.4537 14.6095 16.4537"
+                    fill="#130F26"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.59777 16.4537C8.90777 16.4537 8.34277 15.895 8.34277 15.2037C8.34277 14.5125 8.89652 13.9537 9.58652 13.9537H9.59777C10.2878 13.9537 10.8478 14.5125 10.8478 15.2037C10.8478 15.895 10.2878 16.4537 9.59777 16.4537"
+                    fill="#130F26"
+                  />
+                </svg>
+                <li>Contact</li>
+              </a>
+            </ul>
+          </div>
+        </div>
+        <div class="title">
+          <p>PSG TECH E-MESS PORTAL</p>
+        </div>
+        <div class="profile-container">
+          <div
+            id="logged-in-profile-container"
+            class="logged-in-profile-container"
+          >
+            <div class="profile-image">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                enable-background="new 0 0 64 64"
+                viewBox="0 0 64 64"
+              >
+                <path
+                  fill="#2b2e63"
+                  d="M32,0C14.4,0,0,14.4,0,32c0,17.6,14.4,32,32,32c17.7,0,32-14.4,32-32C64,14.4,49.7,0,32,0z M32,62.1   C15.4,62.1,1.9,48.6,1.9,32C1.9,15.4,15.4,1.9,32,1.9c16.6,0,30.1,13.5,30.1,30.1C62.1,48.6,48.6,62.1,32,62.1z"
+                />
+                <path
+                  fill="#ededed"
+                  d="M32,1.9C15.4,1.9,1.9,15.4,1.9,32c0,16.6,13.5,30.1,30.1,30.1c16.6,0,30.1-13.5,30.1-30.1   C62.1,15.4,48.6,1.9,32,1.9z M32,12.7c4.8,0,8.8,3.9,8.8,8.8c0,4.8-3.9,8.8-8.8,8.8c-4.8,0-8.8-3.9-8.8-8.8   C23.3,16.7,27.2,12.7,32,12.7z M47.9,50.4H16.1c-0.5,0-1-0.4-1-1c0-9.3,7.6-16.9,16.9-16.9c9.3,0,16.9,7.6,16.9,16.9   C48.9,50,48.5,50.4,47.9,50.4z"
+                />
+                <path
+                  fill="#d6d6d6"
+                  d="M32,1.9C15.4,1.9,1.9,15.4,1.9,32c0,16.6,13.5,30.1,30.1,30.1c16.6,0,30.1-13.5,30.1-30.1   C62.1,15.4,48.6,1.9,32,1.9z M32,60.1C16.5,60.1,3.9,47.5,3.9,32S16.5,3.9,32,3.9S60.1,16.5,60.1,32S47.5,60.1,32,60.1z"
+                />
+                <path
+                  fill="#2b2e63"
+                  d="M32,32.5c-9.3,0-16.9,7.6-16.9,16.9c0,0.5,0.4,1,1,1h31.9c0.5,0,1-0.4,1-1C48.9,40.1,41.3,32.5,32,32.5z    M17.1,48.5c0.5-7.8,7-14,14.9-14c7.9,0,14.4,6.2,14.9,14H17.1z"
+                />
+                <path
+                  fill="#f26e61"
+                  d="M46.9,48.5H17.1c0.5-7.8,7-14,14.9-14C39.9,34.5,46.4,40.7,46.9,48.5z"
+                />
+                <path
+                  fill="#2b2e63"
+                  d="M32,12.7c-4.8,0-8.8,3.9-8.8,8.8c0,4.8,3.9,8.8,8.8,8.8c4.8,0,8.8-3.9,8.8-8.8C40.8,16.7,36.8,12.7,32,12.7z    M32,28.3c-3.8,0-6.8-3-6.8-6.8s3.1-6.8,6.8-6.8c3.8,0,6.8,3.1,6.8,6.8S35.8,28.3,32,28.3z"
+                />
+                <path
+                  fill="#ffe5ab"
+                  d="M38.8,21.5c0,3.8-3.1,6.8-6.8,6.8c-3.8,0-6.8-3-6.8-6.8s3.1-6.8,6.8-6.8C35.8,14.7,38.8,17.7,38.8,21.5z"
+                />
+                <path
+                  fill="#e15e5a"
+                  d="M32,34.5c-7.9,0-14.4,6.2-14.9,14h29.9C46.4,40.7,39.9,34.5,32,34.5z M32,36c6.5,0,12.1,4.7,13.2,11H18.8   C19.9,40.7,25.5,36,32,36z"
+                />
+                <path
+                  fill="#f0d39a"
+                  d="M32,14.7c-3.8,0-6.8,3.1-6.8,6.8s3.1,6.8,6.8,6.8c3.8,0,6.8-3,6.8-6.8S35.8,14.7,32,14.7z M32,26.8   c-2.9,0-5.3-2.4-5.3-5.3s2.4-5.3,5.3-5.3s5.3,2.4,5.3,5.3S34.9,26.8,32,26.8z"
+                />
+              </svg>
+            </div>
+            <p id="username"></p>
+            <svg
+              width="24"
+              height="24"
+              class="arrow-down"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 8.5L12 15.5L5 8.5"
+                stroke="#130F26"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div class="profile-drop-down">
+              <p id="username">Adithya G</p>
+              <button>View Profile</button>
+            </div>
+          </div>
+          <div class="logged-out-logging">
+            <div class="log-in-container">
+              <a href="/login">Login</a>
+            </div>
+            <div class="register-container">
+              <a href="/register">Register</a>
+            </div>
+          </div>
+          <!-- <a  id="username">Adithya G</a> -->
+        </div>
+      </div>
+    </nav>
+    <div class="body-container">
+      <div class="page-title-section">
+        <h1>STUDENT E-MESS PORTAL</h1>
+      </div>
+      <div class="top-status-bar">
+        <div class="left-status">
+          <div class="ct-container">
+            <div class="ct-info">
+              <img src="../static/Assets/Icons/Token.png" alt="" />
+              <p>Chicken<br />Tokens</p>
+            </div>
+            <h2 id="user-ct-active">30</h2>
+          </div>
+          <div class="et-container">
+            <div class="et-info">
+              <img src="../static/Assets/Icons/Token.png" alt="" />
+              <p>Egg<br />Tokens</p>
+            </div>
+            <h2 id="user-ct-active">30</h2>
+          </div>
+        </div>
+        <div class="right-status">
+          <h3>Mess:</h3>
+          <p id="mess-status">Open</p>
+        </div>
+      </div>
+      <div class="containers-section">
+        <div class="containers">
+          <div class="container1">
+            <h3 class="container-title">Today's Menu</h3>
+            <div class="container-cards">
+              <a onclick="card(this)" data-id="breakfast">
+                <div class="card">
+                  <h2 class="card-title">Breakfast</h2>
+                  <div class="card-content">
+                    <img src="/static/Assets/Icons/Breakfast.png" alt="" />
+                    <h1 class="breakfast main-dish" id="breakfast-main-dish">
+                      {{main[0]}}
+                    </h1>
+                  </div>
+                  <p>Click to see more</p>
+                </div>
+              </a>
+              <a onclick="card(this)" data-id="lunch">
+                <div class="card">
+                  <h2 class="card-title">Lunch</h2>
+                  <div class="card-content">
+                    <img src="/static/Assets/Icons/Lunch.png" alt="" />
+                    <h1 class="breakfast main-dish" id="breakfast-main-dish">
+                      {{main[1]}}
+                    </h1>
+                  </div>
+                  <p>Click to see more</p>
+                </div>
+              </a>
+              <a onclick="card(this)" data-id="snack">
+                <div class="card">
+                  <h2 class="card-title">Snacks</h2>
+                  <div class="card-content">
+                    <img src="/static/Assets/Icons/Snack.png" alt="" />
+                    <h1 class="breakfast main-dish" id="breakfast-main-dish">
+                      {{main[2]}}
+                    </h1>
+                  </div>
+                  <p>Click to see more</p>
+                </div>
+              </a>
+              <a onclick="card(this)" data-id="dinner">
+                <div class="card">
+                  <h2 class="card-title">Dinner</h2>
+                  <div class="card-content">
+                    <img src="/static/Assets/Icons/Dinner.png" alt="" />
+                    <h1 class="breakfast main-dish" id="breakfast-main-dish">
+                      {{main[3]}}
+                    </h1>
+                  </div>
+                  <p>Click to see more</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="container2">
+            <div class="container-cs">
+              <h1>Coming Soon</h1>
+              <button onclick="moreinfo()">More Info</button>
+            </div>
+            <h3 class="container-title">Token Options</h3>
+            <div class="container-cards">
+              <a>
+                <div class="card">
+                  <h2 class="card-title">Token Reservation</h2>
+                  <div class="card-content">
+                    <img src="/static/Assets/Icons/Reserve.png" alt="" />
+                  </div>
+                  <p>Click to see more</p>
+                </div>
+              </a>
+              <a>
+                <div class="card">
+                  <h2 class="card-title">Token History</h2>
+                  <div class="card-content">
+                    <img src="/static/Assets/Icons/Token_History.png" alt="" />
+                  </div>
+                  <p>Click to see more</p>
+                </div>
+              </a>
+              <a>
+                <div class="card">
+                  <h2 class="card-title">Active Tokens</h2>
+                  <div class="card-content">
+                    <img src="/static/Assets/Icons/Token_Outline.png" alt="" />
+                  </div>
+                  <p>Click to see more</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="container3">
+            <h3 class="container-title">Portal Options</h3>
+            <div class="container-cards">
+              <a onclick="scheduleModal(this)" data-id="ms">
+                <div class="card">
+                  <h2 class="card-title">Mess Schedule</h2>
+                  <div class="card-content">
+                    <img src="/static/Assets/Icons/Schedule.png" alt="" />
+                  </div>
+                  <p>Click to see more</p>
+                </div>
+              </a>
+              <a onclick="thirdcontainer(this)" data-id="mt">
+                <div class="card">
+                  <h2 class="card-title">Mess Timings</h2>
+                  <div class="card-content">
+                    <img src="/static/Assets/Icons/Timing.png" alt="" />
+                  </div>
+                  <p>Click to see more</p>
+                </div>
+              </a>
+              <a data-id="yp">
+                <div class="card">
+                  <h2 class="card-title">Your Profile</h2>
+                  <div class="card-content">
+                    <img src="/static/Assets/Icons/Profile.png" alt="" />
+                  </div>
+                  <p>Click to see more</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var rotated = 0;
+      $(".profile-container").click(function () {
+        if (rotated == 0) {
+          $(".profile-drop-down").fadeIn(200);
+          $(".arrow-down").css("transform", "rotate(-180deg)");
+          rotated = 1;
+        } else {
+          $(".profile-drop-down").fadeOut(200).css("display", "none");
+          $(".arrow-down").css("transform", "rotate(360deg)");
+          rotated = 0;
+        }
+      });
+      var dropped = 0;
+      $("#menu-icon").click(function () {
+        $("#menu-icon").css("transform", "scale(1.1)");
+        if (dropped == 0) {
+          $(".sidebar-menu").fadeIn(200);
+          dropped = 1;
+        } else {
+          $("#menu-icon").css("transform", "scale(1)");
+          $(".sidebar-menu").fadeOut(200).delay(5).css("display", "none");
+          dropped = 0;
+        }
+      });
+      $(".body-container").click(function () {
+        if (rotated == 1) {
+          $(".profile-drop-down").fadeOut(200).css("display", "none");
+          $(".arrow-down").css("transform", "rotate(360deg)");
+          rotated = 0;
+        }
+        if (dropped == 1) {
+          $("#menu-icon").css("transform", "scale(1)");
+          $(".sidebar-menu").fadeOut(200).delay(5).css("display", "none");
+          dropped = 0;
+        }
+      });
+    </script>
+    <script type="text/javascript" src="../static/Assets/JS/index.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="text/javascript">
+      $(".owl-carousel").owlCarousel({
+        margin: 10,
+        responsiveClass: true,
+        autoWidth: true,
+        animateOut: "slideOutDown",
+        animateIn: "flipInX",
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          1000: {
+            items: 3,
+            loop: false,
+          },
+        },
+      });
+    </script>
+  </body>
 </html>
