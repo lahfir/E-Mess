@@ -587,7 +587,8 @@ body {
 .contact,
 .main,
 .more-info,
-.third-container {
+.third-container,
+.schedule {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -908,6 +909,42 @@ body {
     }
 }
 
+.schedule {
+    .modal-content {
+        .schedule-container {
+            margin-bottom: 35px;
+
+            h1 {
+                font-family: $main-font;
+                font-size: 20px;
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .gallery {
+                background: #EEE;
+            }
+
+            .gallery-cell {
+                width: 66%;
+                background: $container-bg;
+                height: 200px;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+
+            /* cell number */
+            .gallery-cell:before {
+                display: block;
+                text-align: center;
+                line-height: 200px;
+                font-size: 80px;
+                color: white;
+            }
+        }
+    }
+}
+
 .third-container {
     .modal-content {
         display: flex;
@@ -928,16 +965,22 @@ body {
             flex-direction: column;
             border-radius: 15px;
             animation: slideInDown 0.3s;
+            // background: linear-gradient(0deg, rgba(0, 0, 0, 0.514), rgba(0, 0, 0, 0.692)), url("https://images.unsplash.com/photo-1464306208223-e0b4495a5553?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2070&q=80");
+            background-size: cover;
 
             h1 {
                 text-transform: capitalize;
                 margin-bottom: 5px;
                 font-family: $main-font;
+                color: $black;
+                // filter: drop-shadow(0px 5px 2px rgba(0, 0, 0, 0.699));
             }
 
             h2 {
                 font-weight: 400;
                 font-size: 16px;
+                // filter: drop-shadow(0px 5px 2px rgba(0, 0, 0, 0.699));
+                color: $black;
 
                 span {
                     font-weight: 600;
