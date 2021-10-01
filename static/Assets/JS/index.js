@@ -1,5 +1,5 @@
 var _id = 0;
-var breakfast, lunch, snack, dinner;
+var breakfast, lunch, snack, dinner, morning, afternoon, evening, night;
 
 $(document).ready(function () {
   $.ajax({
@@ -14,6 +14,20 @@ $(document).ready(function () {
       lunch = data["lunch"];
       snack = data["snack"];
       dinner = data["dinner"];
+    }
+  });
+  $.ajax({
+    data: _id,
+    type: "GET",
+    url: "/timings",
+  }).done(function (data) {
+    if (data.error) {
+      alert(data.error);
+    } else {
+      morning = data["morning"];
+      afternoon = data["afternoon"];
+      evening = data["evening"];
+      night = data["night"];
     }
   });
 });
@@ -56,71 +70,73 @@ function card(e) {
   $(".menu-items-container").css("display", "none");
   var modal_main = document.querySelector(".menu-items-container");
 
-  switch (_id) {
-    case "breakfast":
-      $("#modal-image").attr("src", "../static/Assets/Images/Breakfast.jpg");
-      $("#modal-title").text(_id);
-      modal_main.innerHTML = "";
-      for (var i = 0; i < breakfast.length; i++) {
-        var menu_item = document.createElement("P");
-        menu_item.id = "modal-menu-item";
-        menu_item.appendChild(document.createTextNode(breakfast[i]));
-        modal_main.appendChild(menu_item);
-      }
-      $("#lds-spinner").css("display", "none");
-      $("#modal-gallery").css("display", "block");
-      $(".modal-main-content").css("display", "block");
-      $(".menu-items-container").css("display", "flex");
-      break;
-    case "lunch":
-      $("#modal-image").attr("src", "../static/Assets/Images/Lunch.jpg");
-      $("#modal-title").text(_id);
-      modal_main.innerHTML = "";
-      for (var i = 0; i < lunch.length; i++) {
-        var menu_item = document.createElement("P");
-        menu_item.id = "modal-menu-item";
-        menu_item.appendChild(document.createTextNode(lunch[i]));
-        modal_main.appendChild(menu_item);
-      }
+  if (modal_main.innerHTML != "") {
+    switch (_id) {
+      case "breakfast":
+        $("#modal-image").attr("src", "../static/Assets/Images/Breakfast.jpg");
+        $("#modal-title").text(_id);
+        modal_main.innerHTML = "";
+        for (var i = 0; i < breakfast.length; i++) {
+          var menu_item = document.createElement("P");
+          menu_item.id = "modal-menu-item";
+          menu_item.appendChild(document.createTextNode(breakfast[i]));
+          modal_main.appendChild(menu_item);
+        }
+        $("#lds-spinner").css("display", "none");
+        $("#modal-gallery").css("display", "block");
+        $(".modal-main-content").css("display", "block");
+        $(".menu-items-container").css("display", "flex");
+        break;
+      case "lunch":
+        $("#modal-image").attr("src", "../static/Assets/Images/Lunch.jpg");
+        $("#modal-title").text(_id);
+        modal_main.innerHTML = "";
+        for (var i = 0; i < lunch.length; i++) {
+          var menu_item = document.createElement("P");
+          menu_item.id = "modal-menu-item";
+          menu_item.appendChild(document.createTextNode(lunch[i]));
+          modal_main.appendChild(menu_item);
+        }
 
-      $("#lds-spinner").css("display", "none");
-      $("#modal-gallery").css("display", "block");
-      $(".modal-main-content").css("display", "block");
-      $(".menu-items-container").css("display", "flex");
-      break;
-    case "snack":
-      $("#modal-image").attr("src", "../static/Assets/Images/Snack.jpg");
-      $("#modal-title").text(_id);
-      modal_main.innerHTML = "";
-      for (var i = 0; i < snack.length; i++) {
-        var menu_item = document.createElement("P");
-        menu_item.id = "modal-menu-item";
-        menu_item.appendChild(document.createTextNode(snack[i]));
-        modal_main.appendChild(menu_item);
-      }
-      $("#lds-spinner").css("display", "none");
+        $("#lds-spinner").css("display", "none");
+        $("#modal-gallery").css("display", "block");
+        $(".modal-main-content").css("display", "block");
+        $(".menu-items-container").css("display", "flex");
+        break;
+      case "snack":
+        $("#modal-image").attr("src", "../static/Assets/Images/Snack.jpg");
+        $("#modal-title").text(_id);
+        modal_main.innerHTML = "";
+        for (var i = 0; i < snack.length; i++) {
+          var menu_item = document.createElement("P");
+          menu_item.id = "modal-menu-item";
+          menu_item.appendChild(document.createTextNode(snack[i]));
+          modal_main.appendChild(menu_item);
+        }
+        $("#lds-spinner").css("display", "none");
 
-      $("#modal-gallery").css("display", "block");
-      $(".modal-main-content").css("display", "block");
-      $(".menu-items-container").css("display", "flex");
-      break;
-    case "dinner":
-      $("#modal-image").attr("src", "../static/Assets/Images/Dinner.jpg");
-      $("#modal-title").text(_id);
+        $("#modal-gallery").css("display", "block");
+        $(".modal-main-content").css("display", "block");
+        $(".menu-items-container").css("display", "flex");
+        break;
+      case "dinner":
+        $("#modal-image").attr("src", "../static/Assets/Images/Dinner.jpg");
+        $("#modal-title").text(_id);
 
-      modal_main.innerHTML = "";
-      for (var i = 0; i < dinner.length; i++) {
-        var menu_item = document.createElement("P");
-        menu_item.id = "modal-menu-item";
-        menu_item.appendChild(document.createTextNode(dinner[i]));
-        modal_main.appendChild(menu_item);
-      }
+        modal_main.innerHTML = "";
+        for (var i = 0; i < dinner.length; i++) {
+          var menu_item = document.createElement("P");
+          menu_item.id = "modal-menu-item";
+          menu_item.appendChild(document.createTextNode(dinner[i]));
+          modal_main.appendChild(menu_item);
+        }
 
-      $("#lds-spinner").css("display", "none");
-      $("#modal-gallery").css("display", "block");
-      $(".modal-main-content").css("display", "block");
-      $(".menu-items-container").css("display", "flex");
-      break;
+        $("#lds-spinner").css("display", "none");
+        $("#modal-gallery").css("display", "block");
+        $(".modal-main-content").css("display", "block");
+        $(".menu-items-container").css("display", "flex");
+        break;
+    }
   }
 }
 function contact() {
@@ -168,28 +184,17 @@ function thirdcontainer(e) {
     modal.style.display = "none";
   };
 
-  $.ajax({
-    data: _id,
-    type: "GET",
-    url: "/timings",
-  }).done(function (data) {
-    if (data.error) {
-      alert(data.error);
-    } else {
-      $("#lds-spinner").css("display", "none");
-      $("#m-from-timing").text(data["morning"][0]);
-      $("#m-to-timing").text(data["morning"][1]);
+  $("#m-from-timing").text(morning[0]);
+  $("#m-to-timing").text(morning[1]);
 
-      $("#a-from-timing").text(data["afternoon"][0]);
-      $("#a-to-timing").text(data["afternoon"][1]);
+  $("#a-from-timing").text(afternoon[0]);
+  $("#a-to-timing").text(afternoon[1]);
 
-      $("#e-from-timing").text(data["evening"][0]);
-      $("#e-to-timing").text(data["evening"][1]);
+  $("#e-from-timing").text(evening[0]);
+  $("#e-to-timing").text(evening[1]);
 
-      $("#n-from-timing").text(data["night"][0]);
-      $("#n-to-timing").text(data["night"][1]);
-    }
-  });
+  $("#n-from-timing").text(night[0]);
+  $("#n-to-timing").text(night[1]);
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
