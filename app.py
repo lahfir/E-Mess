@@ -11,7 +11,7 @@ today = now.strftime("%A").lower()
 app = Flask(__name__)
 
 cluster = MongoClient(
-    "mongodb+srv://emesspsgct:emesspsgct2021@e-messpsgct.4q1dp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "mongodb+srv://emesspsgct:emesspsgct2021@e-messpsgct.4q1dp.mongodb.net/myFirstDatabase?ssl=true&ssl_cert_reqs=CERT_NONE"
 )
 if cluster:
     print("Connected")
