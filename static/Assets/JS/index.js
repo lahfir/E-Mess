@@ -21,9 +21,36 @@ $(document).ready(function () {
 function card(e) {
   // Get the modal
   var modal = document.getElementById("main-modal");
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[2];
 
-  var _id = e.getAttribute("data-id");
+  modal.style.display = "flex";
   $("#lds-spinner").css("display", "inline-block");
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+  window.addEventListener(
+    "keydown",
+    function (e) {
+      if (
+        (e.key == "Escape" || e.key == "Esc" || e.keyCode == 27) &&
+        e.target.nodeName == "BODY"
+      ) {
+        modal.style.display = "none";
+      }
+    },
+    true
+  );
+  var _id = e.getAttribute("data-id");
   $("#modal-gallery").css("display", "none");
   $(".modal-main-content").css("display", "none");
   $(".menu-items-container").css("display", "none");
@@ -95,35 +122,6 @@ function card(e) {
       $(".menu-items-container").css("display", "flex");
       break;
   }
-
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[2];
-
-  modal.style.display = "flex";
-
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function () {
-    modal.style.display = "none";
-  };
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
-  window.addEventListener(
-    "keydown",
-    function (e) {
-      if (
-        (e.key == "Escape" || e.key == "Esc" || e.keyCode == 27) &&
-        e.target.nodeName == "BODY"
-      ) {
-        modal.style.display = "none";
-      }
-    },
-    true
-  );
 }
 function contact() {
   var modal = document.getElementById("contact-modal");
