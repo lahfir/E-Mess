@@ -186,6 +186,12 @@ body {
                             border: 1.5px solid #828282;
                             border-radius: 5px;
                             font-size: 18px;
+                            outline: none;
+
+                            &:focus-visible,
+                            &:focus-within {
+                                border: 3px solid #ffad4293;
+                            }
                         }
                     }
 
@@ -236,8 +242,15 @@ body {
                             margin-top: 3px;
                             padding: 10px 5px;
                             border: 1.5px solid #828282;
+                            outline: none;
                             border-radius: 5px;
                             font-size: 18px;
+                            transition: all 0.3s ease;
+
+                            &:focus-visible,
+                            &:focus-within {
+                                border: 3px solid #ffad4293;
+                            }
 
                             /* width */
                             &::-webkit-scrollbar {

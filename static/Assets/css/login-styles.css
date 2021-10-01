@@ -216,6 +216,11 @@ body {
   border: 1.5px solid #828282;
   border-radius: 5px;
   font-size: 18px;
+  outline: none;
+}
+
+.login-main .right-container .container .inner-container #login-form div input:focus-visible, .login-main .right-container .container .inner-container #login-form div input:focus-within {
+  border: 3px solid #ffad4293;
 }
 
 .login-main .right-container .container .inner-container #login-form button {
@@ -266,12 +271,23 @@ body {
   margin-top: 3px;
   padding: 10px 5px;
   border: 1.5px solid #828282;
+  outline: none;
   border-radius: 5px;
   font-size: 18px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   /* width */
   /* Track */
   /* Handle */
   /* Handle on hover */
+}
+
+.login-main .right-container .container .inner-container #register-form div input[type="text"]:focus-visible, .login-main .right-container .container .inner-container #register-form div input[type="text"]:focus-within,
+.login-main .right-container .container .inner-container #register-form div input[type="password"]:focus-visible,
+.login-main .right-container .container .inner-container #register-form div input[type="password"]:focus-within,
+.login-main .right-container .container .inner-container #register-form div select:focus-visible,
+.login-main .right-container .container .inner-container #register-form div select:focus-within {
+  border: 3px solid #ffad4293;
 }
 
 .login-main .right-container .container .inner-container #register-form div input[type="text"]::-webkit-scrollbar,
