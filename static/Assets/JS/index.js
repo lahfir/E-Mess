@@ -1,12 +1,12 @@
 var _id = 0;
-var breakfast,
-  lunch,
-  snack,
-  dinner,
-  morning,
-  afternoon,
-  evening,
-  night,
+var breakfast = null,
+  lunch = null,
+  snack = null,
+  dinner = null,
+  morning = null,
+  afternoon = null,
+  evening = null,
+  night = null,
   schedule = null;
 var days = [
   "monday",
@@ -104,7 +104,7 @@ function card(e) {
   $(".menu-items-container").css("display", "none");
   var modal_main = document.querySelector(".menu-items-container");
 
-  if (modal_main.innerHTML != "") {
+  if (breakfast != null && lunch != null && snack != null && dinner != null) {
     switch (_id) {
       case "breakfast":
         $("#modal-image").attr("src", "../static/Assets/Images/Breakfast.jpg");
@@ -342,6 +342,9 @@ function thirdcontainer(e) {
   $("#n-from-timing").text(night[0]);
   $("#n-to-timing").text(night[1]);
 }
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
 function scheduleModal(e) {
   var modal = document.getElementById("schedule-modal");
   var _id = e.getAttribute("data-id");
@@ -368,7 +371,7 @@ function scheduleModal(e) {
         for (var k = 0; k < schedule[days[i]][times[j]].length; k++) {
           var menu_item = document.createElement("P");
           menu_item.appendChild(
-            document.createTextNode(schedule[days[i]][times[j]][k])
+            document.createTextNode(schedule[days[i]][times[j]][k].capitalize())
           );
           document
             .querySelector("." + days[i] + "-" + times[j].toString())

@@ -1276,15 +1276,15 @@ body {
 
 .schedule .modal-content .schedule-container .owl-carousel {
   width: 100%;
+  overflow: hidden;
 }
 
 .schedule .modal-content .schedule-container .owl-carousel .item {
   padding: 8px;
   width: 150px;
-  min-height: 150px;
   max-height: 200px;
   overflow-y: scroll;
-  border: 2px solid #F5F5F5;
+  border: 2px solid #d1d1d1;
   border-radius: 15px;
   text-align: center;
   background: #FFFFFF;
@@ -1295,7 +1295,7 @@ body {
 }
 
 .schedule .modal-content .schedule-container .owl-carousel .item::-webkit-scrollbar-track {
-  background: white;
+  background: none;
 }
 
 .schedule .modal-content .schedule-container .owl-carousel .item::-webkit-scrollbar-thumb {
@@ -1305,15 +1305,17 @@ body {
 .schedule .modal-content .schedule-container .owl-carousel .item h4 {
   font-family: "Metrophobic", sans-serif;
   font-weight: 500;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #c4c4c4;
 }
 
 .schedule .modal-content .schedule-container .owl-carousel .item .schedule-menu-items-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;

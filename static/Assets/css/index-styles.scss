@@ -936,14 +936,14 @@ body {
 
             .owl-carousel {
                 width: 100%;
+                overflow: hidden;
 
                 .item {
                     padding: 8px;
                     width: 150px;
-                    min-height: 150px;
                     max-height: 200px;
                     overflow-y: scroll;
-                    border: 2px solid $container-bg;
+                    border: 2px solid #d1d1d1;
                     border-radius: 15px;
                     text-align: center;
                     background: #FFFFFF;
@@ -953,7 +953,7 @@ body {
                     }
 
                     &::-webkit-scrollbar-track {
-                        background: white;
+                        background: none;
                     }
 
                     &::-webkit-scrollbar-thumb {
@@ -963,11 +963,14 @@ body {
                     h4 {
                         font-family: $main-font;
                         font-weight: 500;
+                        padding-bottom: 6px;
+                        border-bottom: 1px solid rgb(196, 196, 196);
+                        ;
                     }
 
                     .schedule-menu-items-container {
                         display: flex;
-                        align-items: center;
+                        align-items: start;
                         justify-content: center;
                         flex-wrap: wrap;
                         margin-top: 10px;
