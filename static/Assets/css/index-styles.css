@@ -1247,7 +1247,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-radius: 5px;
+  border-radius: 15px;
   -webkit-animation: slideInDown 0.3s;
           animation: slideInDown 0.3s;
 }
