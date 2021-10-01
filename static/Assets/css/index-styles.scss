@@ -57,7 +57,7 @@ body {
     width: 100%;
     display: flex;
     top: 0;
-    z-index: 99999999999;
+    z-index: 99999;
     align-items: center;
     position: fixed;
     justify-content: center;
@@ -591,7 +591,7 @@ body {
 .schedule {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 999999;
     left: 0;
     top: 0;
     width: 100%;
