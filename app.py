@@ -62,7 +62,15 @@ def getSchedule():
     try:
         collection = db["mess_schedule"]
         schedule = {}
-        for j in ["monday", "tuesday", "wednesday", "thursday", "saturday", "sunday"]:
+        for j in [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday",
+        ]:
             for i in collection.find({"_id": j}):
                 schedule[j] = {
                     "breakfast": i.get("breakfast"),

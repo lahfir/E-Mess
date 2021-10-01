@@ -1291,11 +1291,15 @@ body {
 }
 
 .schedule .modal-content .schedule-container .owl-carousel .item::-webkit-scrollbar {
-  width: 4px;
+  width: 2px;
 }
 
 .schedule .modal-content .schedule-container .owl-carousel .item::-webkit-scrollbar-track {
   background: white;
+}
+
+.schedule .modal-content .schedule-container .owl-carousel .item::-webkit-scrollbar-thumb {
+  background: #b8b8b8;
 }
 
 .schedule .modal-content .schedule-container .owl-carousel .item h4 {

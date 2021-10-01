@@ -350,29 +350,32 @@ function scheduleModal(e) {
 
   modal.style.display = "flex";
   $("body").addClass("modal-open");
+  $(".schedule-container").css("display", "none");
+  $("#lds-spinner").css("display", "inline-block");
 
   span.onclick = function () {
     modal.style.display = "none";
     $("body").removeClass("modal-open");
   };
 
-  console.log(schedule["monday"]["breakfast"].length);
+  console.log(schedule);
   if (schedule != null) {
-    console.log("done");
     for (var i = 0; i < 7; i++) {
-      console.log("done");
       for (var j = 0; j < 4; j++) {
-        console.log("done");
+        document.querySelector(
+          "." + days[i] + "-" + times[j].toString()
+        ).innerHTML = "";
         for (var k = 0; k < schedule[days[i]][times[j]].length; k++) {
           var menu_item = document.createElement("P");
           menu_item.appendChild(
             document.createTextNode(schedule[days[i]][times[j]][k])
           );
-          console.log("done");
           document
             .querySelector("." + days[i] + "-" + times[j].toString())
             .appendChild(menu_item);
         }
+        $(".schedule-container").css("display", "block");
+        $("#lds-spinner").css("display", "none");
         // for (var k = 0; k < schedule[days[i]][times[j]].length; k++) {
         //   var menu_item = document.createElement("P");
         //   menu_item.appendChild(
@@ -406,28 +409,24 @@ function scheduleModal(e) {
         alert(data.error);
       } else {
         schedule = data["schedule"];
-        for (var i = 0; i < schedule.length; i++) {
-          for (var j = 0; j < schedule[i].length; j++) {
-            var menu_item = document.createElement("P");
-            menu_item.appendChild(document.createTextNode(schedule[i][j]));
-            $("." + schedule[i] + "-breakfast").appendChild(menu_item);
-          }
-          for (var j = 0; j < schedule[i].length; j++) {
-            var menu_item = document.createElement("P");
-            menu_item.appendChild(document.createTextNode(schedule[i][j]));
-            $("." + schedule[i] + "-lunch").appendChild(menu_item);
-          }
-          for (var j = 0; j < schedule[i].length; j++) {
-            var menu_item = document.createElement("P");
-            menu_item.appendChild(document.createTextNode(schedule[i][j]));
-            $("." + schedule[i] + "-snack").appendChild(menu_item);
-          }
-          for (var j = 0; j < schedule[i].length; j++) {
-            var menu_item = document.createElement("P");
-            menu_item.appendChild(document.createTextNode(schedule[i][j]));
-            $("." + schedule[i] + "-dinner").appendChild(menu_item);
+        for (var i = 0; i < 7; i++) {
+          for (var j = 0; j < 4; j++) {
+            document.querySelector(
+              "." + days[i] + "-" + times[j].toString()
+            ).innerHTML = "";
+            for (var k = 0; k < schedule[days[i]][times[j]].length; k++) {
+              var menu_item = document.createElement("P");
+              menu_item.appendChild(
+                document.createTextNode(schedule[days[i]][times[j]][k])
+              );
+              document
+                .querySelector("." + days[i] + "-" + times[j].toString())
+                .appendChild(menu_item);
+            }
           }
         }
+        $(".schedule-container").css("display", "block");
+        $("#lds-spinner").css("display", "none");
       }
     });
   }

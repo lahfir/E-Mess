@@ -145,6 +145,20 @@
     <div id="schedule-modal" class="modal schedule">
       <!-- Modal content -->
       <div class="modal-content">
+        <div id="lds-spinner" class="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <span class="close">
           <div>&times;</div>
         </span>
@@ -811,6 +825,7 @@
         margin: 10,
         responsiveClass: true,
         autoWidth: true,
+        items: 3,
         animateOut: "slideOutDown",
         animateIn: "flipInX",
         responsive: {

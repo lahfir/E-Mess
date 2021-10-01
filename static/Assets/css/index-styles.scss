@@ -949,11 +949,15 @@ body {
                     background: #FFFFFF;
 
                     &::-webkit-scrollbar {
-                        width: 4px;
+                        width: 2px;
                     }
 
                     &::-webkit-scrollbar-track {
                         background: white;
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background: rgb(184, 184, 184);
                     }
 
                     h4 {
