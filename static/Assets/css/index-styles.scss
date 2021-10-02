@@ -52,7 +52,6 @@ h3,
 h4,
 p {
     color: $black;
-
 }
 
 body {
@@ -849,11 +848,6 @@ body {
 
 .about {
     .modal-content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-
         .team-img {
             min-width: 100%;
             top: 25px;
@@ -868,10 +862,18 @@ body {
                 li {
                     list-style: none;
                     margin: 8px 0;
-                    font-family: $main-font;
                     color: $black;
                     font-weight: 700;
                     word-wrap: wrap;
+
+                    p {
+                        margin-top: 15px;
+                        background: $primary-color;
+                        padding: 10px;
+                        border-radius: 15px;
+                        font-family: $main-font;
+                        font-weight: 800;
+                    }
                 }
             }
         }

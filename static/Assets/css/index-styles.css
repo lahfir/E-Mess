@@ -1215,22 +1215,6 @@ body {
   cursor: pointer;
 }
 
-.about .modal-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
 .about .modal-content .team-img {
   min-width: 100%;
   top: 25px;
@@ -1245,10 +1229,18 @@ body {
 .about .modal-content .about-content ul li {
   list-style: none;
   margin: 8px 0;
-  font-family: "Metrophobic", sans-serif;
   color: #0E0E10;
   font-weight: 700;
   word-wrap: wrap;
+}
+
+.about .modal-content .about-content ul li p {
+  margin-top: 15px;
+  background: #FFAE42;
+  padding: 10px;
+  border-radius: 15px;
+  font-family: "Metrophobic", sans-serif;
+  font-weight: 800;
 }
 
 .contact .modal-content {
