@@ -597,7 +597,8 @@ body {
 .main,
 .more-info,
 .third-container,
-.schedule {
+.schedule,
+.about {
     display: none;
     position: fixed;
     z-index: 999999;
@@ -841,6 +842,37 @@ body {
                 color: #000;
                 text-decoration: none;
                 cursor: pointer;
+            }
+        }
+    }
+}
+
+.about {
+    .modal-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .team-img {
+            min-width: 100%;
+            top: 25px;
+            max-width: 250px;
+        }
+
+        .about-content {
+            ul {
+                margin-top: 10px;
+                padding: 0 5px;
+
+                li {
+                    list-style: none;
+                    margin: 8px 0;
+                    font-family: $main-font;
+                    color: $black;
+                    font-weight: 700;
+                    word-wrap: wrap;
+                }
             }
         }
     }
@@ -1104,6 +1136,7 @@ body {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            animation: slideInDown 0.3s;
 
             img {
                 width: 70px;
@@ -1183,7 +1216,8 @@ body {
     .contact,
     .main,
     .third-container,
-    .schedule {
+    .schedule,
+    .about {
         .modal-content {
             min-width: unset;
             height: 60%;

@@ -490,3 +490,38 @@ function moreinfo() {
     true
   );
 }
+function aboutmodal() {
+  var modal = document.getElementById("about-modal");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[5];
+
+  modal.style.display = "flex";
+  $("body").addClass("modal-open");
+
+  span.onclick = function () {
+    modal.style.display = "none";
+    $("body").removeClass("modal-open");
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      $("body").removeClass("modal-open");
+    }
+  };
+  window.addEventListener(
+    "keydown",
+    function (e) {
+      if (
+        (e.key == "Escape" || e.key == "Esc" || e.keyCode == 27) &&
+        e.target.nodeName == "BODY"
+      ) {
+        modal.style.display = "none";
+        $("body").removeClass("modal-open");
+      }
+    },
+    true
+  );
+}

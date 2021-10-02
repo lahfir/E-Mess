@@ -734,7 +734,8 @@ body {
 .main,
 .more-info,
 .third-container,
-.schedule {
+.schedule,
+.about {
   display: none;
   position: fixed;
   z-index: 999999;
@@ -758,7 +759,8 @@ body {
 .main .modal-content,
 .more-info .modal-content,
 .third-container .modal-content,
-.schedule .modal-content {
+.schedule .modal-content,
+.about .modal-content {
   position: relative;
   background-color: #fefefe;
   border-radius: 15px;
@@ -786,7 +788,8 @@ body {
 .main .modal-content .lds-spinner,
 .more-info .modal-content .lds-spinner,
 .third-container .modal-content .lds-spinner,
-.schedule .modal-content .lds-spinner {
+.schedule .modal-content .lds-spinner,
+.about .modal-content .lds-spinner {
   color: official;
   position: relative;
   position: absolute;
@@ -803,7 +806,8 @@ body {
 .main .modal-content .lds-spinner div,
 .more-info .modal-content .lds-spinner div,
 .third-container .modal-content .lds-spinner div,
-.schedule .modal-content .lds-spinner div {
+.schedule .modal-content .lds-spinner div,
+.about .modal-content .lds-spinner div {
   -webkit-transform-origin: 40px 40px;
           transform-origin: 40px 40px;
   -webkit-animation: lds-spinner 1.2s linear infinite;
@@ -814,7 +818,8 @@ body {
 .main .modal-content .lds-spinner div:after,
 .more-info .modal-content .lds-spinner div:after,
 .third-container .modal-content .lds-spinner div:after,
-.schedule .modal-content .lds-spinner div:after {
+.schedule .modal-content .lds-spinner div:after,
+.about .modal-content .lds-spinner div:after {
   content: " ";
   display: block;
   position: absolute;
@@ -830,7 +835,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(1),
 .more-info .modal-content .lds-spinner div:nth-child(1),
 .third-container .modal-content .lds-spinner div:nth-child(1),
-.schedule .modal-content .lds-spinner div:nth-child(1) {
+.schedule .modal-content .lds-spinner div:nth-child(1),
+.about .modal-content .lds-spinner div:nth-child(1) {
   -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
   -webkit-animation-delay: -1.1s;
@@ -841,7 +847,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(2),
 .more-info .modal-content .lds-spinner div:nth-child(2),
 .third-container .modal-content .lds-spinner div:nth-child(2),
-.schedule .modal-content .lds-spinner div:nth-child(2) {
+.schedule .modal-content .lds-spinner div:nth-child(2),
+.about .modal-content .lds-spinner div:nth-child(2) {
   -webkit-transform: rotate(30deg);
           transform: rotate(30deg);
   -webkit-animation-delay: -1s;
@@ -852,7 +859,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(3),
 .more-info .modal-content .lds-spinner div:nth-child(3),
 .third-container .modal-content .lds-spinner div:nth-child(3),
-.schedule .modal-content .lds-spinner div:nth-child(3) {
+.schedule .modal-content .lds-spinner div:nth-child(3),
+.about .modal-content .lds-spinner div:nth-child(3) {
   -webkit-transform: rotate(60deg);
           transform: rotate(60deg);
   -webkit-animation-delay: -0.9s;
@@ -863,7 +871,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(4),
 .more-info .modal-content .lds-spinner div:nth-child(4),
 .third-container .modal-content .lds-spinner div:nth-child(4),
-.schedule .modal-content .lds-spinner div:nth-child(4) {
+.schedule .modal-content .lds-spinner div:nth-child(4),
+.about .modal-content .lds-spinner div:nth-child(4) {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   -webkit-animation-delay: -0.8s;
@@ -874,7 +883,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(5),
 .more-info .modal-content .lds-spinner div:nth-child(5),
 .third-container .modal-content .lds-spinner div:nth-child(5),
-.schedule .modal-content .lds-spinner div:nth-child(5) {
+.schedule .modal-content .lds-spinner div:nth-child(5),
+.about .modal-content .lds-spinner div:nth-child(5) {
   -webkit-transform: rotate(120deg);
           transform: rotate(120deg);
   -webkit-animation-delay: -0.7s;
@@ -885,7 +895,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(6),
 .more-info .modal-content .lds-spinner div:nth-child(6),
 .third-container .modal-content .lds-spinner div:nth-child(6),
-.schedule .modal-content .lds-spinner div:nth-child(6) {
+.schedule .modal-content .lds-spinner div:nth-child(6),
+.about .modal-content .lds-spinner div:nth-child(6) {
   -webkit-transform: rotate(150deg);
           transform: rotate(150deg);
   -webkit-animation-delay: -0.6s;
@@ -896,7 +907,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(7),
 .more-info .modal-content .lds-spinner div:nth-child(7),
 .third-container .modal-content .lds-spinner div:nth-child(7),
-.schedule .modal-content .lds-spinner div:nth-child(7) {
+.schedule .modal-content .lds-spinner div:nth-child(7),
+.about .modal-content .lds-spinner div:nth-child(7) {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   -webkit-animation-delay: -0.5s;
@@ -907,7 +919,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(8),
 .more-info .modal-content .lds-spinner div:nth-child(8),
 .third-container .modal-content .lds-spinner div:nth-child(8),
-.schedule .modal-content .lds-spinner div:nth-child(8) {
+.schedule .modal-content .lds-spinner div:nth-child(8),
+.about .modal-content .lds-spinner div:nth-child(8) {
   -webkit-transform: rotate(210deg);
           transform: rotate(210deg);
   -webkit-animation-delay: -0.4s;
@@ -918,7 +931,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(9),
 .more-info .modal-content .lds-spinner div:nth-child(9),
 .third-container .modal-content .lds-spinner div:nth-child(9),
-.schedule .modal-content .lds-spinner div:nth-child(9) {
+.schedule .modal-content .lds-spinner div:nth-child(9),
+.about .modal-content .lds-spinner div:nth-child(9) {
   -webkit-transform: rotate(240deg);
           transform: rotate(240deg);
   -webkit-animation-delay: -0.3s;
@@ -929,7 +943,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(10),
 .more-info .modal-content .lds-spinner div:nth-child(10),
 .third-container .modal-content .lds-spinner div:nth-child(10),
-.schedule .modal-content .lds-spinner div:nth-child(10) {
+.schedule .modal-content .lds-spinner div:nth-child(10),
+.about .modal-content .lds-spinner div:nth-child(10) {
   -webkit-transform: rotate(270deg);
           transform: rotate(270deg);
   -webkit-animation-delay: -0.2s;
@@ -940,7 +955,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(11),
 .more-info .modal-content .lds-spinner div:nth-child(11),
 .third-container .modal-content .lds-spinner div:nth-child(11),
-.schedule .modal-content .lds-spinner div:nth-child(11) {
+.schedule .modal-content .lds-spinner div:nth-child(11),
+.about .modal-content .lds-spinner div:nth-child(11) {
   -webkit-transform: rotate(300deg);
           transform: rotate(300deg);
   -webkit-animation-delay: -0.1s;
@@ -951,7 +967,8 @@ body {
 .main .modal-content .lds-spinner div:nth-child(12),
 .more-info .modal-content .lds-spinner div:nth-child(12),
 .third-container .modal-content .lds-spinner div:nth-child(12),
-.schedule .modal-content .lds-spinner div:nth-child(12) {
+.schedule .modal-content .lds-spinner div:nth-child(12),
+.about .modal-content .lds-spinner div:nth-child(12) {
   -webkit-transform: rotate(330deg);
           transform: rotate(330deg);
   -webkit-animation-delay: 0s;
@@ -980,7 +997,8 @@ body {
 .main .modal-content::-webkit-scrollbar,
 .more-info .modal-content::-webkit-scrollbar,
 .third-container .modal-content::-webkit-scrollbar,
-.schedule .modal-content::-webkit-scrollbar {
+.schedule .modal-content::-webkit-scrollbar,
+.about .modal-content::-webkit-scrollbar {
   width: 3px;
 }
 
@@ -988,7 +1006,8 @@ body {
 .main .modal-content::-webkit-scrollbar-track,
 .more-info .modal-content::-webkit-scrollbar-track,
 .third-container .modal-content::-webkit-scrollbar-track,
-.schedule .modal-content::-webkit-scrollbar-track {
+.schedule .modal-content::-webkit-scrollbar-track,
+.about .modal-content::-webkit-scrollbar-track {
   background: #f1f1f100;
 }
 
@@ -996,7 +1015,8 @@ body {
 .main .modal-content::-webkit-scrollbar-thumb,
 .more-info .modal-content::-webkit-scrollbar-thumb,
 .third-container .modal-content::-webkit-scrollbar-thumb,
-.schedule .modal-content::-webkit-scrollbar-thumb {
+.schedule .modal-content::-webkit-scrollbar-thumb,
+.about .modal-content::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
 }
@@ -1005,7 +1025,8 @@ body {
 .main .modal-content::-webkit-scrollbar-thumb:hover,
 .more-info .modal-content::-webkit-scrollbar-thumb:hover,
 .third-container .modal-content::-webkit-scrollbar-thumb:hover,
-.schedule .modal-content::-webkit-scrollbar-thumb:hover {
+.schedule .modal-content::-webkit-scrollbar-thumb:hover,
+.about .modal-content::-webkit-scrollbar-thumb:hover {
   background: #afafaf;
 }
 
@@ -1013,7 +1034,8 @@ body {
 .main .modal-content .modal-gallery,
 .more-info .modal-content .modal-gallery,
 .third-container .modal-content .modal-gallery,
-.schedule .modal-content .modal-gallery {
+.schedule .modal-content .modal-gallery,
+.about .modal-content .modal-gallery {
   width: 100%;
   height: 200px;
   overflow: hidden;
@@ -1024,7 +1046,8 @@ body {
 .main .modal-content .modal-gallery #modal-image,
 .more-info .modal-content .modal-gallery #modal-image,
 .third-container .modal-content .modal-gallery #modal-image,
-.schedule .modal-content .modal-gallery #modal-image {
+.schedule .modal-content .modal-gallery #modal-image,
+.about .modal-content .modal-gallery #modal-image {
   -webkit-animation: zoomIn 0.3s;
           animation: zoomIn 0.3s;
   width: 100%;
@@ -1039,7 +1062,8 @@ body {
 .main .modal-content .modal-main-content,
 .more-info .modal-content .modal-main-content,
 .third-container .modal-content .modal-main-content,
-.schedule .modal-content .modal-main-content {
+.schedule .modal-content .modal-main-content,
+.about .modal-content .modal-main-content {
   overflow: hidden;
 }
 
@@ -1047,7 +1071,8 @@ body {
 .main .modal-content .modal-main-content .modal-title-section,
 .more-info .modal-content .modal-main-content .modal-title-section,
 .third-container .modal-content .modal-main-content .modal-title-section,
-.schedule .modal-content .modal-main-content .modal-title-section {
+.schedule .modal-content .modal-main-content .modal-title-section,
+.about .modal-content .modal-main-content .modal-title-section {
   margin-top: 15px;
   width: 100%;
   display: -webkit-box;
@@ -1067,7 +1092,8 @@ body {
 .main .modal-content .modal-main-content .modal-title-section .modal-title,
 .more-info .modal-content .modal-main-content .modal-title-section .modal-title,
 .third-container .modal-content .modal-main-content .modal-title-section .modal-title,
-.schedule .modal-content .modal-main-content .modal-title-section .modal-title {
+.schedule .modal-content .modal-main-content .modal-title-section .modal-title,
+.about .modal-content .modal-main-content .modal-title-section .modal-title {
   font-family: "Metrophobic", sans-serif;
   font-size: 26px;
   text-transform: uppercase;
@@ -1083,7 +1109,9 @@ body {
 .third-container .modal-content .modal-main-content .modal-title-section .veg-icon,
 .third-container .modal-content .modal-main-content .modal-title-section .non-veg-icon,
 .schedule .modal-content .modal-main-content .modal-title-section .veg-icon,
-.schedule .modal-content .modal-main-content .modal-title-section .non-veg-icon {
+.schedule .modal-content .modal-main-content .modal-title-section .non-veg-icon,
+.about .modal-content .modal-main-content .modal-title-section .veg-icon,
+.about .modal-content .modal-main-content .modal-title-section .non-veg-icon {
   width: 24px;
   margin-left: 8px;
 }
@@ -1092,7 +1120,8 @@ body {
 .main .modal-content .modal-main-content .modal-title-section .non-veg-icon,
 .more-info .modal-content .modal-main-content .modal-title-section .non-veg-icon,
 .third-container .modal-content .modal-main-content .modal-title-section .non-veg-icon,
-.schedule .modal-content .modal-main-content .modal-title-section .non-veg-icon {
+.schedule .modal-content .modal-main-content .modal-title-section .non-veg-icon,
+.about .modal-content .modal-main-content .modal-title-section .non-veg-icon {
   display: none;
 }
 
@@ -1100,7 +1129,8 @@ body {
 .main .modal-content .modal-main-content .menu-items-container,
 .more-info .modal-content .modal-main-content .menu-items-container,
 .third-container .modal-content .modal-main-content .menu-items-container,
-.schedule .modal-content .modal-main-content .menu-items-container {
+.schedule .modal-content .modal-main-content .menu-items-container,
+.about .modal-content .modal-main-content .menu-items-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1121,7 +1151,8 @@ body {
 .main .modal-content .modal-main-content .menu-items-container p,
 .more-info .modal-content .modal-main-content .menu-items-container p,
 .third-container .modal-content .modal-main-content .menu-items-container p,
-.schedule .modal-content .modal-main-content .menu-items-container p {
+.schedule .modal-content .modal-main-content .menu-items-container p,
+.about .modal-content .modal-main-content .menu-items-container p {
   margin: 6px;
   padding: 10px 15px;
   font-size: 16px;
@@ -1137,7 +1168,8 @@ body {
 .main .modal-content .close,
 .more-info .modal-content .close,
 .third-container .modal-content .close,
-.schedule .modal-content .close {
+.schedule .modal-content .close,
+.about .modal-content .close {
   position: absolute;
   color: #aaaaaa;
   background-color: white;
@@ -1161,7 +1193,8 @@ body {
 .main .modal-content .close div,
 .more-info .modal-content .close div,
 .third-container .modal-content .close div,
-.schedule .modal-content .close div {
+.schedule .modal-content .close div,
+.about .modal-content .close div {
   font-size: 28px;
   font-weight: bold;
 }
@@ -1174,10 +1207,48 @@ body {
 .third-container .modal-content .close:hover,
 .third-container .modal-content .close:focus,
 .schedule .modal-content .close:hover,
-.schedule .modal-content .close:focus {
+.schedule .modal-content .close:focus,
+.about .modal-content .close:hover,
+.about .modal-content .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.about .modal-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.about .modal-content .team-img {
+  min-width: 100%;
+  top: 25px;
+  max-width: 250px;
+}
+
+.about .modal-content .about-content ul {
+  margin-top: 10px;
+  padding: 0 5px;
+}
+
+.about .modal-content .about-content ul li {
+  list-style: none;
+  margin: 8px 0;
+  font-family: "Metrophobic", sans-serif;
+  color: #0E0E10;
+  font-weight: 700;
+  word-wrap: wrap;
 }
 
 .contact .modal-content {
@@ -1474,6 +1545,8 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-animation: slideInDown 0.3s;
+          animation: slideInDown 0.3s;
   border: 2px solid #dfdfdf;
   padding: 10px;
   background-color: #F5F5F5;
@@ -1547,7 +1620,8 @@ body {
   .contact .modal-content,
   .main .modal-content,
   .third-container .modal-content,
-  .schedule .modal-content {
+  .schedule .modal-content,
+  .about .modal-content {
     min-width: unset;
     height: 60%;
     width: 80%;
