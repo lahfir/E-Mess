@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify, redirect, request, session
 from flask_session import Session
 import datetime
 from pymongo import MongoClient
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 now = datetime.datetime.now()

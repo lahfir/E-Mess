@@ -156,6 +156,18 @@ body {
                         }
                     }
 
+                    #log-out-btn {
+                        width: 100%;
+                        border: 2px solid $primary-color;
+                        padding: 5px 0;
+                        cursor: pointer;
+                        margin-top: 10px;
+                        border-radius: 5px;
+                        background: $primary-color;
+                        transition: all 0.3s ease;
+                        font-weight: 600;
+                    }
+
                     #username {
                         color: $black;
                         font-weight: 600;
@@ -166,6 +178,7 @@ body {
             .logged-out-logging {
                 padding: 8px;
                 display: flex;
+                // display: none;
                 transition: all 0.3s ease;
                 border-radius: 5px;
                 align-items: center;

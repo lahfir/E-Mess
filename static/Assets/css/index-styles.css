@@ -169,6 +169,19 @@ body {
   background: #ffad4259;
 }
 
+#navbar .inner-navbar .profile-container .logged-in-profile-container .profile-drop-down #log-out-btn {
+  width: 100%;
+  border: 2px solid #FFAE42;
+  padding: 5px 0;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+  background: #FFAE42;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
 #navbar .inner-navbar .profile-container .logged-in-profile-container .profile-drop-down #username {
   color: #0E0E10;
   font-weight: 600;

@@ -5,3 +5,4 @@ dnspython
 python-dotenv
 gunicorn
 Jinja2
+werkzeug

@@ -15,17 +15,22 @@ if cluster:
     print("Connected")
 
 db = cluster["mess_db"]
-collection = db["mess_schedule"]
-for j in ["monday", "tuesday", "wednesday", "thursday", "saturday", "sunday"]:
-    for i in collection.find({"_id": j}):
-        schedule[j] = {
-            "breakfast": i.get("breakfast"),
-            "lunch": i.get("lunch"),
-            "snack": i.get("snack"),
-            "dinner": i.get("dinner"),
-        }
+# collection = db["mess_schedule"]
+# for j in ["monday", "tuesday", "wednesday", "thursday", "saturday", "sunday"]:
+#     for i in collection.find({"_id": j}):
+#         schedule[j] = {
+#             "breakfast": i.get("breakfast"),
+#             "lunch": i.get("lunch"),
+#             "snack": i.get("snack"),
+#             "dinner": i.get("dinner"),
+#         }
 
-for i in schedule:
-    for j in schedule[i]:
-        for k in range(len(schedule[i][j])):
-            print(schedule[i][j][k])
+# for i in schedule:
+#     for j in schedule[i]:
+#         for k in range(len(schedule[i][j])):
+#             print(schedule[i][j][k])
+
+from werkzeug.security import generate_password_hash, check_password_hash
+
+hashed = generate_password_hash("lahfir", method="sha256")
+print(check_password_hash(hashed, input("Enter PD")))
