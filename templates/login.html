@@ -44,12 +44,12 @@
           <div class="inner-container">
             <form id="login-form" action="">
               <div class="rollno-container">
-                <label for="rollno-input">Roll Number</label>
-                <input id="rollno-input" type="text" placeholder="" />
+                <label for="l-rollno-input">Roll Number</label>
+                <input id="l-rollno-input" type="text" placeholder="" />
               </div>
               <div class="password-container">
-                <label for="password-input">Password</label>
-                <input id="password-input" type="password" placeholder="" />
+                <label for="l-password-input">Password</label>
+                <input id="l-password-input" type="password" placeholder="" />
               </div>
               <button type="submit" id="login-submit-btn">Login</button>
             </form>
@@ -64,6 +64,7 @@
                       name="hostel-category"
                       type="radio"
                       value="Men's"
+                      required
                     />
                     <label for="hostel-category-mens-radio">Men's</label>
                   </div>
@@ -73,22 +74,45 @@
                       name="hostel-category"
                       type="radio"
                       value="Women's"
+                      required
                     />
                     <label for="hostel-category-womens-radio">Women's</label>
                   </div>
                 </div>
               </div>
+              <div class="email-container">
+                <label for="email-input">E-Mail</label>
+                <input
+                  id="email-input"
+                  name="email-input"
+                  type="text"
+                  placeholder="Enter your Official E-Mail Id"
+                  required
+                />
+              </div>
               <div class="rollno-container">
                 <label for="rollno-input">Roll Number</label>
-                <input id="rollno-input" type="text" placeholder="" />
+                <input
+                  name="rollno-input"
+                  id="rollno-input"
+                  type="text"
+                  placeholder=""
+                  required
+                />
               </div>
               <div class="name-container">
                 <label for="name-input">Name</label>
-                <input id="name-input" type="text" placeholder="" />
+                <input
+                  name="name-input"
+                  id="name-input"
+                  type="text"
+                  placeholder=""
+                  required
+                />
               </div>
               <div class="department-container">
                 <label for="department-input">Department</label>
-                <select name="Departments" id="department-input">
+                <select name="department" id="department-input">
                   <option value="0">Apparel & Fashion Design</option>
                   <option value="1">
                     Applied Mathematics & Computational Sciences
@@ -124,18 +148,32 @@
               </div>
               <div class="room-no-container">
                 <label for="room-no-input">Room No</label>
-                <input id="room-no-input" type="text" placeholder="" />
+                <input
+                  name="room-no-input"
+                  id="room-no-input"
+                  type="text"
+                  placeholder=""
+                  required
+                />
               </div>
               <div class="password-container">
                 <label for="password-input">Password</label>
-                <input id="password-input" type="password" placeholder="" />
+                <input
+                  name="password-input"
+                  id="password-input"
+                  type="password"
+                  placeholder=""
+                  required
+                />
               </div>
               <div class="confirm-password-container">
                 <label for="confirm-password-input">Confirm Password</label>
                 <input
+                  name="confirm-password-input"
                   id="confirm-password-input"
                   type="password"
                   placeholder=""
+                  required
                 />
               </div>
               <button type="submit" id="register-submit-btn">Register</button>

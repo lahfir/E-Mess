@@ -183,7 +183,7 @@ body {
 }
 
 .login-main .right-container .container .inner-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: unset;
 }
 
 .login-main .right-container .container .inner-container::-webkit-scrollbar-thumb {
@@ -299,13 +299,13 @@ body {
 .login-main .right-container .container .inner-container #register-form div input[type="text"]::-webkit-scrollbar-track,
 .login-main .right-container .container .inner-container #register-form div input[type="password"]::-webkit-scrollbar-track,
 .login-main .right-container .container .inner-container #register-form div select::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: unset;
 }
 
 .login-main .right-container .container .inner-container #register-form div input[type="text"]::-webkit-scrollbar-thumb,
 .login-main .right-container .container .inner-container #register-form div input[type="password"]::-webkit-scrollbar-thumb,
 .login-main .right-container .container .inner-container #register-form div select::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #bdbdbd;
   border-radius: 20px;
 }
 
@@ -328,11 +328,11 @@ body {
   display: inline-block;
   width: 16px;
   height: 16px;
+  cursor: pointer;
   padding: 2px;
   /* background-color only for content */
   background-clip: content-box;
   border: 2px solid #bbbbbb;
-  background-color: #e7e6e7;
   border-radius: 50%;
   outline: unset;
 }

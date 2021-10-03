@@ -153,7 +153,7 @@ body {
 
                 /* Track */
                 &::-webkit-scrollbar-track {
-                    background: #f1f1f1;
+                    background: unset;
                 }
 
                 /* Handle */
@@ -259,12 +259,12 @@ body {
 
                             /* Track */
                             &::-webkit-scrollbar-track {
-                                background: #f1f1f1;
+                                background: unset;
                             }
 
                             /* Handle */
                             &::-webkit-scrollbar-thumb {
-                                background: #888;
+                                background: rgb(189, 189, 189);
                                 border-radius: 20px;
                             }
 
@@ -285,11 +285,12 @@ body {
                             display: inline-block;
                             width: 16px;
                             height: 16px;
+                            cursor: pointer;
                             padding: 2px;
                             /* background-color only for content */
                             background-clip: content-box;
                             border: 2px solid #bbbbbb;
-                            background-color: #e7e6e7;
+                            // background-color: #e7e6e7;
                             border-radius: 50%;
                             outline: unset;
                         }

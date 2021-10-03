@@ -13,3 +13,22 @@ $("#register-btn").click(function () {
   $("#login-form").hide();
   $("#register-form").fadeIn(250);
 });
+
+$("#register-form").submit(function (e) {
+  var $form = $(this);
+  var data = $form.serialize();
+
+  $.ajax({
+    url: "/register",
+    type: "POST",
+    data: data,
+    success: function (res) {
+      console.log(res);
+    },
+    error: function (res) {
+      console.log(res.error);
+    },
+  });
+
+  e.preventDefault();
+});
