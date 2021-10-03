@@ -61,7 +61,7 @@ today = now.strftime("%A").lower()
 
 app = Flask(__name__)
 app.secret_key = b"Z\xba)\xe62\xa5`\xda\xb3p+N,A|^"
-app.permanent_session_lifetime = datetime.timedelta(days=7)
+app.permanent_session_lifetime = datetime.timedelta(days=21)
 
 cluster = MongoClient(
     "mongodb+srv://emesspsgct:emesspsgct2021@e-messpsgct.4q1dp.mongodb.net/myFirstDatabase?ssl=true&ssl_cert_reqs=CERT_NONE"
@@ -86,12 +86,14 @@ def index():
 
     if not session.get("user"):
         return render_template(
-            "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]]
+            "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]], user=""
         )
 
     user = session.get("user")
+    print(user)
     collection = db["users"]
     user = collection.find_one({"email": user})
+    print(user)
 
     return render_template(
         "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]], user=user
@@ -101,7 +103,7 @@ def index():
 @app.route("/logout")
 def logout():
     session.pop("user", None)
-    return redirect(url_for("/"))
+    return redirect("/")
 
 
 @app.route("/register", methods=["POST", "GET"])
@@ -142,7 +144,7 @@ def register():
 
                 collection.insert_one(user)
                 session["user"] = user["email"]
-                return jsonify(user), 200
+                return redirect("/")
         else:
             return (
                 jsonify({"message": "Invalid roll number"}),
@@ -155,7 +157,7 @@ def register():
         )
 
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login", methods=["POST", "GET"])
 def login():
 
     db = cluster["mess_db"]
@@ -173,7 +175,7 @@ def login():
                 for i in collection.find({"email": email}):
                     if check_password_hash(password, i["password"]):
                         session["user"] = user
-                        return redirect(url_for("/"))
+                        return redirect("/")
                     else:
                         return (
                             jsonify({"message": "Invalid password"}),
@@ -181,7 +183,7 @@ def login():
                         )
             else:
                 return (
-                    jsonify({"message": "No such registered E-Mail"}),
+                    jsonify({"message": "No such registered E-Mail. Try registering"}),
                     500,
                 )
             return redirect(url_for("/"))

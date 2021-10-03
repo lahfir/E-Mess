@@ -29,7 +29,7 @@ $(document).ready(function () {
     if (data.error) {
       alert(data.error);
     } else {
-      // var user = JSON.parse("{{ user | tojson | safe }}");
+      var user = JSON.parse("{{ user | tojson | safe }}");
       console.log(user);
     }
   });
