@@ -1,10 +1,19 @@
 from os import error
-from flask import Flask, render_template, url_for, jsonify, redirect, request, session
+from flask import (
+    Flask,
+    json,
+    render_template,
+    url_for,
+    jsonify,
+    redirect,
+    request,
+    session,
+)
 from flask_session import Session
 import datetime
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
-import ssl, uuid, re
+import ssl, uuid, re, datetime
 
 
 def email_check(email):
@@ -20,8 +29,27 @@ def email_check(email):
 
     # else:
 
-    regex = r"[18-22]{1}[a-z][0-9]{3}@psgtech.ac.in"
+    regex = r"[1-2][1-9][a-z][0-9]{3}@psgtech.ac.in"
     if re.fullmatch(regex, email):
+        return True
+    else:
+        return False
+
+
+def check_roll(roll):
+    roll = roll.lower()
+
+    # if result == 3:
+    #     regex = r"[a-z]{3}.it@psgtech.ac.in"
+    #     if re.fullmatch(regex, email):
+    #         return True
+    #     else:
+    #         return False
+
+    # else:
+
+    regex = r"[1-2][1-9][a-z][0-9]{3}"
+    if re.fullmatch(regex, roll):
         return True
     else:
         return False
@@ -32,6 +60,8 @@ today = now.strftime("%A").lower()
 
 
 app = Flask(__name__)
+app.secret_key = b"Z\xba)\xe62\xa5`\xda\xb3p+N,A|^"
+app.permanent_session_lifetime = datetime.timedelta(days=7)
 
 cluster = MongoClient(
     "mongodb+srv://emesspsgct:emesspsgct2021@e-messpsgct.4q1dp.mongodb.net/myFirstDatabase?ssl=true&ssl_cert_reqs=CERT_NONE"
@@ -39,15 +69,23 @@ cluster = MongoClient(
 if cluster:
     print("Connected")
 
-db = cluster["mess_db"]
-
 breakfast, lunch, snack, dinner = [], [], [], []
 
 
 @app.route("/")
 def index():
+    db = cluster["mess_db"]
     collection = db["mess_schedule"]
     global breakfast, lunch, snack, dinner
+
+    if not session.get("user"):
+        return render_template(
+            "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]]
+        )
+
+    user = session.get("user")
+    user = collection.find_one({"email": user})
+
     for i in collection.find({"_id": today}):
         breakfast = [j.title() for j in i["breakfast"]]
         lunch = [j.title() for j in i["lunch"]]
@@ -55,53 +93,104 @@ def index():
         dinner = [j.title() for j in i["dinner"]]
 
     return render_template(
-        "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]]
+        "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]], user=user
     )
+
+
+@app.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect(url_for("/"))
 
 
 @app.route("/register", methods=["POST", "GET"])
-def login():
-    if email_check(str(request.form.get("email-input"))):
-        user = {
-            "_id": uuid.uuid4().hex,
-            "email": request.form.get("email-input"),
-            "name": request.form.get("name-input"),
-            "roll-no": request.form.get("rollno-input"),
-            "room-no": request.form.get("room-no-input"),
-            "department": request.form.get("department"),
-            "hostel": request.form.get("hostel-category"),
-            "password": generate_password_hash(
-                request.form.get("password-input"), method="sha256"
-            ),
-        }
+def register():
+
+    roll_no = str(request.form.get("rollno-input").lower())
+    email = str(request.form.get("email-input").lower())
+
+    if email_check(email):
+        if check_roll(roll_no):
+            db = cluster["mess_db"]
+            collection = db["users"]
+
+            if collection.find_one({"email": email}):
+                return (
+                    jsonify({"message": "User already registered"}),
+                    500,
+                )
+            elif collection.find_one({"roll-no": roll_no}):
+                return (
+                    jsonify({"message": "User already registered"}),
+                    500,
+                )
+            else:
+                user = {
+                    "_id": uuid.uuid4().hex,
+                    "email": request.form.get("email-input"),
+                    "name": request.form.get("name-input"),
+                    "roll-no": request.form.get("rollno-input"),
+                    "room-no": request.form.get("room-no-input"),
+                    "department": request.form.get("department"),
+                    "hostel": request.form.get("hostel-category"),
+                    "password": generate_password_hash(
+                        request.form.get("password-input"), method="sha256"
+                    ),
+                    "date": datetime.datetime.now().strftime("%Y-%m-%d"),
+                }
+
+                collection.insert_one(user)
+                session["user"] = user["email"]
+                return jsonify(user), 200
+        else:
+            return (
+                jsonify({"message": "Invalid roll number"}),
+                500,
+            )
     else:
         return (
-            jsonify(
-                {
-                    "success": "false",
-                    "error": {"type": "E-Mail", "message": "Invalid email address"},
-                }
-            ),
+            jsonify({"message": "Invalid email id"}),
             500,
         )
 
-    return render_template("login.html")
-
 
 @app.route("/login", methods=["GET", "POST"])
-def register():
+def login():
+
+    db = cluster["mess_db"]
+    collection = db["users"]
+
     if request.method == "POST":
-        user = request.form["email"]
-        return redirect(url_for("user", usr=user))
+        print("Hello")
+        email = str(request.form.get("l-email-input").lower())
+        password = str(request.form.get("l-password-input").lower())
+        if email_check(email):
+            session.permanent = True
+            user = request.form.get("email-input")
+
+            if collection.find_one({"email": email}):
+                for i in collection.find({"email": email}):
+                    if check_password_hash(password, i["password"]):
+                        session["user"] = user
+                        return redirect(url_for("/"))
+                    else:
+                        return (
+                            jsonify({"message": "Invalid password"}),
+                            500,
+                        )
+            else:
+                return (
+                    jsonify({"message": "No such registered E-Mail"}),
+                    500,
+                )
+            return redirect(url_for("/"))
+        else:
+            return (
+                jsonify({"message": "Invalid email id"}),
+                500,
+            )
     else:
         return render_template("login.html")
-
-
-@app.route("/user", methods=["GET", "POST"])
-def user(usr):
-    return render_template(
-        "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]]
-    )
 
 
 @app.route("/menu", methods=["GET"])
@@ -118,6 +207,7 @@ def getMenu():
 @app.route("/schedule", methods=["GET"])
 def getSchedule():
     try:
+        db = cluster["mess_db"]
         collection = db["mess_schedule"]
         schedule = {}
         for j in [
@@ -145,6 +235,7 @@ def getSchedule():
 def getTimings():
     morning, afternoon, evening, night = [], [], [], []
     try:
+        db = cluster["mess_db"]
         collection = db["mess_timings"]
         for i in collection.find({"_id": "timings"}):
             morning = i["morning"]

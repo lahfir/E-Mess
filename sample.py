@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, redirect, request, session
 from flask_session import Session
-import datetime
+import datetime, os
 from pymongo import MongoClient
 
 
@@ -34,3 +34,5 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 hashed = generate_password_hash("lahfir", method="sha256")
 print(check_password_hash(hashed, input("Enter PD")))
+
+print(os.urandom(16))

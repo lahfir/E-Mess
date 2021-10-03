@@ -18,17 +18,24 @@ $("#register-form").submit(function (e) {
   var $form = $(this);
   var data = $form.serialize();
 
-  $.ajax({
-    url: "/register",
-    type: "POST",
-    data: data,
-    success: function (res) {
-      console.log(res);
-    },
-    error: function (res) {
-      console.log(res.error);
-    },
-  });
+  if ($("#password-input").val() === $("#confirm-password-input").val()) {
+    $.ajax({
+      url: "/register",
+      type: "POST",
+      data: data,
+      success: function (data) {
+        window.location.href = "/";
+        $(".logged-out-logging").css("display", "none");
+        $(".logged-in-profile-container").css("display", "flex");
+        $("#username").text(data["roll-no"]);
+      },
+      error: function (request, response) {
+        alert(request.responseJSON.message);
+      },
+    });
+  } else {
+    alert("Passwords doesn't match");
+  }
 
   e.preventDefault();
 });

@@ -13,7 +13,7 @@ def check(email):
             print("Invalid Email")
 
     else:
-        regex = r"[18-22]{1}[a-z][0-9]{3}@psgtech.ac.in"
+        regex = r"[1-2][1-9][a-z][0-9]{3}@psgtech.ac.in"
         if re.fullmatch(regex, email):
             print("Valid Email")
         else:

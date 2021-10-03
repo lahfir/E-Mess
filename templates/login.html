@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="{{ url_for('static',filename='../static/Assets/css/login-styles.css') }}"
     />
-    <script src="{{ url_for('static',filename='../static/Assets/JS/auth-handler.js') }}"></script>
+    <script src="{{ url_for('static',filename='../static/Assets/JS/index.js') }}"></script>
     <link rel="stylesheet" href="../static/Assets/css/login-styles.css" />
     <title>PSGCT E-MESS • LOGIN</title>
   </head>
@@ -44,12 +44,24 @@
           <div class="inner-container">
             <form id="login-form" action="">
               <div class="rollno-container">
-                <label for="l-rollno-input">Roll Number</label>
-                <input id="l-rollno-input" type="text" placeholder="" />
+                <label for="l-email-input">E-Mail</label>
+                <input
+                  name="l-email-input"
+                  id="l-email-input"
+                  type="text"
+                  placeholder=""
+                  required
+                />
               </div>
               <div class="password-container">
                 <label for="l-password-input">Password</label>
-                <input id="l-password-input" type="password" placeholder="" />
+                <input
+                  name="l-password-input"
+                  id="l-password-input"
+                  type="password"
+                  placeholder=""
+                  required
+                />
               </div>
               <button type="submit" id="login-submit-btn">Login</button>
             </form>
@@ -113,37 +125,63 @@
               <div class="department-container">
                 <label for="department-input">Department</label>
                 <select name="department" id="department-input">
-                  <option value="0">Apparel & Fashion Design</option>
-                  <option value="1">
+                  <option value="Apparel & Fashion Design">
+                    Apparel & Fashion Design
+                  </option>
+                  <option value="Applied Mathematics & Computational Sciences">
                     Applied Mathematics & Computational Sciences
                   </option>
-                  <option value="2">Applied Science</option>
-                  <option value="3">Automobile Engineering</option>
-                  <option value="4">Bio-technology</option>
-                  <option value="5">Biomedical Engineering</option>
-                  <option value="6">Civil Engineering</option>
-                  <option value="7">Computer Science & Engineering</option>
-                  <option value="8">
+                  <option value="Applied Science">Applied Science</option>
+                  <option value="Automobile Engineering">
+                    Automobile Engineering
+                  </option>
+                  <option value="Bio-technology">Bio-technology</option>
+                  <option value="Biomedical Engineering">
+                    Biomedical Engineering
+                  </option>
+                  <option value="Civil Engineering">Civil Engineering</option>
+                  <option value="Computer Science & Engineering">
+                    Computer Science & Engineering
+                  </option>
+                  <option value="Electronics & Communication Engineering">
                     Electronics & Communication Engineering
                   </option>
-                  <option value="9">
+                  <option value="Electrical & Electronics Engineering">
                     Electrical & Electronics Engineering
                   </option>
-                  <option value="10">Fashion Technology</option>
-                  <option value="11">
+                  <option value="Fashion Technology">Fashion Technology</option>
+                  <option value="Instrumentation & Control Systems Engineering">
                     Instrumentation & Control Systems Engineering
                   </option>
-                  <option value="12">Information Technology</option>
-                  <option value="13">Computer Applications</option>
-                  <option value="14">Mechanical Engineering</option>
-                  <option value="15">Metallurgical Engineering</option>
-                  <option value="16">Production Engineering</option>
-                  <option value="17">Robotics & Automation Engineering</option>
-                  <option value="18">Textile Technology</option>
-                  <option value="19">Management Sciences</option>
-                  <option value="20">Production Engineering (SW)</option>
-                  <option value="21">EEE (SW)</option>
-                  <option value="22">Mechanical Engineering (SW)</option>
+                  <option value="Information Technology">
+                    Information Technology
+                  </option>
+                  <option value="Computer Applications">
+                    Computer Applications
+                  </option>
+                  <option value="Mechanical Engineering">
+                    Mechanical Engineering
+                  </option>
+                  <option value="Metallurgical Engineering">
+                    Metallurgical Engineering
+                  </option>
+                  <option value="Production Engineering">
+                    Production Engineering
+                  </option>
+                  <option value="Robotics & Automation Engineering">
+                    Robotics & Automation Engineering
+                  </option>
+                  <option value="Textile Technology">Textile Technology</option>
+                  <option value="Management Sciences">
+                    Management Sciences
+                  </option>
+                  <option value="Production Engineering (SW)">
+                    Production Engineering (SW)
+                  </option>
+                  <option value="EEE (SW)">EEE (SW)</option>
+                  <option value="Mechanical Engineering (SW)">
+                    Mechanical Engineering (SW)
+                  </option>
                 </select>
               </div>
               <div class="room-no-container">
