@@ -78,19 +78,20 @@ def index():
     collection = db["mess_schedule"]
     global breakfast, lunch, snack, dinner
 
+    for i in collection.find({"_id": today}):
+        breakfast = [j.title() for j in i["breakfast"]]
+        lunch = [j.title() for j in i["lunch"]]
+        snack = [j.title() for j in i["snack"]]
+        dinner = [j.title() for j in i["dinner"]]
+
     if not session.get("user"):
         return render_template(
             "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]]
         )
 
     user = session.get("user")
+    collection = db["users"]
     user = collection.find_one({"email": user})
-
-    for i in collection.find({"_id": today}):
-        breakfast = [j.title() for j in i["breakfast"]]
-        lunch = [j.title() for j in i["lunch"]]
-        snack = [j.title() for j in i["snack"]]
-        dinner = [j.title() for j in i["dinner"]]
 
     return render_template(
         "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]], user=user
