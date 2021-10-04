@@ -119,7 +119,9 @@ def home():
     collection = db["users"]
     user = collection.find_one({"email": user})
 
-    return jsonify({"user": user})
+    del user["password"]
+
+    return jsonify({"user": True})
 
 
 @app.route("/logout")

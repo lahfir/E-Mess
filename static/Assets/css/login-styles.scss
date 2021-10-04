@@ -24,6 +24,15 @@ a {
     }
 }
 
+button {
+    transition: all 0.3s ease;
+    color: $black;
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -181,6 +190,7 @@ button {
                     z-index: 10;
                     cursor: pointer;
                     margin: 0 10px;
+                    color: $black;
                 }
 
                 #login-btn {
