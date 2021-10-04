@@ -143,6 +143,7 @@ def register():
                 }
 
                 collection.insert_one(user)
+                session.permanent = True
                 session["user"] = user["email"]
                 return redirect("/")
         else:
