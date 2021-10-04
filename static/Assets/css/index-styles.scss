@@ -1267,7 +1267,7 @@ button {
         }
 
         p {
-            font-size: 1vw;
+            font-size: clamp(16px, 4vw, 22px);
         }
 
         button {
@@ -1278,7 +1278,7 @@ button {
             border-radius: 10px;
             padding: 10px;
             margin-top: 25px;
-            font-size: 1vw;
+            font-size: clamp(16px, 4vw, 22px);
             cursor: pointer;
         }
 
