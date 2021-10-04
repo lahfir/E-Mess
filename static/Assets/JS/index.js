@@ -7,7 +7,8 @@ var breakfast = null,
   afternoon = null,
   evening = null,
   night = null,
-  schedule = null;
+  schedule = null,
+  User;
 var days = [
   "monday",
   "tuesday",
@@ -20,17 +21,24 @@ var days = [
 
 var times = ["breakfast", "lunch", "snack", "dinner"];
 
+var i_modal = document.getElementById("information-modal");
+
 $(document).ready(function () {
   $.ajax({
     data: _id,
     type: "GET",
-    url: "/",
+    url: "/home",
   }).done(function (data) {
     if (data.error) {
       alert(data.error);
     } else {
-      // var user = JSON.parse("{{ user | tojson | safe }}");
-      // console.log(user);
+      User = data["user"];
+
+      $.ajax({
+        data: _id,
+        type: "GET",
+        url: "/",
+      });
     }
   });
 
@@ -135,13 +143,22 @@ $(document).ready(function () {
   });
 });
 
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
 function card(e) {
   // Get the modal
   var modal = document.getElementById("main-modal");
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[2];
 
-  modal.style.display = "flex";
+  if (User) {
+    modal.style.display = "flex";
+  } else {
+    informationmodal();
+  }
+
   $("#lds-spinner").css("display", "inline-block");
   $("body").addClass("modal-open");
 
@@ -415,16 +432,17 @@ function thirdcontainer(e) {
   $("#n-from-timing").text(night[0]);
   $("#n-to-timing").text(night[1]);
 }
-String.prototype.capitalize = function () {
-  return this.charAt(0).toUpperCase() + this.slice(1);
-};
 function scheduleModal(e) {
   var modal = document.getElementById("schedule-modal");
   var _id = e.getAttribute("data-id");
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[4];
 
-  modal.style.display = "flex";
+  if (User) {
+    modal.style.display = "flex";
+  } else {
+    informationmodal();
+  }
   $("body").addClass("modal-open");
   $(".schedule-container").css("display", "none");
   $("#lds-spinner").css("display", "inline-block");
@@ -568,6 +586,41 @@ function aboutmodal() {
 
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[5];
+
+  modal.style.display = "flex";
+  $("body").addClass("modal-open");
+
+  span.onclick = function () {
+    modal.style.display = "none";
+    $("body").removeClass("modal-open");
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+      $("body").removeClass("modal-open");
+    }
+  };
+  window.addEventListener(
+    "keydown",
+    function (e) {
+      if (
+        (e.key == "Escape" || e.key == "Esc" || e.keyCode == 27) &&
+        e.target.nodeName == "BODY"
+      ) {
+        modal.style.display = "none";
+        $("body").removeClass("modal-open");
+      }
+    },
+    true
+  );
+}
+function informationmodal() {
+  var modal = document.getElementById("information-modal");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[6];
 
   modal.style.display = "flex";
   $("body").addClass("modal-open");

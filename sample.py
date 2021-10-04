@@ -30,9 +30,9 @@ db = cluster["mess_db"]
 #         for k in range(len(schedule[i][j])):
 #             print(schedule[i][j][k])
 
-from werkzeug.security import generate_password_hash, check_password_hash
+# from werkzeug.security import generate_password_hash, check_password_hash
 
-hashed = generate_password_hash("lahfir", method="sha256")
-print(check_password_hash(hashed, input("Enter PD")))
+# hashed = generate_password_hash("lahfir", method="sha256")
+# print(check_password_hash(hashed, input("Enter PD")))
 
-print(os.urandom(16))
+# print(os.urandom(16))

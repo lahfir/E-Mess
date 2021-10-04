@@ -12,6 +12,18 @@ $background-color:#F9F9F9;
 $container-bg:#F5F5F5;
 $black:#0E0E10;
 
+
+a {
+    text-decoration: none;
+    color: $black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;

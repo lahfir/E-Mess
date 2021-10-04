@@ -100,6 +100,32 @@ def index():
     )
 
 
+@app.route("/home")
+def home():
+    db = cluster["mess_db"]
+    collection = db["mess_schedule"]
+    global breakfast, lunch, snack, dinner
+
+    for i in collection.find({"_id": today}):
+        breakfast = [j.title() for j in i["breakfast"]]
+        lunch = [j.title() for j in i["lunch"]]
+        snack = [j.title() for j in i["snack"]]
+        dinner = [j.title() for j in i["dinner"]]
+
+    if not session.get("user"):
+        return render_template(
+            "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]], user=""
+        )
+
+    user = session.get("user")
+    print(user)
+    collection = db["users"]
+    user = collection.find_one({"email": user})
+    print(user)
+
+    return jsonify({"user": user})
+
+
 @app.route("/logout")
 def logout():
     session.pop("user", None)
@@ -109,8 +135,8 @@ def logout():
 @app.route("/register", methods=["POST", "GET"])
 def register():
 
-    roll_no = str(request.form.get("rollno-input").lower())
-    email = str(request.form.get("email-input").lower())
+    roll_no = str(request.form.get("rollno-input")).lower()
+    email = str(request.form.get("email-input")).lower()
 
     if email_check(email):
         if check_roll(roll_no):
@@ -130,9 +156,9 @@ def register():
             else:
                 user = {
                     "_id": uuid.uuid4().hex,
-                    "email": request.form.get("email-input"),
-                    "name": request.form.get("name-input"),
-                    "roll-no": request.form.get("rollno-input"),
+                    "email": email,
+                    "name": str(request.form.get("name-input")).title(),
+                    "roll-no": roll_no,
                     "room-no": request.form.get("room-no-input"),
                     "department": request.form.get("department"),
                     "hostel": request.form.get("hostel-category"),

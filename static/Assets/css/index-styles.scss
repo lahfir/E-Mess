@@ -605,6 +605,84 @@ button {
                     background-color: rgba(206, 206, 206, 0.678);
                 }
             }
+
+            .container3 {
+                .container-cards {
+                    .your-profile-card {
+                        position: relative;
+
+                        .card {
+                            cursor: default;
+
+                            &:hover {
+
+                                &:hover {
+                                    border: 2px solid white;
+
+                                    .card-content {
+                                        transform: unset;
+                                    }
+                                }
+                            }
+
+                            .container-cs {
+                                position: absolute;
+                                left: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                flex-direction: column;
+                                top: 50%;
+                                z-index: 10;
+                                width: 100%;
+                                transform: translate(-50%, -50%);
+
+                                h1 {
+                                    font-family: $main-font;
+                                    font-size: 20px;
+                                    text-align: center;
+                                    line-height: 28px;
+                                    text-transform: uppercase;
+                                }
+
+                                button {
+                                    margin-top: 10px;
+                                    outline: none;
+                                    background: $primary-color;
+                                    border: none;
+                                    border-radius: 5px;
+                                    padding: 10px 15px;
+                                    color: white;
+                                    font-size: 20px;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background-color: #fdba63;
+                                    }
+
+                                    &:active {
+                                        transform: scale(0.98);
+                                    }
+                                }
+                            }
+
+                            &::after {
+                                width: 100%;
+                                border-radius: 10px;
+                                height: 100%;
+                                z-index: 9;
+                                top: 0;
+                                left: 0;
+                                position: absolute;
+                                border: 1px solid #EAEAEA;
+                                content: "";
+                                // animation: locked 2s ease infinite;
+                                background-color: rgba(206, 206, 206, 0.678);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -628,7 +706,8 @@ button {
 .more-info,
 .third-container,
 .schedule,
-.about {
+.about,
+.information {
     display: none;
     position: fixed;
     z-index: 999999;
@@ -1178,6 +1257,39 @@ button {
     }
 }
 
+.information {
+    .modal-content {
+        padding: 20px;
+
+        h1 {
+            font-family: $main-font;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1vw;
+        }
+
+        button {
+            width: 100%;
+            background: $primary-color;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 25px;
+            font-size: 1vw;
+            cursor: pointer;
+        }
+
+        svg {
+            min-width: 100%;
+            top: 25px;
+            max-width: 180px;
+        }
+    }
+}
+
 @media (max-width: 1240px) {
     .body-container .containers-section .containers {
         justify-content: center;
@@ -1224,7 +1336,8 @@ button {
     .main,
     .third-container,
     .schedule,
-    .about {
+    .about,
+    .information {
         .modal-content {
             min-width: unset;
             height: auto;
