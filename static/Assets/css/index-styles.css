@@ -37,6 +37,11 @@ a {
   transition: all 0.3s ease;
 }
 
+a:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
 h1,
 h2,
 h3,
@@ -47,6 +52,16 @@ p {
 
 body {
   background: #F9F9F9;
+}
+
+button {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+button:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 #navbar {
@@ -707,6 +722,11 @@ body {
   background-color: #fdba63;
 }
 
+.body-container .containers-section .containers .container2 .container-cs button:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
 .body-container .containers-section .containers .container2::after {
   width: 100%;
   border-radius: 10px;
@@ -1268,37 +1288,6 @@ body {
 
 .contact .modal-content p {
   margin-top: 10px;
-}
-
-.contact .modal-content .close {
-  position: absolute;
-  color: #e9e9e9;
-  background-color: #FFAE42;
-  width: 30px;
-  height: 30px;
-  top: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  right: 20px;
-  border-radius: 5px;
-}
-
-.contact .modal-content .close div {
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.contact .modal-content .close:hover, .contact .modal-content .close:focus {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .contact .modal-content form {

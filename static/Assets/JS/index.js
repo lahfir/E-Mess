@@ -29,10 +29,11 @@ $(document).ready(function () {
     if (data.error) {
       alert(data.error);
     } else {
-      var user = JSON.parse("{{ user | tojson | safe }}");
-      console.log(user);
+      // var user = JSON.parse("{{ user | tojson | safe }}");
+      // console.log(user);
     }
   });
+
   $.ajax({
     data: _id,
     type: "GET",
@@ -47,6 +48,7 @@ $(document).ready(function () {
       dinner = data["dinner"];
     }
   });
+
   $.ajax({
     data: _id,
     type: "GET",
@@ -61,6 +63,7 @@ $(document).ready(function () {
       night = data["night"];
     }
   });
+
   $.ajax({
     data: _id,
     type: "GET",
@@ -71,6 +74,64 @@ $(document).ready(function () {
     } else {
       schedule = data["schedule"];
     }
+  });
+
+  $("#login-btn").click(function () {
+    $("#login-btn").css({ "font-weight": "600", color: "white" });
+    $("#register-btn").css({ "font-weight": "400", color: "black" });
+    $("#switcher").css({ right: "unset", left: "6px", width: "85px" });
+    $("#register-form").hide();
+    $("#login-form").fadeIn(250);
+  });
+
+  $("#register-btn").click(function () {
+    $("#register-btn").css({ "font-weight": "600", color: "white" });
+    $("#switcher").css({ left: "unset", right: "6px", width: "110px" });
+    $("#login-btn").css({ "font-weight": "400", color: "black" });
+    $("#login-form").hide();
+    $("#register-form").fadeIn(250);
+  });
+
+  $("#p-show-pd").click(function () {
+    console.log("Clicked");
+    $("#p-show-pd").hide();
+    $("#p-hide-pd").show();
+    $("#password-input").removeAttr("type");
+  });
+
+  $("#p-hide-pd").click(function () {
+    console.log("Clicked");
+    $("#p-hide-pd").hide();
+    $("#p-show-pd").show();
+    $("#password-input").attr("type", "password");
+  });
+
+  $("#c-show-pd").click(function () {
+    console.log("Clicked");
+    $("#c-show-pd").hide();
+    $("#c-hide-pd").show();
+    $("#confirm-password-input").removeAttr("type");
+  });
+
+  $("#c-hide-pd").click(function () {
+    console.log("Clicked");
+    $("#c-hide-pd").hide();
+    $("#c-show-pd").show();
+    $("#confirm-password-input").attr("type", "password");
+  });
+
+  $("#l-show-pd").click(function () {
+    console.log("Clicked");
+    $("#l-show-pd").hide();
+    $("#l-hide-pd").show();
+    $("#l-password-input").removeAttr("type");
+  });
+
+  $("#l-hide-pd").click(function () {
+    console.log("Clicked");
+    $("#l-hide-pd").hide();
+    $("#l-show-pd").show();
+    $("#l-password-input").attr("type", "password");
   });
 });
 
@@ -538,27 +599,12 @@ function aboutmodal() {
   );
 }
 
-$("#login-btn").click(function () {
-  $("#login-btn").css({ "font-weight": "600", color: "white" });
-  $("#register-btn").css({ "font-weight": "400", color: "black" });
-  $("#switcher").css({ right: "unset", left: "6px", width: "85px" });
-  $("#register-form").hide();
-  $("#login-form").fadeIn(250);
-});
-
-$("#register-btn").click(function () {
-  $("#register-btn").css({ "font-weight": "600", color: "white" });
-  $("#switcher").css({ left: "unset", right: "6px", width: "110px" });
-  $("#login-btn").css({ "font-weight": "400", color: "black" });
-  $("#login-form").hide();
-  $("#register-form").fadeIn(250);
-});
-
 $("#register-form").submit(function (e) {
+  e.preventDefault();
   var $form = $(this);
   var data = $form.serialize();
 
-  $("#register-submit-btn").text("Registering...");
+  document.getElementById("register-submit-btn").innerHTML = "Registering...";
   $("#register-submit-btn").css({
     animation: "pulse 0.3s infinite",
     "background-color": "#fdba63",
@@ -569,8 +615,10 @@ $("#register-form").submit(function (e) {
       url: "/register",
       type: "POST",
       data: data,
+      dataType: "json",
       success: function (data) {
         window.location.href = "/";
+        $("#register-submit-btn").text("Register");
         // $(".logged-out-logging").css("display", "none");
         // $(".logged-in-profile-container").css("display", "flex");
         // $("#username").text(data["name"]);
@@ -582,28 +630,24 @@ $("#register-form").submit(function (e) {
   } else {
     alert("Passwords doesn't match");
   }
-
-  e.preventDefault();
 });
 
 $("#login-form").submit(function (e) {
+  e.preventDefault();
   var $form = $(this);
   var data = $form.serialize();
 
   $.ajax({
     url: "/login",
+    dataType: "json",
     type: "POST",
     data: data,
-    success: function (data) {
+  }).done(function (response) {
+    console.log(response);
+    if (response.responseJSON.message) {
+      alert(response.responseJSON.message);
+    } else {
       window.location.href = "/";
-      // $(".logged-out-logging").css("display", "none");
-      // $(".logged-in-profile-container").css("display", "flex");
-      // $("#username").text(data["name"]);
-    },
-    error: function (request, response) {
-      alert(request.responseJSON.message);
-    },
+    }
   });
-
-  e.preventDefault();
 });

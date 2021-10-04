@@ -170,12 +170,11 @@ def login():
         password = str(request.form.get("l-password-input").lower())
         if email_check(email):
             session.permanent = True
-            user = request.form.get("email-input")
 
             if collection.find_one({"email": email}):
                 for i in collection.find({"email": email}):
-                    if check_password_hash(password, i["password"]):
-                        session["user"] = user
+                    if check_password_hash(i["password"], password):
+                        session["user"] = i["email"]
                         return redirect("/")
                     else:
                         return (
