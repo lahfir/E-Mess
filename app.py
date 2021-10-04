@@ -90,10 +90,8 @@ def index():
         )
 
     user = session.get("user")
-    print(user)
     collection = db["users"]
     user = collection.find_one({"email": user})
-    print(user)
 
     return render_template(
         "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]], user=user
@@ -118,10 +116,8 @@ def home():
         )
 
     user = session.get("user")
-    print(user)
     collection = db["users"]
     user = collection.find_one({"email": user})
-    print(user)
 
     return jsonify({"user": user})
 
