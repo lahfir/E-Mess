@@ -70,7 +70,8 @@ body {
 }
 
 .login-main .right-container {
-  width: 30%;
+  min-width: 30%;
+  max-width: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -133,6 +134,8 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 30px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
 }
 
@@ -196,6 +199,8 @@ body {
 }
 
 .login-main .right-container .container .inner-container #login-form {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   width: 100%;
 }
 
@@ -240,6 +245,8 @@ body {
 .login-main .right-container .container .inner-container #register-form {
   width: 100%;
   display: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   height: 100%;
   -webkit-transform: translateX(0px);
           transform: translateX(0px);
@@ -376,31 +383,16 @@ body {
 }
 
 @media (max-width: 1180px) {
-  .login-main {
-    background-image: url("../Images/Login-Left.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-  }
   .login-main .image-container {
     display: none;
   }
-  .login-main .right-container .container {
-    background: -webkit-gradient(linear, left bottom, left top, from(rgba(36, 36, 36, 0.774)), to(rgba(36, 36, 36, 0.788)));
-    background: linear-gradient(0deg, rgba(36, 36, 36, 0.774), rgba(36, 36, 36, 0.788));
-    border: 2px solid #D7D7D7;
-    -webkit-box-shadow: 0px 11.75px 14.2679px rgba(0, 0, 0, 0.5);
-            box-shadow: 0px 11.75px 14.2679px rgba(0, 0, 0, 0.5);
-    border-radius: 17px;
-    color: white;
-  }
   .login-main .right-container .container .ll-white {
+    display: none;
+  }
+  .login-main .right-container .container .ll-black {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-  }
-  .login-main .right-container .container .ll-black {
-    display: none;
   }
   .login-main .right-container .container .login-main .right-container .container .inner-container {
     border-top: 1px solid #bbbbbb;

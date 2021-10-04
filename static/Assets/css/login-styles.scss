@@ -71,7 +71,8 @@ body {
     }
 
     .right-container {
-        width: 30%;
+        min-width: 30%;
+        max-width: 40%;
         display: flex;
         transition: all 0.3s ease;
         justify-content: center;
@@ -108,6 +109,7 @@ body {
                 align-items: center;
                 justify-content: space-between;
                 margin-top: 30px;
+                transition: all 0.3s ease;
                 position: relative;
 
                 .switcher {
@@ -171,6 +173,7 @@ body {
                     // position: absolute;
                     // width: 100%;
                     // left: 0;
+                    transition: all 0.3s ease;
                     // top: 0;
                     // display: none;
                     width: 100%;
@@ -215,6 +218,7 @@ body {
                     // width: 100%;
                     width: 100%;
                     display: none;
+                    transition: all 0.3s ease;
                     height: 100%;
 
                     // left: 0;
@@ -338,10 +342,10 @@ body {
 @media (max-width: 1180px) {
     .login-main {
 
-        background-image: url("../Images/Login-Left.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
+        // background-image: url("../Images/Login-Left.jpg");
+        // background-repeat: no-repeat;
+        // background-size: cover;
+        // background-position: center center;
 
         .image-container {
             display: none;
@@ -349,10 +353,10 @@ body {
 
         .right-container {
             .container {
-                background: linear-gradient(0deg, rgba(36, 36, 36, 0.774), rgba(36, 36, 36, 0.788));
-                border: 2px solid #D7D7D7;
-                box-shadow: 0px 11.75px 14.2679px rgba(0, 0, 0, 0.5);
-                border-radius: 17px;
+                // background: linear-gradient(0deg, rgba(36, 36, 36, 0.774), rgba(36, 36, 36, 0.788));
+                // border: 2px solid #D7D7D7;
+                // box-shadow: 0px 11.75px 14.2679px rgba(0, 0, 0, 0.5);
+                // border-radius: 17px;
 
                 // background: rgba(0, 0, 0, 0.1);
                 // border: 1.67857px solid #D7D7D7;
@@ -360,14 +364,14 @@ body {
                 // backdrop-filter: blur(41.9643px);
 
                 .ll-white {
-                    display: flex;
-                }
-
-                .ll-black {
                     display: none;
                 }
 
-                color:white;
+                .ll-black {
+                    display: flex;
+                }
+
+                // color:white;
 
                 .login-main .right-container .container .inner-container {
                     border-top: 1px solid rgb(187, 187, 187);

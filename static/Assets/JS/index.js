@@ -558,6 +558,12 @@ $("#register-form").submit(function (e) {
   var $form = $(this);
   var data = $form.serialize();
 
+  $("#register-submit-btn").text("Registering...");
+  $("#register-submit-btn").css({
+    animation: "pulse 0.3s infinite",
+    "background-color": "#fdba63",
+  });
+
   if ($("#password-input").val() === $("#confirm-password-input").val()) {
     $.ajax({
       url: "/register",
@@ -579,6 +585,7 @@ $("#register-form").submit(function (e) {
 
   e.preventDefault();
 });
+
 $("#login-form").submit(function (e) {
   var $form = $(this);
   var data = $form.serialize();
