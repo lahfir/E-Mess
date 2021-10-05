@@ -143,8 +143,6 @@ def home():
     collection = db["users"]
     user = collection.find_one({"email": user})
 
-    del user["password"]
-
     return jsonify({"user": True, "status": status})
 
 
