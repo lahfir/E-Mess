@@ -3,6 +3,9 @@ var breakfast = null,
   lunch = null,
   snack = null,
   dinner = null,
+  egg = false,
+  chicken = false,
+  gobi = false,
   morning = null,
   afternoon = null,
   evening = null,
@@ -54,6 +57,9 @@ $(document).ready(function () {
       lunch = data["lunch"];
       snack = data["snack"];
       dinner = data["dinner"];
+      chicken = data["chicken"];
+      egg = data["egg"];
+      gobi = data["gobi"];
     }
   });
 
@@ -165,6 +171,8 @@ function card(e) {
   // When the user clicks on <span> (x), close the modal
   span.onclick = function () {
     modal.style.display = "none";
+    $(".veg-icon").show();
+    $(".non-veg-icon").hide();
     $("body").removeClass("modal-open");
   };
 
@@ -172,6 +180,8 @@ function card(e) {
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
+      $(".veg-icon").show();
+      $(".non-veg-icon").hide();
       $("body").removeClass("modal-open");
     }
   };
@@ -183,6 +193,8 @@ function card(e) {
         e.target.nodeName == "BODY"
       ) {
         modal.style.display = "none";
+        $(".veg-icon").show();
+        $(".non-veg-icon").hide();
         $("body").removeClass("modal-open");
       }
     },
@@ -206,6 +218,7 @@ function card(e) {
           menu_item.appendChild(document.createTextNode(breakfast[i]));
           modal_main.appendChild(menu_item);
         }
+
         $("#lds-spinner").css("display", "none");
         $("#modal-gallery").css("display", "block");
         $(".modal-main-content").css("display", "block");
@@ -219,6 +232,13 @@ function card(e) {
           var menu_item = document.createElement("P");
           menu_item.id = "modal-menu-item";
           menu_item.appendChild(document.createTextNode(lunch[i]));
+          modal_main.appendChild(menu_item);
+        }
+
+        if (egg) {
+          var menu_item = document.createElement("P");
+          menu_item.id = "modal-menu-item";
+          menu_item.appendChild(document.createTextNode("Egg"));
           modal_main.appendChild(menu_item);
         }
 
@@ -252,6 +272,20 @@ function card(e) {
           var menu_item = document.createElement("P");
           menu_item.id = "modal-menu-item";
           menu_item.appendChild(document.createTextNode(dinner[i]));
+          modal_main.appendChild(menu_item);
+        }
+
+        if (chicken) {
+          $(".veg-icon").show();
+          $(".non-veg-icon").show();
+          var menu_item = document.createElement("P");
+          menu_item.id = "modal-menu-item";
+          menu_item.appendChild(document.createTextNode("Chicken"));
+          modal_main.appendChild(menu_item);
+
+          var menu_item = document.createElement("P");
+          menu_item.id = "modal-menu-item";
+          menu_item.appendChild(document.createTextNode("Gobi"));
           modal_main.appendChild(menu_item);
         }
 
@@ -298,10 +332,18 @@ function card(e) {
             $("#modal-image").attr("src", "../static/Assets/Images/Lunch.jpg");
             $("#modal-title").text(_id);
             modal_main.innerHTML = "";
+
             for (var i = 0; i < lunch.length; i++) {
               var menu_item = document.createElement("P");
               menu_item.id = "modal-menu-item";
               menu_item.appendChild(document.createTextNode(lunch[i]));
+              modal_main.appendChild(menu_item);
+            }
+
+            if (egg) {
+              var menu_item = document.createElement("P");
+              menu_item.id = "modal-menu-item";
+              menu_item.appendChild(document.createTextNode("Egg"));
               modal_main.appendChild(menu_item);
             }
 
@@ -335,6 +377,18 @@ function card(e) {
               var menu_item = document.createElement("P");
               menu_item.id = "modal-menu-item";
               menu_item.appendChild(document.createTextNode(dinner[i]));
+              modal_main.appendChild(menu_item);
+            }
+
+            if (chicken) {
+              var menu_item = document.createElement("P");
+              menu_item.id = "modal-menu-item";
+              menu_item.appendChild(document.createTextNode("Chicken"));
+              modal_main.appendChild(menu_item);
+
+              var menu_item = document.createElement("P");
+              menu_item.id = "modal-menu-item";
+              menu_item.appendChild(document.createTextNode("Gobi"));
               modal_main.appendChild(menu_item);
             }
 

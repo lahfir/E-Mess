@@ -69,20 +69,31 @@ cluster = MongoClient(
 if cluster:
     print("Connected")
 
-breakfast, lunch, snack, dinner = [], [], [], []
+breakfast, lunch, snack, dinner, chicken, gobi, egg = (
+    [],
+    [],
+    [],
+    [],
+    False,
+    False,
+    False,
+)
 
 
 @app.route("/")
 def index():
     db = cluster["mess_db"]
     collection = db["mess_schedule"]
-    global breakfast, lunch, snack, dinner
+    global breakfast, lunch, snack, dinner, chicken, gobi, egg
 
     for i in collection.find({"_id": today}):
         breakfast = [j.title() for j in i["breakfast"]]
         lunch = [j.title() for j in i["lunch"]]
         snack = [j.title() for j in i["snack"]]
         dinner = [j.title() for j in i["dinner"]]
+        chicken = i["chicken"]
+        egg = i["egg"]
+        gobi = i["gobi"]
 
     if not session.get("user"):
         return render_template(
@@ -102,13 +113,16 @@ def index():
 def home():
     db = cluster["mess_db"]
     collection = db["mess_schedule"]
-    global breakfast, lunch, snack, dinner
+    global breakfast, lunch, snack, dinner, chicken, gobi, egg
 
     for i in collection.find({"_id": today}):
         breakfast = [j.title() for j in i["breakfast"]]
         lunch = [j.title() for j in i["lunch"]]
         snack = [j.title() for j in i["snack"]]
         dinner = [j.title() for j in i["dinner"]]
+        chicken = i["chicken"]
+        egg = i["egg"]
+        gobi = i["gobi"]
 
     if not session.get("user"):
         return render_template(
@@ -225,7 +239,15 @@ def getMenu():
     menu = str(request.get_data().lower())
     try:
         return jsonify(
-            {"breakfast": breakfast, "lunch": lunch, "snack": snack, "dinner": dinner}
+            {
+                "breakfast": breakfast,
+                "lunch": lunch,
+                "snack": snack,
+                "dinner": dinner,
+                "chicken": chicken,
+                "egg": egg,
+                "gobi": gobi,
+            }
         )
     except Exception as e:
         return jsonify({"error": "Something Unexpected Happened"})
