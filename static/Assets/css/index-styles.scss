@@ -66,11 +66,11 @@ body {
 
     .lds-spinner {
         color: official;
-        display: inline-block;
+        // display: inline-block;
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 500%);
         width: 80px;
         height: 80px;
     }
