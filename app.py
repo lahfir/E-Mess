@@ -105,7 +105,9 @@ def index():
     user = collection.find_one({"email": user})
 
     return render_template(
-        "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]], user=user
+        "index.html",
+        main=[breakfast[0], lunch[1], snack[0], dinner[0]],
+        user=user,
     )
 
 
@@ -124,9 +126,17 @@ def home():
         egg = i["egg"]
         gobi = i["gobi"]
 
+    collection = db["mess_details"]
+    status = False
+
+    for x in collection.find({"type": "status"}):
+        status = x["mess_status"]
+
     if not session.get("user"):
         return render_template(
-            "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]], user=""
+            "index.html",
+            main=[breakfast[0], lunch[1], snack[0], dinner[0]],
+            user="",
         )
 
     user = session.get("user")
@@ -135,7 +145,7 @@ def home():
 
     del user["password"]
 
-    return jsonify({"user": True})
+    return jsonify({"user": True, "status": status})
 
 
 @app.route("/logout")

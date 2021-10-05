@@ -36,7 +36,13 @@ $(document).ready(function () {
       alert(data.error);
     } else {
       User = data["user"];
-
+      if (data["status"]) {
+        $("#mess-status").text("Open");
+        $("#mess-status").css("background", "#43CD51");
+      } else {
+        $("#mess-status").text("Closed");
+        $("#mess-status").css("background", "#cd4343");
+      }
       $("#lds-spinner").css("display", "none");
       $(".body-container").css("display", "flex");
 
