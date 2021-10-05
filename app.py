@@ -160,38 +160,44 @@ def register():
 
     if email_check(email):
         if check_roll(roll_no):
-            db = cluster["mess_db"]
-            collection = db["users"]
+            if roll_no == email.split("@")[0]:
+                db = cluster["mess_db"]
+                collection = db["users"]
 
-            if collection.find_one({"email": email}):
-                return (
-                    jsonify({"message": "User already registered"}),
-                    500,
-                )
-            elif collection.find_one({"roll-no": roll_no}):
-                return (
-                    jsonify({"message": "User already registered"}),
-                    500,
-                )
+                if collection.find_one({"email": email}):
+                    return (
+                        jsonify({"message": "User already registered"}),
+                        500,
+                    )
+                elif collection.find_one({"roll-no": roll_no}):
+                    return (
+                        jsonify({"message": "User already registered"}),
+                        500,
+                    )
+                else:
+                    user = {
+                        "_id": uuid.uuid4().hex,
+                        "email": email,
+                        "name": str(request.form.get("name-input")).title(),
+                        "roll-no": roll_no,
+                        "room-no": request.form.get("room-no-input"),
+                        "department": request.form.get("department"),
+                        "hostel": request.form.get("hostel-category"),
+                        "password": generate_password_hash(
+                            request.form.get("password-input"), method="sha256"
+                        ),
+                        "date": datetime.datetime.now().strftime("%Y-%m-%d"),
+                    }
+
+                    collection.insert_one(user)
+                    session.permanent = True
+                    session["user"] = user["email"]
+                    return redirect("/")
             else:
-                user = {
-                    "_id": uuid.uuid4().hex,
-                    "email": email,
-                    "name": str(request.form.get("name-input")).title(),
-                    "roll-no": roll_no,
-                    "room-no": request.form.get("room-no-input"),
-                    "department": request.form.get("department"),
-                    "hostel": request.form.get("hostel-category"),
-                    "password": generate_password_hash(
-                        request.form.get("password-input"), method="sha256"
-                    ),
-                    "date": datetime.datetime.now().strftime("%Y-%m-%d"),
-                }
-
-                collection.insert_one(user)
-                session.permanent = True
-                session["user"] = user["email"]
-                return redirect("/")
+                return (
+                    jsonify({"message": "Roll Number and Email Doesn't Match"}),
+                    500,
+                )
         else:
             return (
                 jsonify({"message": "Invalid roll number"}),
