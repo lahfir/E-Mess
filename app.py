@@ -197,12 +197,20 @@ def register():
                 )
         else:
             return (
-                jsonify({"message": "Invalid roll number"}),
+                jsonify(
+                    {
+                        "message": "Invalid roll number, Please enter a valid PSGCT OFFICIAL ROLL NUMBER"
+                    }
+                ),
                 500,
             )
     else:
         return (
-            jsonify({"message": "Invalid email id"}),
+            jsonify(
+                {
+                    "message": "Invalid email id, Please enter a valid PSGCT OFFICIAL MAIL ADDRESS"
+                }
+            ),
             500,
         )
 
