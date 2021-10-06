@@ -61,7 +61,11 @@ today = now.strftime("%A").lower()
 
 app = Flask(__name__)
 app.secret_key = b"Z\xba)\xe62\xa5`\xda\xb3p+N,A|^"
-app.permanent_session_lifetime = datetime.timedelta(days=21)
+
+app.config["SESSION_PERMANENT"] = True
+app.config["SESSION_TYPE"] = "filesystem"
+
+Session(app)
 
 cluster = MongoClient(
     "mongodb+srv://emesspsgct:emesspsgct2021@e-messpsgct.4q1dp.mongodb.net/myFirstDatabase?ssl=true&ssl_cert_reqs=CERT_NONE"
