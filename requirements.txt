@@ -6,3 +6,4 @@ python-dotenv
 gunicorn
 Jinja2
 werkzeug
+Flask-SSLify

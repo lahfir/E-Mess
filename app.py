@@ -14,6 +14,7 @@ import datetime
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
 import ssl, uuid, re, datetime
+from flask_sslify import SSLify
 
 
 def email_check(email):
@@ -61,7 +62,7 @@ today = now.strftime("%A").lower()
 
 app = Flask(__name__)
 app.secret_key = b"Z\xba)\xe62\xa5`\xda\xb3p+N,A|^"
-
+sslify = SSLify(app)
 app.config["SESSION_PERMANENT"] = True
 app.config["SESSION_TYPE"] = "filesystem"
 
@@ -325,4 +326,4 @@ def getTimings():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
