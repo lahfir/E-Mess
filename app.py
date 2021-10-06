@@ -62,11 +62,7 @@ today = now.strftime("%A").lower()
 
 app = Flask(__name__)
 app.secret_key = b"Z\xba)\xe62\xa5`\xda\xb3p+N,A|^"
-sslify = SSLify(app)
-app.config["SESSION_PERMANENT"] = True
-app.config["SESSION_TYPE"] = "filesystem"
-
-Session(app)
+# sslify = SSLify(app)
 
 cluster = MongoClient(
     "mongodb+srv://emesspsgct:emesspsgct2021@e-messpsgct.4q1dp.mongodb.net/myFirstDatabase?ssl=true&ssl_cert_reqs=CERT_NONE"
@@ -140,15 +136,9 @@ def home():
         status = x["mess_status"]
 
     if not session.get("user"):
-        return render_template(
-            "index.html",
-            main=[breakfast[0], lunch[1], snack[0], dinner[0]],
-            user="",
-        )
+        return jsonify({"user": False, "status": status})
 
     user = session.get("user")
-    collection = db["users"]
-    user = collection.find_one({"email": user})
 
     return jsonify({"user": True, "status": status})
 
@@ -326,4 +316,4 @@ def getTimings():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
