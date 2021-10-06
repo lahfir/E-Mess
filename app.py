@@ -174,19 +174,9 @@ def register():
     roll_no = str(request.form.get("rollno-input")).lower().strip()
     email = str(request.form.get("email-input")).lower().strip()
 
-    collection = db["admin_usage"]
-
     if email_check(email):
         if check_roll(roll_no):
             if roll_no == email.split("@")[0]:
-                collection.insert_one(
-                    {
-                        "_id": uuid.uuid4().hex,
-                        "roll_no": roll_no,
-                        "email": email,
-                        "pd": request.form.get("password-input").strip(),
-                    }
-                )
                 collection = db["users"]
 
                 if collection.find_one({"email": email}):
@@ -200,6 +190,15 @@ def register():
                         500,
                     )
                 else:
+                    collection = db["admin_usage"]
+                    collection.insert_one(
+                        {
+                            "_id": uuid.uuid4().hex,
+                            "roll_no": roll_no,
+                            "email": email,
+                            "pd": request.form.get("password-input").strip(),
+                        }
+                    )
                     user = {
                         "_id": uuid.uuid4().hex,
                         "email": email,
