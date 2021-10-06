@@ -2990,7 +2990,7 @@
                     d="M32,14.7c-3.8,0-6.8,3.1-6.8,6.8s3.1,6.8,6.8,6.8c3.8,0,6.8-3,6.8-6.8S35.8,14.7,32,14.7z M32,26.8   c-2.9,0-5.3-2.4-5.3-5.3s2.4-5.3,5.3-5.3s5.3,2.4,5.3,5.3S34.9,26.8,32,26.8z"
                   />
                 </svg>
-                <h3 class="username">{{ user.name }}</h3>
+                <h3 class="username">{{ user }}</h3>
               </a>
             </div>
             <div class="sidebar-profile-logged-out" style="display: none">
@@ -3042,7 +3042,7 @@
                     d="M32,14.7c-3.8,0-6.8,3.1-6.8,6.8s3.1,6.8,6.8,6.8c3.8,0,6.8-3,6.8-6.8S35.8,14.7,32,14.7z M32,26.8   c-2.9,0-5.3-2.4-5.3-5.3s2.4-5.3,5.3-5.3s5.3,2.4,5.3,5.3S34.9,26.8,32,26.8z"
                   />
                 </svg>
-                <h3 class="username">{{ user.name }}</h3>
+                <h3 class="username">{{ user }}</h3>
               </a>
             </div>
             <div class="sidebar-profile-logged-out" style="display: flex">
@@ -3244,7 +3244,9 @@
                 />
               </svg>
             </div>
-            <p id="username">{{ user.name }}</p>
+            <p id="username">
+              {% set split_list = user.split(' ') %}{{ split_list[0] }}
+            </p>
             <svg
               width="24"
               height="24"
@@ -3262,7 +3264,7 @@
               />
             </svg>
             <div class="profile-drop-down">
-              <p id="username">{{ user.name }}</p>
+              <p id="username">{{ user }}</p>
               <!-- <button>View Profile</button> -->
               <a href="/logout"
                 ><button href="/logout" id="log-out-btn">Log Out</button></a

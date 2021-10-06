@@ -102,7 +102,9 @@ def index():
 
     user = session.get("user")
     collection = db["users"]
-    user = collection.find_one({"email": user})
+    user = collection.find({"email": user})
+    for x in user:
+        user = x["name"]
 
     return render_template(
         "index.html",
