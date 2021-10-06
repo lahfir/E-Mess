@@ -248,8 +248,8 @@ def login():
     collection = db["users"]
 
     if request.method == "POST":
-        email = str(request.form.get("l-email-input").lower())
-        password = str(request.form.get("l-password-input").lower())
+        email = str(request.form.get("l-email-input")).lower().strip()
+        password = str(request.form.get("l-password-input")).strip()
         if email_check(email):
             session.permanent = True
 
