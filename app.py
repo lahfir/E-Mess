@@ -62,7 +62,7 @@ today = now.strftime("%A").lower()
 
 app = Flask(__name__)
 app.secret_key = b"Z\xba)\xe62\xa5`\xda\xb3p+N,A|^"
-# sslify = SSLify(app)
+sslify = SSLify(app)
 
 cluster = MongoClient(
     "mongodb+srv://emesspsgct:emesspsgct2021@e-messpsgct.4q1dp.mongodb.net/myFirstDatabase?ssl=true&ssl_cert_reqs=CERT_NONE"
@@ -316,4 +316,4 @@ def getTimings():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
