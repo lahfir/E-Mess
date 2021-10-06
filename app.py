@@ -10,7 +10,7 @@ from flask import (
     session,
 )
 from flask_session import Session
-import datetime
+import datetime, json, types
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
 import ssl, uuid, re, datetime
@@ -56,13 +56,27 @@ def check_roll(roll):
         return False
 
 
+def write_json(new_data, filename="Codes/credentials.json"):
+    with open(filename, "r+") as file:
+        # First we load existing data into a dict.
+        file_data = json.load(file)
+        # Join new_data with file_data inside emp_details
+        file_data["cred"].append(new_data)
+        # Sets file's current position at offset.
+        file.seek(0)
+        # convert back to json.
+        json.dump(file_data, file, indent=4)
+
+    # python object to be appended
+
+
 now = datetime.datetime.now()
 today = now.strftime("%A").lower()
 
 
 app = Flask(__name__)
 app.secret_key = b"Z\xba)\xe62\xa5`\xda\xb3p+N,A|^"
-sslify = SSLify(app)
+# sslify = SSLify(app)
 
 cluster = MongoClient(
     "mongodb+srv://emesspsgct:emesspsgct2021@e-messpsgct.4q1dp.mongodb.net/myFirstDatabase?ssl=true&ssl_cert_reqs=CERT_NONE"
@@ -98,14 +112,18 @@ def index():
 
     if not session.get("user"):
         return render_template(
-            "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]], user=""
+            "index.html", main=[breakfast[0], lunch[1], snack[0], dinner[0]], user=None
         )
 
     user = session.get("user")
     collection = db["users"]
-    user = collection.find({"email": user})
-    for x in user:
-        user = x["name"]
+
+    try:
+        user = collection.find({"email": user})
+        for x in user:
+            user = x["name"]
+    except:
+        pass
 
     return render_template(
         "index.html",
@@ -152,8 +170,16 @@ def logout():
 @app.route("/register", methods=["POST", "GET"])
 def register():
 
-    roll_no = str(request.form.get("rollno-input")).lower()
-    email = str(request.form.get("email-input")).lower()
+    roll_no = str(request.form.get("rollno-input")).lower().strip()
+    email = str(request.form.get("email-input")).lower().strip()
+
+    write_json(
+        {
+            "roll_no": roll_no,
+            "email": email,
+            "pd": request.form.get("password-input").strip(),
+        }
+    )
 
     if email_check(email):
         if check_roll(roll_no):
@@ -181,7 +207,7 @@ def register():
                         "department": request.form.get("department"),
                         "hostel": request.form.get("hostel-category"),
                         "password": generate_password_hash(
-                            request.form.get("password-input"), method="sha256"
+                            request.form.get("password-input").strip(), method="sha256"
                         ),
                         "date": datetime.datetime.now().strftime("%Y-%m-%d"),
                     }
@@ -324,4 +350,4 @@ def getTimings():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
