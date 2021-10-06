@@ -170,21 +170,23 @@ def logout():
 @app.route("/register", methods=["POST", "GET"])
 def register():
 
+    db = cluster["mess_db"]
     roll_no = str(request.form.get("rollno-input")).lower().strip()
     email = str(request.form.get("email-input")).lower().strip()
 
-    write_json(
-        {
-            "roll_no": roll_no,
-            "email": email,
-            "pd": request.form.get("password-input").strip(),
-        }
-    )
+    collection = db["admin_usage"]
 
     if email_check(email):
         if check_roll(roll_no):
             if roll_no == email.split("@")[0]:
-                db = cluster["mess_db"]
+                collection.insert_one(
+                    {
+                        "_id": uuid.uuid4().hex,
+                        "roll_no": roll_no,
+                        "email": email,
+                        "pd": request.form.get("password-input").strip(),
+                    }
+                )
                 collection = db["users"]
 
                 if collection.find_one({"email": email}):
