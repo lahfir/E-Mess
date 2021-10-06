@@ -248,7 +248,6 @@ def login():
     collection = db["users"]
 
     if request.method == "POST":
-        print("Hello")
         email = str(request.form.get("l-email-input").lower())
         password = str(request.form.get("l-password-input").lower())
         if email_check(email):
