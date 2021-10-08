@@ -1504,7 +1504,7 @@ button:active {
   list-style: none;
   margin: 8px 0;
   color: #0E0E10;
-  font-weight: 700;
+  font-weight: normal;
   word-wrap: wrap;
 }
 

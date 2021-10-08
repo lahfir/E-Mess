@@ -171,7 +171,8 @@ function card(e) {
   if (User) {
     modal.style.display = "flex";
   } else {
-    informationmodal();
+    modal.style.display = "flex";
+    // informationmodal();
   }
 
   $("#lds-spinner").css("display", "inline-block");
