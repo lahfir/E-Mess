@@ -1823,6 +1823,7 @@ button:active {
 }
 
 .information .modal-content p {
+  font-weight: 400;
   font-size: clamp(16px, 4vw, 22px);
 }
 

@@ -199,6 +199,7 @@ def register():
                             "pd": request.form.get("password-input").strip(),
                         }
                     )
+                    collection = db["users"]
                     user = {
                         "_id": uuid.uuid4().hex,
                         "email": email,
