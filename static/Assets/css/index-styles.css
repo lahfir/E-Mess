@@ -1819,12 +1819,11 @@ button:active {
 
 .information .modal-content h1 {
   font-family: "Metrophobic", sans-serif;
-  margin-bottom: 10px;
 }
 
 .information .modal-content p {
   font-weight: 400;
-  font-size: clamp(16px, 4vw, 22px);
+  font-size: clamp(16px, 4vw, 18px);
 }
 
 .information .modal-content button {
@@ -1837,12 +1836,13 @@ button:active {
   margin-top: 25px;
   font-size: clamp(16px, 4vw, 22px);
   cursor: pointer;
+  color: white;
 }
 
 .information .modal-content svg {
-  min-width: 100%;
+  fill: #FFAE42;
   top: 25px;
-  max-width: 180px;
+  margin-right: 5px;
 }
 
 @media (max-width: 1240px) {

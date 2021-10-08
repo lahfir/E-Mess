@@ -1362,12 +1362,11 @@ button {
 
         h1 {
             font-family: $main-font;
-            margin-bottom: 10px;
         }
 
         p {
             font-weight: 400;
-            font-size: clamp(16px, 4vw, 22px);
+            font-size: clamp(16px, 4vw, 18px);
         }
 
         button {
@@ -1380,12 +1379,13 @@ button {
             margin-top: 25px;
             font-size: clamp(16px, 4vw, 22px);
             cursor: pointer;
+            color: white;
         }
 
         svg {
-            min-width: 100%;
+            fill: $primary-color;
             top: 25px;
-            max-width: 180px;
+            margin-right: 5px;
         }
     }
 }
