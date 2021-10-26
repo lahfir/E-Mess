@@ -29,8 +29,8 @@ def email_check(email):
     #         return False
 
     # else:
-
-    regex = r"[1-2][1-9][a-z][0-9]{3}@psgtech.ac.in"
+    regex = r"\b18[a-z][1-6][0-7][0-9]@psgtech.ac.in|19[a-z][1-6][0-7][0-9]@psgtech.ac.in|20[a-z][1-6][0-7][0-9]@psgtech.ac.in|21[a-z][1-6][0-7][0-9]@psgtech.ac.in|22[a-z][1-6][0-7][0-9]@psgtech.ac.in\b"
+    # regex = r"[1-2][1-9][a-z][0-9]{3}@psgtech.ac.in"
     if re.fullmatch(regex, email):
         return True
     else:
